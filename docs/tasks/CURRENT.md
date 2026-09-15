@@ -1,6 +1,6 @@
 # M2.3 — Adapter Birdeye
 
-Status: TERHAMBAT pada 2026-09-15. Basis: `main` pada `c8c8c31`.
+Status: SELESAI pada 2026-09-15. Basis: `main` pada `c8c8c31`.
 
 ## Lingkup
 
@@ -17,10 +17,10 @@ Tambahkan adapter Birdeye read-only untuk snapshot token Solana dan normalisasi 
 ## Bukti
 
 - `rtk uv run python -m unittest tests.test_birdeye tests.test_config`: 8 tes lulus.
-- `rtk uv run python -m unittest discover -s tests`: 13 tes selesai; 5 tes PostgreSQL terlewati karena `PGPASSWORD` tidak tersedia pada proses ini.
+- `rtk proxy powershell -NoProfile -Command '<PGPASSWORD lokal>; uv run python -m unittest discover -s tests'`: 13/13 tes lulus pada PostgreSQL lokal, tanpa skip. Password hanya menjadi environment variable proses dan tidak dicatat.
 - `rtk uv run python -m compileall -q meme_ai_trader tests` dan `rtk git diff --check` lulus.
 - Adapter memakai HTTP GET standar-library ke Token Overview Birdeye, tanpa credential di log atau source. Snapshot tidak diberi `event_time`/`source_event_id` palsu.
 
-## Hambatan
+## Serah terima
 
-Tes integrasi repository yang baru membutuhkan PostgreSQL lokal dengan `PGPASSWORD` tersedia bagi proses tes. Koneksi/secret tidak dibaca atau dicetak. Jalankan tes tersebut di environment PostgreSQL yang sudah dikonfigurasi sebelum M2.3 ditandai selesai.
+M2.4 berikutnya menangani collector polling, kualitas feed, reconnect, dan rekonsiliasi. Adapter ini tidak mengirim transaksi atau mengaktifkan Birdeye secara otomatis.

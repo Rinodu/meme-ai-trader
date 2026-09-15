@@ -4,11 +4,11 @@ Versi checklist: 1.0. Kondisi awal: belum ada subtugas implementasi yang selesai
 
 ## Ringkasan
 
-- Progres implementasi: **5/40 subtugas = 12,5%**.
+- Progres implementasi: **6/40 subtugas = 15,0%**.
 - Milestone selesai: **1/13**.
-- Tugas berikut: M2.3, adapter Birdeye.
-- Hambatan yang diketahui: Pyright Serena belum mengikuti `.venv` untuk resolusi import Psycopg; M2.3 menunggu `PGPASSWORD` pada proses tes untuk menjalankan integrasi PostgreSQL.
-- Tes: 9 tes lulus pada Python 3.12/PostgreSQL 18.6, termasuk 5 regresi M1 dan 4 integration test M2. Branch M2.2: `task/m2-2-dedup-timestamps`.
+- Tugas berikut: M2.4, quality dan rekonsiliasi feed.
+- Hambatan yang diketahui: Pyright Serena belum mengikuti `.venv` untuk resolusi import Psycopg; runtime Python dan PostgreSQL lulus.
+- Tes: 13 tes lulus pada Python 3.12/PostgreSQL lokal, termasuk 5 regresi M1, 5 integration test M2, dan 3 tes adapter Birdeye. Branch M2.3: `task/m2-3-birdeye-adapter`.
 
 ## Cara menggunakan
 
@@ -78,7 +78,7 @@ Gate milestone: Mode aman, invalid config ditolak, runtime/setup terdokumentasi.
 
 ### M2 — Database dan collector
 
-Status milestone: IN_PROGRESS. Progres: 2/4 (50,0%). Gate: BELUM_DIPERIKSA.
+Status milestone: IN_PROGRESS. Progres: 3/4 (75,0%). Gate: BELUM_DIPERIKSA.
 
 - [x] **M2.1 — Schema/raw repository** — SELESAI
   - [x] Acceptance criteria di catatan tugas terpenuhi.
@@ -94,12 +94,12 @@ Status milestone: IN_PROGRESS. Progres: 2/4 (50,0%). Gate: BELUM_DIPERIKSA.
   - [x] Dokumentasi/status dan bukti diperbarui.
   - Bukti: 9 tes lulus pada PostgreSQL nyata; dedup, konflik identitas, migrasi data duplikat, UTC, dan event terlambat teruji; commit/push difinalkan; detail `docs/tasks/CURRENT.md`.
 
-- [ ] **M2.3 — Adapter Birdeye** — TERHAMBAT
-  - [ ] Acceptance criteria di catatan tugas terpenuhi.
-  - [ ] Pemeriksaan relevan lulus atau N/A beralasan.
-  - [ ] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
-  - [ ] Dokumentasi/status dan bukti diperbarui.
-  - Bukti: 8 tes unit/config lulus dan compile/diff check lulus; 5 tes PostgreSQL terlewati karena `PGPASSWORD` tidak tersedia. Detail `docs/tasks/CURRENT.md`.
+- [x] **M2.3 — Adapter Birdeye** — SELESAI
+  - [x] Acceptance criteria di catatan tugas terpenuhi.
+  - [x] Pemeriksaan relevan lulus atau N/A beralasan.
+  - [x] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
+  - [x] Dokumentasi/status dan bukti diperbarui.
+  - Bukti: 13 tes lulus pada PostgreSQL lokal; GET read-only, error provider, nol/null, dan insert snapshot Birdeye ke repository teruji. Detail `docs/tasks/CURRENT.md`.
 
 - [ ] **M2.4 — Quality dan rekonsiliasi feed** — BELUM_MULAI
   - [ ] Acceptance criteria di catatan tugas terpenuhi.

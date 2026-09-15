@@ -46,3 +46,9 @@ Tambahkan entri untuk perubahan selesai: task ID, perilaku berubah, bukti penguj
 - Menambahkan identitas unik pada `event_id` dan pasangan identitas provider; retry mengembalikan ID lama tanpa menimpa raw payload.
 - Menolak timestamp naive, menormalkan timestamp aware ke UTC, dan membaca data berdasarkan batas `received_at` dengan urutan `event_time` stabil.
 - Sembilan tes lulus pada PostgreSQL lokal; migrasi menolak data duplikat lama tanpa menghapusnya. Adapter provider tetap M2.3.
+
+## M2.3 — Adapter Birdeye — 2026-09-15
+
+- Menambahkan adapter Birdeye Token Overview yang hanya melakukan HTTP GET dan memetakan snapshot Solana ke raw event tanpa membuat waktu atau identitas provider palsu.
+- Menolak respons provider/JSON tidak valid tanpa membocorkan API key; nol dan data hilang tetap dibedakan.
+- Tiga belas tes lulus pada PostgreSQL lokal, termasuk request adapter, error provider, pemetaan nol/null, dan insert snapshot ke repository.
