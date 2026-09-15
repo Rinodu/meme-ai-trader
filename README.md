@@ -9,7 +9,7 @@ Target: bot Solana hingga full automation melalui milestone berurutan. Saat ini 
 1. Gunakan Python 3.11 atau lebih baru.
 2. Jalankan `py -m meme_ai_trader`; tanpa konfigurasi tambahan aplikasi hanya memulai mode `collect_only`.
 3. Jalankan tes dengan `py -m unittest discover -s tests -v`.
-4. Salin nama variabel dari `.env.example` ke environment lokal bila fiturnya diperlukan; jangan commit `.env`.
+4. Atur environment lokal hanya saat fiturnya diperlukan; jangan commit file `.env`.
 5. Gunakan prompt lanjutan di [PROMPTS.md](PROMPTS.md) untuk mengerjakan satu subtugas berikutnya.
 
 Jika sudah ada repository, bandingkan dokumen ini dengan dokumen yang ada sebelum menyalin. Jangan menimpa aturan atau source code yang belum diperiksa.
