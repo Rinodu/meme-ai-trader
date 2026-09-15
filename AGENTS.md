@@ -53,3 +53,5 @@ Ikuti PROGRESS.md sebagai sumber status subtugas. Baca ringkasan dan bagian mile
 Jika fitur selesai rusak, ubah tugas menjadi DIBUKA_KEMBALI dan buka status fitur/gate terdampak. Prioritaskan perbaikan sebelum fitur baru. Pertahankan bukti lama; arsipkan CURRENT.md sebagai docs/tasks/Mx.y.md ketika berganti tugas.
 
 Laporan akhir menyertakan checklist singkat: ID/status tugas, tes, commit/push, progres selesai/total/persen, hambatan, dan satu langkah berikutnya. Hindari mencetak seluruh checklist. Push yang gagal tetap dilaporkan; jangan memalsukan status atau membuat loop commit untuk mencatat SHA sendiri.
+
+@RTK.md
