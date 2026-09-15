@@ -1,39 +1,36 @@
-# M1.1 — Pemeriksaan awal dan kontrak lingkungan
+# M1.2 — Kerangka aplikasi dan konfigurasi collect-only
 
-Status: SELESAI pada 2026-09-15. Prasyarat: paket dokumen tersedia.
+Status: SELESAI pada 2026-09-15. Prasyarat: M1.1 selesai pada commit `84c944b`.
 
-## Tujuan
+## Tujuan dan lingkup
 
-Memastikan kondisi repository dan Windows diketahui sebelum membuat kerangka aplikasi, lalu menetapkan rencana implementasi M1.2 yang dapat dijalankan.
-
-## Lingkup
-
-Periksa folder kerja, aturan yang berlaku, source yang mungkin sudah ada, Git/status/remote, serta ketersediaan Python. Catat kebutuhan PostgreSQL untuk M2 dan Docker/WSL hanya jika relevan. Jika Codex bekerja pada host selain PC pengguna, bedakan temuan host tersebut dari kondisi Windows pengguna.
+Buat kerangka Python terkecil yang dapat dijalankan pada Windows dan konfigurasi environment untuk mode aman. Lingkup hanya startup/config; tidak ada database, provider, signer, atau jalur transaksi.
 
 ## Acceptance criteria
 
-- Kondisi source, Git, Python, dan akses lingkungan dicatat dengan bukti atau UNKNOWN; tidak mengarang versi/instalasi.
-- Tidak ada pekerjaan pengguna yang ditimpa.
-- Jika repo belum ada, Git lokal boleh diinisialisasi; identity menggunakan konfigurasi pengguna.
-- Branch tugas dibuat bila Git tersedia; commit/push dokumen sesuai aturan jika identity/remote memungkinkan.
-- Runtime Python yang kompatibel direncanakan berdasarkan ketersediaan/dependency, tanpa upgrade global sembarangan.
-- M1.2 terdefinisi: kerangka/config collect_only dan tes konfigurasi; belum implementasi trading.
-- AI_CONTEXT.md dan ROADMAP.md diperbarui dengan status aktual.
+- Project mendukung Python >=3.11 tanpa dependency runtime eksternal.
+- Startup tanpa environment tambahan memakai mode `collect_only`.
+- Mode selain `collect_only` ditolak dengan error yang jelas.
+- Flag fitur menerima boolean eksplisit; nilai invalid ditolak.
+- Credential Birdeye hanya wajib ketika fitur Birdeye aktif.
+- Representasi konfigurasi tidak membocorkan API key.
+- `.env.example` tidak memuat rahasia dan `.gitignore` melindungi `.env`, virtual environment, serta cache Python.
+- Tes konfigurasi terarah lulus pada Python lokal.
+- Dokumentasi dan checklist diperbarui; commit/push branch tugas dilakukan bila tersedia.
 
 ## Pemeriksaan
 
-Status working tree/remote dan deteksi versi executable yang relevan. Tidak perlu tes aplikasi karena belum ada perubahan aplikasi pada subtugas ini.
+Jalankan `py -m unittest discover -s tests -v`, startup default, dan startup dengan mode invalid. Periksa diff serta status Git sebelum commit.
 
-## Bukti, hasil, dan hambatan
+## Bukti
 
-- Source: 18 file Markdown; belum ada source aplikasi, konfigurasi runtime, atau tes aplikasi.
-- Git: Git 2.55.0 tersedia; repository lokal diinisialisasi pada branch `task/m1-1-project-config`. Seluruh file masih untracked, remote belum ada, dan `user.name`/`user.email` belum dikonfigurasi, sehingga commit/push tertunda.
-- Python: CPython 3.12.10 tersedia melalui `py`/`python`; CPython 3.11.16 juga tersedia melalui instalasi `uv`. Target M1.2: Python >=3.11, dikembangkan dengan 3.12.10 pada virtual environment lokal tanpa upgrade global.
-- Infrastruktur: `psql` dan Docker tidak ditemukan. `wsl.exe` ada tetapi WSL belum terpasang. PostgreSQL baru dibutuhkan pada M2; metode instalasinya diputuskan sebelum M2 tanpa menjadikan Docker/WSL prasyarat M1.
-- Tool efisiensi: Token Saviour, RTK, dan Serena tidak tersedia pada sesi ini; fallback yang digunakan adalah pemeriksaan PowerShell/Git dengan output terbatas.
-- Pemeriksaan aplikasi: N/A karena M1.1 hanya inspeksi dan belum ada aplikasi. Tidak ada source pengguna yang ditimpa.
-- Rencana M1.2: buat kerangka Python minimal, konfigurasi dengan default `collect_only`, penolakan mode tidak didukung, pemuatan credential hanya untuk fitur aktif, `.env.example` tanpa rahasia, dan satu tes konfigurasi terarah. Tidak ada jalur trading live.
+- Implementasi: `meme_ai_trader/config.py`, `meme_ai_trader/__main__.py`, `pyproject.toml`, `.env.example`, dan `.gitignore`.
+- `py -m unittest discover -s tests -v`: 5 tes lulus pada Python 3.12.10.
+- `py -V:Astral/CPython3.11.16 -m unittest discover -s tests -v`: 5 tes lulus pada Python 3.11.16.
+- `py -m meme_ai_trader`: sukses dengan `mode=collect_only birdeye_enabled=False`.
+- Startup dengan `MEME_AI_MODE=live_auto`: ditolak dengan exit code 2 dan pesan konfigurasi; tidak ada rahasia dicetak.
+- Commit/push dilakukan setelah pemeriksaan diff final; SHA aktual dilaporkan pada serah terima tanpa membuat loop commit dokumentasi.
 
-## Checklist dan bukti
+## Serah terima
 
-Status resmi: PROGRESS.md M1.1 = SELESAI. Tes aplikasi N/A dengan alasan; bukti inspeksi tersedia di atas. Commit/push berstatus tertunda sampai Git identity dan remote tersedia.
+Kerangka/config aman tersedia tanpa dependency runtime eksternal atau jalur transaksi. M1.3 tetap bertanggung jawab mengaudit config, dokumentasi setup, dan menutup gate M1.

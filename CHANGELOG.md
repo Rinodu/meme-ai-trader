@@ -20,4 +20,10 @@ Tambahkan entri untuk perubahan selesai: task ID, perilaku berubah, bukti penguj
 - Memverifikasi project masih berupa dokumen tanpa source aplikasi atau tes runtime.
 - Memverifikasi Python 3.12.10, Git 2.55.0, dan kondisi PostgreSQL/Docker/WSL pada host Windows.
 - Menginisialisasi repository lokal pada branch `task/m1-1-project-config`.
-- Commit/push tertunda karena Git identity dan remote belum dikonfigurasi; tidak ada perilaku aplikasi yang berubah.
+- M1.1 tersimpan pada commit `84c944b` dan telah dipush ke `task/m1-1-project-config`; tidak ada perilaku aplikasi yang berubah.
+
+## M1.2 — Kerangka/config collect-only — 2026-09-15
+
+- Menambahkan package Python minimal tanpa dependency runtime eksternal.
+- Menetapkan default `collect_only`, menolak mode tidak didukung, dan mewajibkan API key hanya saat Birdeye aktif.
+- Menambahkan perlindungan rahasia, contoh environment, dan 5 tes konfigurasi yang lulus pada Python 3.11/3.12.

@@ -4,7 +4,7 @@ Semua PLANNED; path tes dan implementasi diisi setelah benar-benar tersedia. ID 
 
 | ID | Tahap | Perilaku wajib | Status | Implementasi / bukti tes |
 | --- | --- | --- | --- | --- |
-| CFG-001 | M1 | Default collect_only; mode tidak didukung ditolak; credential hanya wajib pada fitur aktif | PLANNED | Belum tersedia |
+| CFG-001 | M1 | Default collect_only; mode tidak didukung ditolak; credential hanya wajib pada fitur aktif | IN_PROGRESS | `meme_ai_trader/config.py`; `tests/test_config.py` (5 tes lulus pada Python 3.11/3.12); gate final M1.3 belum diperiksa |
 | DATA-001 | M2 | Event yang sama tidak tersimpan dua kali | PLANNED | Belum tersedia |
 | DATA-002 | M2 | event_time dan received_at dipisah; null tidak disamakan nol | PLANNED | Belum tersedia |
 | DISC-001 | M3 | Kandidat ditolak dan alasan tetap tersimpan | PLANNED | Belum tersedia |
