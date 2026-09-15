@@ -4,11 +4,11 @@ Versi checklist: 1.0. Kondisi awal: belum ada subtugas implementasi yang selesai
 
 ## Ringkasan
 
-- Progres implementasi: **4/40 subtugas = 10,0%**.
+- Progres implementasi: **5/40 subtugas = 12,5%**.
 - Milestone selesai: **1/13**.
-- Tugas berikut: M2.2, deduplikasi/timestamps.
-- Hambatan yang diketahui: Pyright Serena belum mengikuti `.venv` untuk resolusi import Psycopg; runtime project dan integration test lulus.
-- Tes: 6 tes lulus pada Python 3.12/PostgreSQL 18.6, termasuk 5 regresi M1 dan migration/round-trip M2.1. Branch M2.1: `task/m2-1-raw-repository`.
+- Tugas berikut: M2.3, adapter Birdeye.
+- Hambatan yang diketahui: Pyright Serena belum mengikuti `.venv` untuk resolusi import Psycopg; runtime project dan tes PostgreSQL lulus.
+- Tes: 9 tes lulus pada Python 3.12/PostgreSQL 18.6, termasuk 5 regresi M1 dan 4 integration test M2. Branch M2.2: `task/m2-2-dedup-timestamps`.
 
 ## Cara menggunakan
 
@@ -78,21 +78,21 @@ Gate milestone: Mode aman, invalid config ditolak, runtime/setup terdokumentasi.
 
 ### M2 — Database dan collector
 
-Status milestone: IN_PROGRESS. Progres: 1/4 (25,0%). Gate: BELUM_DIPERIKSA.
+Status milestone: IN_PROGRESS. Progres: 2/4 (50,0%). Gate: BELUM_DIPERIKSA.
 
 - [x] **M2.1 — Schema/raw repository** — SELESAI
   - [x] Acceptance criteria di catatan tugas terpenuhi.
   - [x] Pemeriksaan relevan lulus atau N/A beralasan.
   - [x] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
   - [x] Dokumentasi/status dan bukti diperbarui.
-  - Bukti: 6 tes lulus pada Python 3.12/PostgreSQL 18.6; migration idempotent dan round-trip null/nol/JSON lulus; commit/push difinalkan; detail `docs/tasks/CURRENT.md`.
+  - Bukti: 6 tes lulus pada Python 3.12/PostgreSQL 18.6; migration idempotent dan round-trip null/nol/JSON lulus; commit `c27ec8e` dipush ke `task/m2-1-raw-repository`; detail `docs/tasks/M2.1.md`.
 
-- [ ] **M2.2 — Dedup/timestamps** — BELUM_MULAI
-  - [ ] Acceptance criteria di catatan tugas terpenuhi.
-  - [ ] Pemeriksaan relevan lulus atau N/A beralasan.
-  - [ ] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
-  - [ ] Dokumentasi/status dan bukti diperbarui.
-  - Bukti: Tes belum; commit belum; push belum.
+- [x] **M2.2 — Dedup/timestamps** — SELESAI
+  - [x] Acceptance criteria di catatan tugas terpenuhi.
+  - [x] Pemeriksaan relevan lulus atau N/A beralasan.
+  - [x] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
+  - [x] Dokumentasi/status dan bukti diperbarui.
+  - Bukti: 9 tes lulus pada PostgreSQL nyata; dedup, konflik identitas, migrasi data duplikat, UTC, dan event terlambat teruji; commit/push difinalkan; detail `docs/tasks/CURRENT.md`.
 
 - [ ] **M2.3 — Adapter Birdeye** — BELUM_MULAI
   - [ ] Acceptance criteria di catatan tugas terpenuhi.
@@ -418,3 +418,4 @@ Satu baris per transisi bermakna; log lengkap tetap di catatan tugas. Jangan men
 | 2026-09-15 | M1.2 | BELUM_MULAI → SELESAI | Kerangka/config aman dibuat; 5 tes lulus pada Python 3.11/3.12; startup terverifikasi | 2/40 = 5,0% |
 | 2026-09-15 | M1.3 | BELUM_MULAI → SELESAI | Matriks config/startup, diagnostics, secret redaction, setup, dan dokumentasi lulus | 3/40 = 7,5% |
 | 2026-09-15 | M2.1 | BELUM_MULAI → SELESAI | PostgreSQL schema/repository append-only; migration idempotent dan round-trip data lulus | 4/40 = 10,0% |
+| 2026-09-15 | M2.2 | BELUM_MULAI → SELESAI | Prompt lokal kedua berhasil; 9 tes PostgreSQL/config lulus, dedup dan event terlambat terverifikasi | 5/40 = 12,5% |

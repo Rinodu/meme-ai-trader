@@ -1,12 +1,14 @@
 from collections.abc import Mapping
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 from psycopg import Connection
+from psycopg.rows import dict_row
 from psycopg.types.json import Jsonb
 
 
-MIGRATION = Path(__file__).with_name("migrations") / "001_raw_events.sql"
+MIGRATIONS = Path(__file__).with_name("migrations")
 
 _COLUMNS = (
     "event_id",
@@ -47,12 +49,20 @@ _COLUMNS = (
 _INSERT = f"""
     INSERT INTO raw_events ({", ".join(_COLUMNS)})
     VALUES ({", ".join(f"%({name})s" for name in _COLUMNS)})
+    ON CONFLICT DO NOTHING
     RETURNING raw_event_id
 """
 
 
 def migrate(connection: Connection[Any]) -> None:
-    connection.execute(MIGRATION.read_text(encoding="utf-8"))
+    for migration in sorted(MIGRATIONS.glob("*.sql")):
+        connection.execute(migration.read_text(encoding="utf-8"))
+
+
+def _utc(value: Any, name: str) -> datetime:
+    if not isinstance(value, datetime) or value.utcoffset() is None:
+        raise ValueError(f"{name} must be a timezone-aware datetime")
+    return value.astimezone(timezone.utc)
 
 
 class RawEventRepository:
@@ -61,8 +71,33 @@ class RawEventRepository:
 
     def insert(self, event: Mapping[str, Any]) -> int:
         values = {name: event.get(name) for name in _COLUMNS}
+        values["received_at"] = _utc(values["received_at"], "received_at")
+        if values["event_time"] is not None:
+            values["event_time"] = _utc(values["event_time"], "event_time")
         values["missing_fields"] = event.get("missing_fields", [])
         values["raw_payload"] = Jsonb(event["raw_payload"])
         row = self.connection.execute(_INSERT, values).fetchone()
-        assert row is not None
-        return int(row[0])
+        if row is not None:
+            return int(row[0])
+        rows = self.connection.execute(
+            """SELECT raw_event_id FROM raw_events
+               WHERE event_id = %(event_id)s
+                  OR (source = %(source)s AND source_event_id = %(source_event_id)s
+                      AND %(source_event_id)s IS NOT NULL)""",
+            values,
+        ).fetchall()
+        if len(rows) != 1:
+            raise ValueError("event identities conflict; no raw event was changed")
+        return int(rows[0][0])
+
+    def available_for_mint(
+        self, chain_id: str, mint_address: str, as_of: datetime
+    ) -> list[dict[str, Any]]:
+        with self.connection.cursor(row_factory=dict_row) as cursor:
+            cursor.execute(
+                """SELECT * FROM raw_events
+                   WHERE chain_id = %s AND mint_address = %s AND received_at <= %s
+                   ORDER BY event_time ASC NULLS LAST, received_at ASC, raw_event_id ASC""",
+                (chain_id, mint_address, _utc(as_of, "as_of")),
+            )
+            return cursor.fetchall()

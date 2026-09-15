@@ -30,4 +30,4 @@ Sumber gate rinci: BLUEPRINT.md bagian 21 dan 25. Parameter yang belum dibekukan
 
 ## Sumber progres
 
-Status subtugas dan hitungan resmi berada di [PROGRESS.md](PROGRESS.md). Status milestone di tabel ini merupakan ringkasan yang disinkronkan saat subtugas/gate berubah. M1 dan M2.1 selesai; M2.2 adalah tugas berikutnya. DIBUKA_KEMBALI pada checklist memerlukan penilaian ulang gate milestone terkait.
+Status subtugas dan hitungan resmi berada di [PROGRESS.md](PROGRESS.md). Status milestone di tabel ini merupakan ringkasan yang disinkronkan saat subtugas/gate berubah. M1, M2.1, dan M2.2 selesai; M2.3 adalah tugas berikutnya. DIBUKA_KEMBALI pada checklist memerlukan penilaian ulang gate milestone terkait.
