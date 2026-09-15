@@ -7,7 +7,7 @@ Dokumen ini menginventarisasi kebutuhan; schema autentikasi provider harus diver
 | Birdeye | API key sesuai kontrak provider | Collector asli M2 |
 | Solana RPC | URL HTTP/WS; provider tertentu menyertakan key | Saat pembacaan on-chain dibutuhkan |
 | GoPlus | Metode autentikasi yang tersedia untuk endpoint/paket; standard app key/secret atau token bila berlaku | M3 |
-| PostgreSQL | Connection string/password lokal | M2 |
+| PostgreSQL | Connection string/password lokal; instance PostgreSQL 18.6 tersedia, rahasia tetap lokal | M2 |
 | Redis | URL/password bila dipakai | Berdasarkan kebutuhan |
 | Telegram | Bot token + allowlist user/chat ID | M9 |
 | Jupiter | API key sesuai versi API | M10; quote bisa lebih awal bila dibutuhkan |

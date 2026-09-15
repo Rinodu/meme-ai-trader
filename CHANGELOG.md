@@ -33,3 +33,10 @@ Tambahkan entri untuk perubahan selesai: task ID, perilaku berubah, bukti penguj
 - Memverifikasi matriks startup/config, credential aktif, secret redaction, Python 3.11/3.12, dan setup Windows.
 - Menutup M1 serta menetapkan CFG-001 VERIFIED tanpa menambah dependency atau jalur transaksi.
 - Menyimpan konfigurasi dan memory onboarding Serena; cache dan konfigurasi mesin lokal tetap diabaikan.
+
+## M2.1 — Schema dan raw-event repository — 2026-09-15
+
+- Menambahkan migration PostgreSQL idempotent untuk raw market event dengan timestamp terpisah, numeric, JSON, missing fields, dan constraint dasar.
+- Menambahkan repository insert-only yang mengembalikan ID dan membiarkan transaksi dikendalikan caller.
+- Mengunci Psycopg 3.3.5 serta Python lokal 3.12 dengan `uv`.
+- Enam tes lulus pada PostgreSQL 18.6 lokal; deduplikasi dan event ordering tetap di M2.2.

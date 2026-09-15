@@ -1,8 +1,9 @@
 # Tech stack
 
-- Python >=3.11; verified development runtimes include CPython 3.11 and 3.12 on Windows.
-- Current runtime uses Python standard library only; package metadata in `pyproject.toml`.
+- Python >=3.11; project-local runtime pinned to CPython 3.12 with `uv`.
+- Runtime dependencies are locked in `uv.lock`; M2.1 uses Psycopg 3.3.5 with binary extras.
+- PostgreSQL 18.6 is installed locally on Windows as service `postgresql-x64-18`, listening on localhost:5432.
 - Config is an immutable dataclass loaded from environment variables. Current supported mode: `collect_only` only.
-- Planned stack (not proof of installation): PostgreSQL; Redis only if justified; Birdeye, GoPlus, Solana RPC, Jupiter; Telegram; optional LLM later.
-- Docker/WSL are not project prerequisites. Use a local Windows virtual environment; do not upgrade global Python casually.
+- Redis only if justified. Planned integrations (not proof of access): Birdeye, GoPlus, Solana RPC, Jupiter, Telegram, and optional LLM later.
+- Docker/WSL are not project prerequisites. Do not upgrade global Python casually.
 - GitHub remote is private; task work uses dedicated branches and never auto-merges to main.
