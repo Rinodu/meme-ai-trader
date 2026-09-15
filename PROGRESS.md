@@ -4,11 +4,11 @@ Versi checklist: 1.0. Kondisi awal: belum ada subtugas implementasi yang selesai
 
 ## Ringkasan
 
-- Progres implementasi: **1/40 subtugas = 2,5%**.
+- Progres implementasi: **2/40 subtugas = 5,0%**.
 - Milestone selesai: **0/13**.
-- Tugas berikut: M1.2, kerangka/config `collect_only`.
-- Hambatan yang diketahui: Git identity dan remote belum tersedia; PostgreSQL belum tersedia tetapi baru dibutuhkan pada M2.
-- Tes aplikasi: N/A untuk inspeksi M1.1. Commit/push: tertunda; branch lokal tersedia.
+- Tugas berikut: M1.3, uji config dan tutup gate M1.
+- Hambatan yang diketahui: PostgreSQL belum tersedia tetapi baru dibutuhkan pada M2.
+- Tes: 5 tes konfigurasi lulus pada Python 3.11 dan 3.12; startup default/invalid terverifikasi. Branch M1.2: `task/m1-2-config`.
 
 ## Cara menggunakan
 
@@ -51,21 +51,21 @@ Hindari lingkaran commit: dokumen tidak perlu mencantumkan SHA commit yang memua
 
 ### M1 — Scope dan konfigurasi
 
-Status milestone: IN_PROGRESS. Progres: 1/3 (33,3%). Gate: BELUM_DIPERIKSA.
+Status milestone: IN_PROGRESS. Progres: 2/3 (66,7%). Gate: BELUM_DIPERIKSA.
 
 - [x] **M1.1 — Periksa lingkungan/repo** — SELESAI
   - [x] Acceptance criteria di catatan tugas terpenuhi.
   - [x] Pemeriksaan relevan lulus atau N/A beralasan.
   - [x] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
   - [x] Dokumentasi/status dan bukti diperbarui.
-  - Bukti: inspeksi source/Git/Python/infrastruktur 2026-09-15; tes aplikasi N/A karena belum ada aplikasi; commit/push tertunda karena identity dan remote belum tersedia; detail `docs/tasks/CURRENT.md`.
+  - Bukti: inspeksi source/Git/Python/infrastruktur 2026-09-15; tes aplikasi N/A; commit `84c944b` dan push berhasil pada `task/m1-1-project-config`; detail `docs/tasks/M1.1.md`.
 
-- [ ] **M1.2 — Buat kerangka/config collect_only** — BELUM_MULAI
-  - [ ] Acceptance criteria di catatan tugas terpenuhi.
-  - [ ] Pemeriksaan relevan lulus atau N/A beralasan.
-  - [ ] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
-  - [ ] Dokumentasi/status dan bukti diperbarui.
-  - Bukti: Tes belum; commit belum; push belum.
+- [x] **M1.2 — Buat kerangka/config collect_only** — SELESAI
+  - [x] Acceptance criteria di catatan tugas terpenuhi.
+  - [x] Pemeriksaan relevan lulus atau N/A beralasan.
+  - [x] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
+  - [x] Dokumentasi/status dan bukti diperbarui.
+  - Bukti: 5 tes lulus pada Python 3.11/3.12; startup default sukses dan mode invalid ditolak; commit/push dilaporkan setelah finalisasi; detail `docs/tasks/CURRENT.md`.
 
 - [ ] **M1.3 — Uji config dan tutup gate** — BELUM_MULAI
   - [ ] Acceptance criteria di catatan tugas terpenuhi.
@@ -415,3 +415,4 @@ Satu baris per transisi bermakna; log lengkap tetap di catatan tugas. Jangan men
 | --- | --- | --- | --- | --- |
 | 2026-09-15 | INIT | — → BELUM_MULAI | Checklist dibuat dari roadmap; belum ada kode terverifikasi | 0/40 = 0,0% |
 | 2026-09-15 | M1.1 | BELUM_MULAI → SELESAI | Source hanya dokumen; Python/Git diperiksa; repo dan branch tugas dibuat; commit/push tertunda | 1/40 = 2,5% |
+| 2026-09-15 | M1.2 | BELUM_MULAI → SELESAI | Kerangka/config aman dibuat; 5 tes lulus pada Python 3.11/3.12; startup terverifikasi | 2/40 = 5,0% |

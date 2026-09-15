@@ -1,16 +1,16 @@
-# Meme AI Trader — Paket kendali proyek
+# Meme AI Trader
 
 Versi paket: 1.1, 15 September 2026. Pemilik: Edhu.
 
-Target: bot Solana hingga full automation melalui milestone berurutan. Lingkungan pengguna: Windows; alat coding: GPT Codex; antarmuka awal: Telegram. Paket ini berisi dokumen, bukan aplikasi trading yang sudah berjalan.
+Target: bot Solana hingga full automation melalui milestone berurutan. Saat ini baru tersedia kerangka konfigurasi aman; belum ada collector, strategi, database, atau jalur transaksi.
 
 ## Mulai
 
-1. Ekstrak folder `meme-ai-trader` ke lokasi kerja, misalnya `C:\Projects\meme-ai-trader`.
-2. Buka folder tersebut di lingkungan kerja Codex yang dapat mengaksesnya.
-3. Gunakan prompt pertama di [PROMPTS.md](PROMPTS.md).
-4. Kerjakan satu subtugas, periksa hasil, sempurnakan sampai kriteria selesai terpenuhi, lalu lanjut setelah pengguna meminta subtugas berikutnya.
-5. Simpan ke repository remote private yang dimiliki pengguna. URL remote dan autentikasi belum tersedia; Codex tidak boleh mengarang keduanya.
+1. Gunakan Python 3.11 atau lebih baru.
+2. Jalankan `py -m meme_ai_trader`; tanpa konfigurasi tambahan aplikasi hanya memulai mode `collect_only`.
+3. Jalankan tes dengan `py -m unittest discover -s tests -v`.
+4. Salin nama variabel dari `.env.example` ke environment lokal bila fiturnya diperlukan; jangan commit `.env`.
+5. Gunakan prompt lanjutan di [PROMPTS.md](PROMPTS.md) untuk mengerjakan satu subtugas berikutnya.
 
 Jika sudah ada repository, bandingkan dokumen ini dengan dokumen yang ada sebelum menyalin. Jangan menimpa aturan atau source code yang belum diperiksa.
 
