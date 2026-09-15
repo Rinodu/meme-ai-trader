@@ -7,7 +7,7 @@ Versi checklist: 1.0. Kondisi awal: belum ada subtugas implementasi yang selesai
 - Progres implementasi: **5/40 subtugas = 12,5%**.
 - Milestone selesai: **1/13**.
 - Tugas berikut: M2.3, adapter Birdeye.
-- Hambatan yang diketahui: Pyright Serena belum mengikuti `.venv` untuk resolusi import Psycopg; runtime project dan tes PostgreSQL lulus.
+- Hambatan yang diketahui: Pyright Serena belum mengikuti `.venv` untuk resolusi import Psycopg; M2.3 menunggu `PGPASSWORD` pada proses tes untuk menjalankan integrasi PostgreSQL.
 - Tes: 9 tes lulus pada Python 3.12/PostgreSQL 18.6, termasuk 5 regresi M1 dan 4 integration test M2. Branch M2.2: `task/m2-2-dedup-timestamps`.
 
 ## Cara menggunakan
@@ -94,12 +94,12 @@ Status milestone: IN_PROGRESS. Progres: 2/4 (50,0%). Gate: BELUM_DIPERIKSA.
   - [x] Dokumentasi/status dan bukti diperbarui.
   - Bukti: 9 tes lulus pada PostgreSQL nyata; dedup, konflik identitas, migrasi data duplikat, UTC, dan event terlambat teruji; commit/push difinalkan; detail `docs/tasks/CURRENT.md`.
 
-- [ ] **M2.3 — Adapter Birdeye** — BELUM_MULAI
+- [ ] **M2.3 — Adapter Birdeye** — TERHAMBAT
   - [ ] Acceptance criteria di catatan tugas terpenuhi.
   - [ ] Pemeriksaan relevan lulus atau N/A beralasan.
   - [ ] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
   - [ ] Dokumentasi/status dan bukti diperbarui.
-  - Bukti: Tes belum; commit belum; push belum.
+  - Bukti: 8 tes unit/config lulus dan compile/diff check lulus; 5 tes PostgreSQL terlewati karena `PGPASSWORD` tidak tersedia. Detail `docs/tasks/CURRENT.md`.
 
 - [ ] **M2.4 — Quality dan rekonsiliasi feed** — BELUM_MULAI
   - [ ] Acceptance criteria di catatan tugas terpenuhi.

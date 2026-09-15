@@ -7,6 +7,7 @@ from decimal import Decimal
 import psycopg
 from psycopg import sql
 
+from meme_ai_trader.adapters.birdeye import raw_event
 from meme_ai_trader.database.raw_events import RawEventRepository, migrate
 
 
@@ -155,3 +156,17 @@ class RawEventRepositoryTests(unittest.TestCase):
             migrate(self.connection)
         self.connection.rollback()
         self.assertEqual(2, self.connection.execute("SELECT count(*) FROM raw_events").fetchone()[0])
+
+    def test_birdeye_snapshot_is_accepted_by_raw_repository(self):
+        event = raw_event(
+            "mint-fixture",
+            {"price": 0, "mc": None, "fdv": 1, "liquidity": 0,
+             "v1hUSD": 0, "buy1h": 0, "sell1h": 0, "priceChange1hPercent": 0},
+            datetime(2026, 9, 15, 8, tzinfo=timezone.utc),
+        )
+        raw_event_id = RawEventRepository(self.connection).insert(event)
+        row = self.connection.execute(
+            "SELECT price, market_cap, missing_fields FROM raw_events WHERE raw_event_id = %s",
+            (raw_event_id,),
+        ).fetchone()
+        self.assertEqual((Decimal("0"), None, ["market_cap"]), row)

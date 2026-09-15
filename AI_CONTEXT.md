@@ -1,9 +1,9 @@
 # Kondisi aktual
 
-Pembaruan 15 September 2026 setelah M2.2.
+Pembaruan 15 September 2026 saat M2.3 terhambat.
 
 - Target tetap full automation Solana secara bertahap, Telegram dahulu, dengan default awal `collect_only` dan tanpa aktivasi live otomatis.
-- M1 selesai dan M2 berjalan: M2.1/M2.2 selesai. Progres resmi 5/40 subtugas (12,5%); 1/13 milestone selesai.
+- M1 selesai dan M2 berjalan: M2.1/M2.2 selesai; M2.3 memiliki adapter Birdeye read-only namun menunggu tes PostgreSQL. Progres resmi tetap 5/40 subtugas (12,5%); 1/13 milestone selesai.
 - Konfigurasi tetap default `collect_only`. PostgreSQL raw-event schema/repository memiliki dedup identitas dan pembacaan point-in-time; belum ada collector, strategi, signer, atau jalur transaksi.
 - Git identity dan remote `origin` tersedia. M1.1 `84c944b`; M1.2 `2b34cd2`; M1.3 `ce9c273`; M2.1 `c27ec8e`. M2.2 pada branch `task/m2-2-dedup-timestamps` dari basis M2.1 terbaru.
 - Project dipin ke Python 3.12 melalui `uv`; Psycopg 3.3.5 dikunci di `uv.lock`.
@@ -11,6 +11,6 @@ Pembaruan 15 September 2026 setelah M2.2.
 - Sembilan tes lulus pada runtime project dengan PostgreSQL nyata: lima regresi config M1 dan empat integration test M2. Serena mengenali simbol; Pyright Serena belum mengikuti `.venv` untuk resolusi import Psycopg. RTK 0.48.0 tersedia dan integrasi Codex lokal berada di `RTK.md`.
 - API key/private key tidak diminta atau dibaca. Anggaran subscription baru tetap Rp0; modal serta parameter live belum ditetapkan.
 - Serena aktif dan onboarding tersimpan di `.serena/`; cache serta konfigurasi mesin lokal diabaikan Git.
-- Tugas berikutnya M2.3, adapter Birdeye. M2.2 telah teruji lokal; commit/push dilakukan saat finalisasi branch tugas.
+- M2.3 berjalan pada `task/m2-3-birdeye-adapter`: unit adapter/config lulus, tetapi integrasi PostgreSQL tidak berjalan tanpa `PGPASSWORD` pada proses tes. Jangan menandai selesai sampai tes itu lulus; M2.4 tetap belum dimulai.
 
 Detail tugas lama di arsip `docs/tasks/`; bukti M2.2 di `docs/tasks/CURRENT.md`.
