@@ -40,3 +40,9 @@ Tambahkan entri untuk perubahan selesai: task ID, perilaku berubah, bukti penguj
 - Menambahkan repository insert-only yang mengembalikan ID dan membiarkan transaksi dikendalikan caller.
 - Mengunci Psycopg 3.3.5 serta Python lokal 3.12 dengan `uv`.
 - Enam tes lulus pada PostgreSQL 18.6 lokal; deduplikasi dan event ordering tetap di M2.2.
+
+## M2.2 — Deduplikasi dan timestamp — 2026-09-15
+
+- Menambahkan identitas unik pada `event_id` dan pasangan identitas provider; retry mengembalikan ID lama tanpa menimpa raw payload.
+- Menolak timestamp naive, menormalkan timestamp aware ke UTC, dan membaca data berdasarkan batas `received_at` dengan urutan `event_time` stabil.
+- Sembilan tes lulus pada PostgreSQL lokal; migrasi menolak data duplikat lama tanpa menghapusnya. Adapter provider tetap M2.3.

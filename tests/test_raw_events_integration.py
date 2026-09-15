@@ -1,7 +1,7 @@
 import os
 import unittest
 import uuid
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from decimal import Decimal
 
 import psycopg
@@ -67,3 +67,91 @@ class RawEventRepositoryTests(unittest.TestCase):
         self.assertIsNone(row[3])
         self.assertEqual(["market_cap"], row[4])
         self.assertEqual({"price": 0, "market_cap": None}, row[5])
+
+    def test_retry_uses_both_event_id_and_provider_identity(self):
+        repo = RawEventRepository(self.connection)
+        event = {
+            "event_id": uuid.uuid4(),
+            "source": "fixture",
+            "source_event_id": "provider-1",
+            "schema_version": 1,
+            "chain_id": "solana-mainnet",
+            "mint_address": "mint-fixture",
+            "received_at": datetime(2026, 9, 15, 8, tzinfo=timezone.utc),
+            "data_quality_status": "PARTIAL",
+            "raw_payload": {"price": None},
+        }
+        first_id = repo.insert(event)
+        self.assertEqual(first_id, repo.insert(event))
+        self.assertEqual(first_id, repo.insert({**event, "event_id": uuid.uuid4()}))
+        self.assertEqual(1, self.connection.execute("SELECT count(*) FROM raw_events").fetchone()[0])
+
+        other = {**event, "event_id": uuid.uuid4(), "source_event_id": "provider-2"}
+        repo.insert(other)
+        with self.assertRaisesRegex(ValueError, "identities conflict"):
+            repo.insert({**event, "source_event_id": "provider-2"})
+        self.assertEqual(2, self.connection.execute("SELECT count(*) FROM raw_events").fetchone()[0])
+
+    def test_late_event_is_ordered_but_not_visible_early(self):
+        repo = RawEventRepository(self.connection)
+        utc = timezone.utc
+        base = {
+            "source": "fixture",
+            "schema_version": 1,
+            "chain_id": "solana-mainnet",
+            "mint_address": "mint-fixture",
+            "data_quality_status": "PARTIAL",
+            "raw_payload": {},
+        }
+        newer_id = repo.insert({
+            **base, "event_id": uuid.uuid4(),
+            "event_time": datetime(2026, 9, 15, 8, 1, tzinfo=utc),
+            "received_at": datetime(2026, 9, 15, 8, 1, tzinfo=utc),
+        })
+        late_id = repo.insert({
+            **base, "event_id": uuid.uuid4(),
+            "event_time": datetime(2026, 9, 15, 15, 0, tzinfo=timezone(timedelta(hours=7))),
+            "received_at": datetime(2026, 9, 15, 8, 5, tzinfo=utc),
+        })
+        no_event_time_id = repo.insert({
+            **base, "event_id": uuid.uuid4(), "event_time": None,
+            "received_at": datetime(2026, 9, 15, 8, 6, tzinfo=utc),
+        })
+        self.assertEqual(
+            [newer_id],
+            [row["raw_event_id"] for row in repo.available_for_mint(
+                "solana-mainnet", "mint-fixture", datetime(2026, 9, 15, 8, 3, tzinfo=utc)
+            )],
+        )
+        rows = repo.available_for_mint(
+            "solana-mainnet", "mint-fixture", datetime(2026, 9, 15, 8, 7, tzinfo=utc)
+        )
+        self.assertEqual([late_id, newer_id, no_event_time_id], [row["raw_event_id"] for row in rows])
+        self.assertEqual(datetime(2026, 9, 15, 8, tzinfo=utc), rows[0]["event_time"])
+        self.assertEqual(datetime(2026, 9, 15, 8, 5, tzinfo=utc), rows[0]["received_at"])
+        self.assertIsNone(rows[2]["event_time"])
+        with self.assertRaisesRegex(ValueError, "event_time"):
+            repo.insert({**base, "event_id": uuid.uuid4(), "event_time": datetime(2026, 9, 15, 8),
+                         "received_at": datetime(2026, 9, 15, 8, tzinfo=utc)})
+        with self.assertRaisesRegex(ValueError, "received_at"):
+            repo.insert({**base, "event_id": uuid.uuid4(), "received_at": datetime(2026, 9, 15, 8)})
+        with self.assertRaisesRegex(ValueError, "as_of"):
+            repo.available_for_mint("solana-mainnet", "mint-fixture", datetime(2026, 9, 15, 8))
+
+    def test_migration_rejects_existing_duplicates_without_deleting_raw_data(self):
+        self.connection.execute("DROP INDEX raw_events_event_id_uidx")
+        self.connection.execute("DROP INDEX raw_events_source_event_uidx")
+        repo = RawEventRepository(self.connection)
+        event = {
+            "event_id": uuid.uuid4(), "source": "fixture", "schema_version": 1,
+            "chain_id": "solana-mainnet", "mint_address": "mint-fixture",
+            "received_at": datetime(2026, 9, 15, 8, tzinfo=timezone.utc),
+            "data_quality_status": "PARTIAL", "raw_payload": {},
+        }
+        repo.insert(event)
+        repo.insert(event)
+        self.connection.commit()
+        with self.assertRaises(psycopg.errors.UniqueViolation):
+            migrate(self.connection)
+        self.connection.rollback()
+        self.assertEqual(2, self.connection.execute("SELECT count(*) FROM raw_events").fetchone()[0])

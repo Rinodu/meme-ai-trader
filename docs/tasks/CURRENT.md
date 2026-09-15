@@ -1,36 +1,31 @@
-# M2.1 — Schema dan raw-event repository
+# M2.2 — Deduplikasi dan timestamp raw event
 
-Status: SELESAI pada 2026-09-15. Prasyarat: M1 selesai pada commit `ce9c273`.
+Status: SELESAI pada 2026-09-15. Basis: M2.1 `c27ec8e` beserta perbaikan/tooling berikutnya pada branch `task/m2-1-raw-repository`.
 
-## Tujuan dan lingkup
+## Lingkup
 
-Tambahkan schema PostgreSQL pertama dan repository append-only minimum untuk menyimpan raw market event. Lingkup tidak mencakup deduplikasi/event ordering (M2.2), adapter Birdeye (M2.3), atau rekonsiliasi feed (M2.4).
+Tegakkan identitas event pada PostgreSQL dan repository tanpa menimpa raw event. Pertahankan `event_time` sebagai waktu kejadian dan `received_at` sebagai waktu tersedia; event terlambat harus tetap tersimpan dan dapat dibaca dalam urutan kejadian tanpa kebocoran point-in-time. Birdeye/reconnect/quality reconciliation tetap M2.3/M2.4.
 
 ## Acceptance criteria
 
-- PostgreSQL lokal terverifikasi aktif; dependency Psycopg dikunci dan project memakai Python 3.12 lokal.
-- Migration idempotent membuat tabel `raw_events` dengan tipe PostgreSQL yang tepat: UTC-aware timestamps, `numeric`, `jsonb`, array missing fields, dan constraint dasar nonnegatif.
-- Schema memuat field inti blueprint tanpa menyamakan data hilang dengan nol.
-- Repository hanya menyediakan insert raw event dan mengembalikan ID database; transaksi tetap dikendalikan caller.
-- Integration test PostgreSQL membuktikan migration dapat dijalankan ulang dan round-trip mempertahankan nilai inti, raw JSON, `NULL`, serta nol.
-- Tes konfigurasi M1 tetap lulus; tidak ada koneksi provider atau transaksi blockchain.
-- Dokumentasi/checklist diperbarui; commit/push branch tugas dilakukan.
-
-## Pemeriksaan
-
-Jalankan seluruh unit test, integration test pada PostgreSQL lokal dengan credential yang dimasukkan pengguna di terminal aman, diagnostics Serena, diff check, dan status Git.
+- Retry dengan `event_id` sama atau pasangan `(source, source_event_id)` sama tidak menambah baris; insert mengembalikan ID baris yang sudah ada.
+- Migrasi dapat dijalankan ulang di schema M2.1. Jika data lama sudah melanggar identitas unik, migrasi gagal jelas tanpa menghapus raw data.
+- `event_time` nullable, kedua timestamp yang tersedia harus timezone-aware dan dinormalisasi UTC; `NULL` tetap bukan nol.
+- Pembacaan `received_at <= as_of` diurutkan menurut `event_time`, lalu tie-breaker stabil; event terlambat tidak muncul sebelum diterima.
+- Tes PostgreSQL nyata mencakup retry, konflik identitas, timestamp naive/offset, event terlambat/out-of-order, dan regresi M1/M2.1.
+- Checklist/bukti sinkron; commit dan push hanya branch tugas.
 
 ## Bukti
 
-- PostgreSQL 18.6 terpasang; service `postgresql-x64-18` aktif dan `localhost:5432` menerima koneksi.
-- Psycopg 3.3.5 dikunci oleh `uv`; `.python-version` dan virtualenv lokal memakai Python 3.12.10.
-- Migration `001_raw_events.sql` berhasil dijalankan dua kali pada schema tes PostgreSQL tanpa konflik.
-- Integration test membuktikan insert/ID database serta round-trip `timestamptz`, `numeric(0)`, `NULL`, `text[]`, dan `jsonb`.
-- `uv run python -m unittest discover -s tests -v`: 6 tes lulus pada PostgreSQL lokal, tanpa skip; 5 tes konfigurasi M1 tetap lulus.
-- Repository tidak melakukan commit internal; caller mengendalikan transaksi. Tidak ada provider atau blockchain yang dipanggil.
-- Serena mengenali simbol baru; Pyright Serena melaporkan import Psycopg tidak resolved karena interpreter server tidak mengikuti `.venv`, tetapi import dan integration test melalui runtime project lulus.
-- `git diff --check`, status/staged diff, commit, dan push diverifikasi pada penutupan tugas.
+- Branch `task/m2-2-dedup-timestamps` dibuat dari M2.1 yang sudah dipush; perubahan lain tidak ada saat mulai.
+- Migration `002_event_identity.sql`, dedup insert, validasi UTC, dan pembacaan point-in-time sudah diimplementasikan lokal.
+- `rtk uv run python -m compileall -q meme_ai_trader tests` berhasil.
+- Prompt pertama tidak mendapat input; proses dihentikan. Pada prompt kedua, seluruh 9 tes lulus pada PostgreSQL 18.6 nyata (`exit 0`), tanpa skip; password hanya berada di environment proses tes dan skrip sementara dihapus.
+- Tes membuktikan retry kedua identitas tidak menambah baris, dua identitas yang menunjuk baris berbeda ditolak, dan migrasi menolak data duplikat lama tanpa menghapusnya.
+- Tes membuktikan offset waktu dinormalisasi UTC, timestamp naive ditolak, `event_time = NULL` tetap ada, dan event terlambat baru muncul setelah `received_at` namun terurut menurut `event_time`.
+- Serena hanya melaporkan import Psycopg tidak resolved oleh language server, seperti M2.1; runtime Python project dan tes PostgreSQL lulus.
+- `rtk git diff --check` bersih; staged diff, commit, dan push diverifikasi saat penutupan tugas.
 
 ## Serah terima
 
-Schema dan repository raw append-only tersedia. M2.2 berikutnya tetap bertanggung jawab pada deduplikasi dan perilaku timestamp/event terlambat.
+M2.3 berikutnya menghubungkan adapter provider; tidak ada credential atau transaksi live dalam M2.2.

@@ -16,4 +16,4 @@ Gunakan revert untuk membatalkan commit yang sudah dibagikan; jangan menulis ula
 
 ## Pemeriksaan sebelum push
 
-Jangan stage seluruh folder tanpa melihat isinya. Hindari `.env`, keypair, dump database, raw dataset besar, log, cache, virtual environment. Commit `.env.example` tanpa nilai rahasia dan lockfile dependency yang dipilih. Jika kebocoran ditemukan, hentikan penyebaran, laporkan, dan lakukan rotasi melalui pemilik kredensial; menghapus file saja tidak menghapus rahasia dari riwayat.
+Jangan stage seluruh folder tanpa melihat isinya. Hindari `.env`, `.env.example` (sesuai pilihan pengguna: tetap lokal), keypair, dump database, raw dataset besar, log, cache, dan virtual environment. Commit lockfile dependency yang dipilih. Jika kebocoran ditemukan, hentikan penyebaran, laporkan, dan lakukan rotasi melalui pemilik kredensial; menghapus file saja tidak menghapus rahasia dari riwayat.
