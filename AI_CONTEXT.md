@@ -1,16 +1,16 @@
 # Kondisi aktual
 
-Pembaruan 15 September 2026 setelah M1.3.
+Pembaruan 15 September 2026 setelah M2.1.
 
 - Target tetap full automation Solana secara bertahap, Telegram dahulu, dengan default awal `collect_only` dan tanpa aktivasi live otomatis.
-- M1 selesai: 3/3 subtugas dan gate konfigurasi lulus. Progres resmi 3/40 subtugas (7,5%); 1/13 milestone selesai.
-- Kerangka Python tersedia di `meme_ai_trader/`. Konfigurasi standard-library memakai default `collect_only`, menolak mode lain, memvalidasi flag boolean, dan hanya mewajibkan credential Birdeye saat fiturnya aktif. Belum ada database, collector, strategi, signer, atau jalur transaksi.
-- Git identity dan remote `origin` tersedia. M1.1 commit `84c944b`; M1.2 commit `2b34cd2`; M1.3 dikerjakan pada branch `task/m1-3-config-gate`.
-- Python 3.12.10 tersedia melalui launcher/default; runtime 3.11.16 juga tersedia melalui instalasi `uv`. M1.2 menargetkan Python >=3.11 dan memakai virtual environment lokal, tanpa upgrade global.
-- PostgreSQL CLI dan Docker tidak ditemukan. WSL belum terpasang. Hal ini tidak memblokir M1; kebutuhan PostgreSQL ditangani sebelum M2 dan Docker/WSL tidak dijadikan prasyarat tanpa kebutuhan.
-- Gate M1: 5 tes lulus pada Python 3.12.10 dan 3.11.16; startup default/`collect_only` berhasil; mode lain, mode kosong, flag invalid, dan credential aktif yang hilang ditolak; key tidak tercetak. Diagnostics Serena dan tautan Markdown bersih. RTK belum tersedia.
+- M1 selesai dan M2 berjalan: M2.1 selesai. Progres resmi 4/40 subtugas (10,0%); 1/13 milestone selesai.
+- Konfigurasi tetap default `collect_only`. PostgreSQL raw-event schema dan repository append-only tersedia; belum ada deduplikasi, collector, strategi, signer, atau jalur transaksi.
+- Git identity dan remote `origin` tersedia. M1.1 `84c944b`; M1.2 `2b34cd2`; M1.3 `ce9c273`. M2.1 dikerjakan pada branch `task/m2-1-raw-repository`.
+- Project dipin ke Python 3.12 melalui `uv`; Psycopg 3.3.5 dikunci di `uv.lock`.
+- PostgreSQL 18.6 lokal aktif sebagai service `postgresql-x64-18` pada `localhost:5432`. Password tetap lokal dan tidak disimpan di repository/chat.
+- Enam tes lulus pada runtime project dengan PostgreSQL nyata: lima regresi config M1 dan satu migration/round-trip M2.1. Serena mengenali simbol; Pyright Serena belum mengikuti `.venv` untuk resolusi import Psycopg. RTK 0.48.0 tersedia dan integrasi Codex lokal berada di `RTK.md`.
 - API key/private key tidak diminta atau dibaca. Anggaran subscription baru tetap Rp0; modal serta parameter live belum ditetapkan.
 - Serena aktif dan onboarding tersimpan di `.serena/`; cache serta konfigurasi mesin lokal diabaikan Git.
-- Tugas berikutnya: M2.1, membuat schema/raw repository. PostgreSQL belum tersedia; tentukan setup Windows yang aman sebelum implementasi database.
+- Tugas berikutnya: M2.2, deduplikasi dan semantics timestamp/event terlambat.
 
-Detail M1.1/M1.2 di arsip `docs/tasks/`; bukti gate M1.3 di `docs/tasks/CURRENT.md`.
+Detail tugas lama di arsip `docs/tasks/`; bukti M2.1 di `docs/tasks/CURRENT.md`.

@@ -6,7 +6,7 @@ Semua PLANNED; path tes dan implementasi diisi setelah benar-benar tersedia. ID 
 | --- | --- | --- | --- | --- |
 | CFG-001 | M1 | Default collect_only; mode tidak didukung ditolak; credential hanya wajib pada fitur aktif | VERIFIED | `meme_ai_trader/config.py`; `tests/test_config.py` (5 tes lulus pada Python 3.11/3.12); matriks startup M1.3 lulus |
 | DATA-001 | M2 | Event yang sama tidak tersimpan dua kali | PLANNED | Belum tersedia |
-| DATA-002 | M2 | event_time dan received_at dipisah; null tidak disamakan nol | PLANNED | Belum tersedia |
+| DATA-002 | M2 | event_time dan received_at dipisah; null tidak disamakan nol | IN_PROGRESS | Schema/repository `raw_events`; round-trip PostgreSQL M2.1 membuktikan timestamp terpisah serta null/nol; perilaku event terlambat dilanjutkan M2.2 |
 | DISC-001 | M3 | Kandidat ditolak dan alasan tetap tersimpan | PLANNED | Belum tersedia |
 | SEC-001 | M3 | UNKNOWN/REJECT memblokir entry | PLANNED | Belum tersedia |
 | STRAT-001 | M4 | Input/config sama memberi keputusan sama; sinyal punya expiry | PLANNED | Belum tersedia |

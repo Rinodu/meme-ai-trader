@@ -1,38 +1,36 @@
-# M1.3 — Audit konfigurasi dan penutupan gate M1
+# M2.1 — Schema dan raw-event repository
 
-Status: SELESAI pada 2026-09-15. Prasyarat: M1.2 selesai pada commit `2b34cd2`.
+Status: SELESAI pada 2026-09-15. Prasyarat: M1 selesai pada commit `ce9c273`.
 
 ## Tujuan dan lingkup
 
-Audit konfigurasi/startup M1 terhadap CFG-001 dan dokumentasi setup. Perbaiki hanya gap yang terbukti; jangan menambah database, provider, strategi, atau jalur transaksi.
+Tambahkan schema PostgreSQL pertama dan repository append-only minimum untuk menyimpan raw market event. Lingkup tidak mencakup deduplikasi/event ordering (M2.2), adapter Birdeye (M2.3), atau rekonsiliasi feed (M2.4).
 
 ## Acceptance criteria
 
-- Lima tes konfigurasi lulus pada Python 3.11 dan 3.12.
-- Startup tanpa override dan override eksplisit `collect_only` berhasil aman.
-- Mode `paper`, `semi_auto`, `live_auto`, nilai mode kosong, dan flag boolean invalid ditolak.
-- Birdeye aktif tanpa API key ditolak; nilai key tidak muncul dalam output/repr.
-- Diagnostics source/tes bersih dan seluruh referensi Markdown lokal valid.
-- README, `.env.example`, `.gitignore`, dan `pyproject.toml` konsisten dengan runtime Windows yang diuji.
-- CFG-001 menjadi VERIFIED dan M1 menjadi DONE hanya jika semua bukti lulus.
+- PostgreSQL lokal terverifikasi aktif; dependency Psycopg dikunci dan project memakai Python 3.12 lokal.
+- Migration idempotent membuat tabel `raw_events` dengan tipe PostgreSQL yang tepat: UTC-aware timestamps, `numeric`, `jsonb`, array missing fields, dan constraint dasar nonnegatif.
+- Schema memuat field inti blueprint tanpa menyamakan data hilang dengan nol.
+- Repository hanya menyediakan insert raw event dan mengembalikan ID database; transaksi tetap dikendalikan caller.
+- Integration test PostgreSQL membuktikan migration dapat dijalankan ulang dan round-trip mempertahankan nilai inti, raw JSON, `NULL`, serta nol.
+- Tes konfigurasi M1 tetap lulus; tidak ada koneksi provider atau transaksi blockchain.
 - Dokumentasi/checklist diperbarui; commit/push branch tugas dilakukan.
 
 ## Pemeriksaan
 
-Gunakan tes standard-library, matriks startup environment, diagnostics Serena, pemeriksaan tautan Markdown, diff, dan status Git. Tidak ada transaksi/provider yang dipanggil.
+Jalankan seluruh unit test, integration test pada PostgreSQL lokal dengan credential yang dimasukkan pengguna di terminal aman, diagnostics Serena, diff check, dan status Git.
 
 ## Bukti
 
-- Serena: caller `Settings.from_env` hanya CLI dan tes; diagnostics `config.py`, `__main__.py`, serta `test_config.py` bersih.
-- `py -m unittest discover -s tests -v`: 5 tes lulus pada Python 3.12.10.
-- `py -V:Astral/CPython3.11.16 -m unittest discover -s tests -v`: 5 tes lulus pada Python 3.11.16.
-- Startup default dan override `collect_only`: sukses, tanpa koneksi provider/transaksi.
-- Mode `paper`, `semi_auto`, `live_auto`, mode kosong, dan flag boolean invalid: ditolak.
-- Birdeye aktif tanpa API key: ditolak; startup dengan key uji berhasil tanpa mencetak key.
-- `.env`, `.venv`, dan cache Python cocok dengan aturan `.gitignore`; seluruh tautan Markdown lokal valid.
-- README, `.env.example`, dan `pyproject.toml` konsisten dengan Python >=3.11 pada Windows.
-- Gate M1 lulus: mode aman, invalid config ditolak, runtime/setup terdokumentasi.
+- PostgreSQL 18.6 terpasang; service `postgresql-x64-18` aktif dan `localhost:5432` menerima koneksi.
+- Psycopg 3.3.5 dikunci oleh `uv`; `.python-version` dan virtualenv lokal memakai Python 3.12.10.
+- Migration `001_raw_events.sql` berhasil dijalankan dua kali pada schema tes PostgreSQL tanpa konflik.
+- Integration test membuktikan insert/ID database serta round-trip `timestamptz`, `numeric(0)`, `NULL`, `text[]`, dan `jsonb`.
+- `uv run python -m unittest discover -s tests -v`: 6 tes lulus pada PostgreSQL lokal, tanpa skip; 5 tes konfigurasi M1 tetap lulus.
+- Repository tidak melakukan commit internal; caller mengendalikan transaksi. Tidak ada provider atau blockchain yang dipanggil.
+- Serena mengenali simbol baru; Pyright Serena melaporkan import Psycopg tidak resolved karena interpreter server tidak mengikuti `.venv`, tetapi import dan integration test melalui runtime project lulus.
+- `git diff --check`, status/staged diff, commit, dan push diverifikasi pada penutupan tugas.
 
 ## Serah terima
 
-CFG-001 VERIFIED. M1 DONE. Tugas berikutnya M2.1: schema/raw repository; PostgreSQL belum tersedia dan harus disiapkan tanpa menjadikan Docker/WSL wajib.
+Schema dan repository raw append-only tersedia. M2.2 berikutnya tetap bertanggung jawab pada deduplikasi dan perilaku timestamp/event terlambat.
