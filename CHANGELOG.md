@@ -27,3 +27,9 @@ Tambahkan entri untuk perubahan selesai: task ID, perilaku berubah, bukti penguj
 - Menambahkan package Python minimal tanpa dependency runtime eksternal.
 - Menetapkan default `collect_only`, menolak mode tidak didukung, dan mewajibkan API key hanya saat Birdeye aktif.
 - Menambahkan perlindungan rahasia, contoh environment, dan 5 tes konfigurasi yang lulus pada Python 3.11/3.12.
+
+## M1.3 — Gate konfigurasi M1 — 2026-09-15
+
+- Memverifikasi matriks startup/config, credential aktif, secret redaction, Python 3.11/3.12, dan setup Windows.
+- Menutup M1 serta menetapkan CFG-001 VERIFIED tanpa menambah dependency atau jalur transaksi.
+- Menyimpan konfigurasi dan memory onboarding Serena; cache dan konfigurasi mesin lokal tetap diabaikan.
