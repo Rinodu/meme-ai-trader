@@ -1,26 +1,26 @@
-# M2.3 — Adapter Birdeye
+# M2.4 — Quality dan rekonsiliasi feed
 
-Status: SELESAI pada 2026-09-15. Basis: `main` pada `c8c8c31`.
+Status: SELESAI pada 2026-09-15. Basis: M2.3 terverifikasi.
 
 ## Lingkup
 
-Tambahkan adapter Birdeye read-only untuk snapshot token Solana dan normalisasi ke kontrak `raw_events`. Tidak ada polling collector, reconnect, backfill, transaksi, atau pembacaan credential di luar konfigurasi yang sudah ada; itu tetap M2.4 atau milestone berikutnya.
+Tambahkan satu jalur koleksi Birdeye read-only, evaluasi freshness dan field wajib, serta rekonsiliasi terhadap raw event terbaru tersimpan. Tidak ada scheduler, retry loop, WebSocket, backfill, transaksi, atau perubahan mode aplikasi.
 
 ## Acceptance criteria
 
-- Klien memanggil endpoint Birdeye Token Overview dengan `X-API-KEY` dan `x-chain: solana`, serta hanya melakukan HTTP GET.
-- Respons HTTP, JSON, dan payload provider yang tidak valid menghasilkan error terarah tanpa menampilkan API key.
-- Snapshot valid dapat dinormalisasi menjadi raw event dengan payload asli, `received_at` UTC, dan nilai nol tidak dianggap hilang.
-- Field provider yang tidak tersedia dicatat pada `missing_fields`; adapter tidak mengarang nilai pasar atau waktu kejadian.
-- Tes fixture mencakup request, error provider, pemetaan nol/null, dan kompatibilitas event dengan repository M2.2.
+- Satu snapshot Birdeye dapat dipetakan, dinilai, dan disimpan melalui repository M2.2.
+- Feed hanya ready bila event tersedia, `received_at` masih dalam batas umur, serta `price` dan `liquidity` tersedia; nol tetap valid.
+- Rekonsiliasi membaca raw event terbaru per token tanpa memakai event masa depan.
+- Tidak ada event terbaru menghasilkan status tidak ready yang eksplisit.
+- Tes mencakup feed fresh, stale, partial, nol, tidak ada event, dan repository PostgreSQL nyata.
 
 ## Bukti
 
-- `rtk uv run python -m unittest tests.test_birdeye tests.test_config`: 8 tes lulus.
-- `rtk proxy powershell -NoProfile -Command '<PGPASSWORD lokal>; uv run python -m unittest discover -s tests'`: 13/13 tes lulus pada PostgreSQL lokal, tanpa skip. Password hanya menjadi environment variable proses dan tidak dicatat.
-- `rtk uv run python -m compileall -q meme_ai_trader tests` dan `rtk git diff --check` lulus.
-- Adapter memakai HTTP GET standar-library ke Token Overview Birdeye, tanpa credential di log atau source. Snapshot tidak diberi `event_time`/`source_event_id` palsu.
+- `rtk uv run python -m unittest tests.test_feed tests.test_birdeye`: 5 tes lulus.
+- `rtk proxy powershell -NoProfile -Command '<PGPASSWORD lokal>; uv run python -m unittest tests.test_raw_events_integration'`: 7 tes PostgreSQL lulus.
+- Suite penuh: 17 tes lulus pada PostgreSQL lokal, tanpa skip.
+- `latest_for_mint` membatasi `received_at <= as_of`; assessment membedakan tidak ada feed, stale, field wajib hilang, dan nilai nol valid.
 
 ## Serah terima
 
-M2.4 berikutnya menangani collector polling, kualitas feed, reconnect, dan rekonsiliasi. Adapter ini tidak mengirim transaksi atau mengaktifkan Birdeye secara otomatis.
+M2 selesai. M3.1 berikutnya menangani universe/filter; scheduler, retry, WebSocket, dan backfill tidak ditambahkan.

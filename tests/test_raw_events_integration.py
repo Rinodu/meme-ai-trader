@@ -7,7 +7,8 @@ from decimal import Decimal
 import psycopg
 from psycopg import sql
 
-from meme_ai_trader.adapters.birdeye import raw_event
+from meme_ai_trader.adapters.birdeye import collect_snapshot, raw_event
+from meme_ai_trader.database.feed import reconcile
 from meme_ai_trader.database.raw_events import RawEventRepository, migrate
 
 
@@ -170,3 +171,29 @@ class RawEventRepositoryTests(unittest.TestCase):
             (raw_event_id,),
         ).fetchone()
         self.assertEqual((Decimal("0"), None, ["market_cap"]), row)
+
+    def test_reconciliation_uses_latest_available_event(self):
+        repo = RawEventRepository(self.connection)
+        now = datetime(2026, 9, 15, 8, 5, tzinfo=timezone.utc)
+        base = {"source": "fixture", "schema_version": 1, "chain_id": "solana-mainnet",
+                "mint_address": "mint-fixture", "data_quality_status": "COMPLETE", "raw_payload": {}}
+        repo.insert({**base, "event_id": uuid.uuid4(), "received_at": now - timedelta(minutes=2),
+                     "price": 1, "liquidity": 1})
+        repo.insert({**base, "event_id": uuid.uuid4(), "received_at": now - timedelta(minutes=1),
+                     "price": 0, "liquidity": 0})
+        self.assertTrue(reconcile(repo, "solana-mainnet", "mint-fixture", now, timedelta(minutes=2)).ready)
+        self.assertFalse(reconcile(repo, "solana-mainnet", "missing", now, timedelta(minutes=2)).ready)
+
+    def test_collection_stores_and_assesses_snapshot(self):
+        now = datetime(2026, 9, 15, 8, tzinfo=timezone.utc)
+        client = type("Client", (), {"token_overview": lambda *_: {
+            "price": 0, "mc": None, "fdv": 1, "liquidity": 0, "v1hUSD": 0,
+            "buy1h": 0, "sell1h": 0, "priceChange1hPercent": 0,
+        }})()
+        raw_event_id, assessment = collect_snapshot(
+            client, RawEventRepository(self.connection), "mint-fixture", now, timedelta(minutes=1)
+        )
+        self.assertTrue(assessment.ready)
+        self.assertEqual(1, self.connection.execute(
+            "SELECT count(*) FROM raw_events WHERE raw_event_id = %s", (raw_event_id,)
+        ).fetchone()[0])

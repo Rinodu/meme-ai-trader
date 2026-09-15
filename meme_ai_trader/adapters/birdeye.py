@@ -1,12 +1,15 @@
 import json
 from collections.abc import Callable, Mapping
-from datetime import datetime
+from datetime import datetime, timedelta
 from decimal import Decimal, InvalidOperation
 from typing import Any
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 from uuid import uuid4
+
+from meme_ai_trader.database.feed import FeedAssessment, assess
+from meme_ai_trader.database.raw_events import RawEventRepository
 
 
 class BirdeyeError(RuntimeError):
@@ -95,3 +98,14 @@ def raw_event(
         "raw_payload": dict(snapshot),
         **values,
     }
+
+
+def collect_snapshot(
+    client: BirdeyeClient,
+    repository: RawEventRepository,
+    mint_address: str,
+    received_at: datetime,
+    max_age: timedelta,
+) -> tuple[int, FeedAssessment]:
+    event = raw_event(mint_address, client.token_overview(mint_address), received_at)
+    return repository.insert(event), assess(event, received_at, max_age)

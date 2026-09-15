@@ -1,10 +1,10 @@
 # Progress — source of truth status tugas
 
 ## Ringkasan
-- Selesai: **6/40 = 15,0%**
+- Selesai: **7/40 = 17,5%**
 - Milestone selesai: **1/13**
-- Aktif/berikut: **M2.4 Quality/reconciliation feed**
-- Bukti terakhir: 13 tes Python 3.12/PostgreSQL lokal lulus.
+- Aktif/berikut: **M3.1 Universe/filter**
+- Bukti terakhir: 17 tes Python 3.12/PostgreSQL lokal lulus.
 - Hambatan: Pyright Serena belum mengikuti `.venv` untuk Psycopg; runtime/test lulus.
 
 Status: `[x]=SELESAI`, `[~]=DIKERJAKAN`, `[ ]=BELUM_MULAI`, `[!]=TERHAMBAT`, `[R]=DIBUKA_KEMBALI`.
@@ -15,11 +15,11 @@ Satu task SELESAI hanya bila acceptance criteria + tes wajib punya bukti di `doc
   - [x] M1.1 Periksa lingkungan/repo — `84c944b`
   - [x] M1.2 Kerangka/config `collect_only` — 5 tes; `2b34cd2`
   - [x] M1.3 Uji config/tutup gate — 5 tes; `ce9c273`
-- M2 — Database/collector — **IN_PROGRESS**
+- M2 — Database/collector — **DONE; gate LULUS**
   - [x] M2.1 Schema/raw repository — 6 tes; `c27ec8e`
   - [x] M2.2 Dedup/timestamps — 9 tes total; detail `docs/tasks/CURRENT.md`
   - [x] M2.3 Adapter Birdeye — 13 tes; `ac17ca5`, `2d0dd33`
-  - [ ] M2.4 Quality/reconciliation feed
+  - [x] M2.4 Quality/reconciliation feed — 17 tes; detail `docs/tasks/CURRENT.md`
 - M3 — Discovery/security: [ ] M3.1 Universe/filter; [ ] M3.2 Security adapter; [ ] M3.3 UNKNOWN gate/audit
 - M4 — Quant/baseline: [ ] M4.1 Features/warm-up; [ ] M4.2 Signal/expiry; [ ] M4.3 Deterministic replay
 - M5 — Risk/exit: [ ] M5.1 Sizing/exposure; [ ] M5.2 Reservation; [ ] M5.3 Exit/kill switch

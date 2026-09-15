@@ -1,5 +1,9 @@
 # Changelog
 
+## M2.4 — 2026-09-15
+- Menambahkan assessment freshness/field wajib dan rekonsiliasi raw event terbaru sesuai `as_of`.
+- 17 tes lulus pada PostgreSQL lokal; scheduler, retry loop, WebSocket, dan transaksi tidak ditambahkan.
+
 ## M2.3 — 2026-09-15
 - Adapter Birdeye Token Overview GET read-only dan normalisasi snapshot raw event.
 - 13 tes lulus pada PostgreSQL lokal; tidak ada transaksi atau secret tersimpan.

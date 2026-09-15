@@ -3,7 +3,7 @@
 | Milestone | Urutan | Status |
 | --- | --- | --- |
 | M1 Config/scope | M1.1–M1.3 | DONE |
-| M2 Database/collector | M2.1 schema, M2.2 dedup/time, M2.3 Birdeye, M2.4 quality/reconciliation | IN_PROGRESS |
+| M2 Database/collector | M2.1 schema, M2.2 dedup/time, M2.3 Birdeye, M2.4 quality/reconciliation | DONE |
 | M3 Discovery/security | universe, security adapter, UNKNOWN gate | PLANNED |
 | M4 Quant | features, signals, replay | PLANNED |
 | M5 Risk/exit | sizing, reservations, exit | PLANNED |
@@ -14,4 +14,4 @@
 | M10 Execution | quote, simulation, signer boundary | PLANNED |
 | M11–M13 | limited live, add-ons, full automation | PLANNED |
 
-M2.3 selesai; M2.4 adalah tugas berikutnya. Status/hitungan resmi ada di `PROGRESS.md`.
+M2 selesai; M3.1 universe/filter adalah tugas berikutnya. Status/hitungan resmi ada di `PROGRESS.md`.

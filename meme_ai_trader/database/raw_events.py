@@ -101,3 +101,15 @@ class RawEventRepository:
                 (chain_id, mint_address, _utc(as_of, "as_of")),
             )
             return cursor.fetchall()
+
+    def latest_for_mint(
+        self, chain_id: str, mint_address: str, as_of: datetime
+    ) -> dict[str, Any] | None:
+        with self.connection.cursor(row_factory=dict_row) as cursor:
+            cursor.execute(
+                """SELECT * FROM raw_events
+                   WHERE chain_id = %s AND mint_address = %s AND received_at <= %s
+                   ORDER BY received_at DESC, raw_event_id DESC LIMIT 1""",
+                (chain_id, mint_address, _utc(as_of, "as_of")),
+            )
+            return cursor.fetchone()
