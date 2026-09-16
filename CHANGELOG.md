@@ -1,5 +1,9 @@
 # Changelog
 
+## M7.1 — 2026-09-16
+- Memverifikasi replay time-ordered untuk input out-of-order berdasarkan `received_at`.
+- 42/42 tes lulus pada PostgreSQL lokal; tanpa cost, fill, atau transaksi.
+
 ## M6.3 — 2026-09-16
 - Menambahkan daftar intent/attempt pending untuk restart dan menahan replacement attempt sampai reconciliation.
 - 41/41 tes lulus pada PostgreSQL lokal; tidak ada RPC, signing, atau submit.

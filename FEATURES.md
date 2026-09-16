@@ -9,5 +9,6 @@
 | SEC-001 | Security `UNKNOWN`/`REJECT` memblokir entry dan keputusan dapat diaudit. | VERIFIED | `tests/test_security.py`, `tests/test_entry_gate.py` |
 | STRAT-001 | Fitur point-in-time/warm-up, signal expiry, dan replay deterministik. | VERIFIED | Tes M4.1–M4.3 |
 | EXEC-001 | Intent/attempt ber-ID terpisah, lifecycle tervalidasi, dan pending work dapat dimuat ulang. | VERIFIED | `tests/test_raw_events_integration.py` |
+| BACKTEST-001 | Replay deterministik menggunakan urutan ketersediaan data (`received_at`), termasuk input out-of-order. | VERIFIED | `tests/test_replay.py` |
 
 Kontrak backtest dan execution eksternal masih PLANNED di `ROADMAP.md`.

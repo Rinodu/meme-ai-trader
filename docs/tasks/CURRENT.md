@@ -1,3 +1,3 @@
-# M6.3 — Restart dan reconciliation
+# M7.1 — Time replay
 
-Status: SELESAI pada 2026-09-16. Restart dapat memuat intent/attempt pending dan replacement attempt ditolak sampai attempt lama direkonsiliasi. Suite penuh 41/41 lulus pada PostgreSQL lokal. Berikutnya M7.1 time replay.
+Status: SELESAI pada 2026-09-16. Replay memakai urutan ketersediaan `received_at`, termasuk input out-of-order. Suite penuh 42/42 lulus pada PostgreSQL lokal. Berikutnya M7.2 cost model.
