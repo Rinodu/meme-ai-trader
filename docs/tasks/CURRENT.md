@@ -1,6 +1,6 @@
 # M1.1 — Pemeriksaan awal dan kontrak lingkungan
 
-Status: READY; belum dikerjakan. Prasyarat: paket dokumen tersedia.
+Status: SELESAI pada 2026-09-16.
 
 ## Tujuan
 
@@ -26,8 +26,13 @@ Status working tree/remote dan deteksi versi executable yang relevan. Tidak perl
 
 ## Bukti, hasil, dan hambatan
 
-Belum ada. Tulis ringkas setelah eksekusi. Jika alat/akses wajib tidak tersedia, status BLOCKED/PARTIAL; jangan menandai seluruh M1 selesai.
+- Source: 28 modul Python dan 23 file tes tersedia pada checkout Signal Bot.
+- Lingkungan: Python 3.12.10 dan Git 2.55.0 tersedia di Windows; remote `origin` terkonfigurasi.
+- Runtime scope: `collect_only`, `replay`, dan `paper_signal`; mode live ditolak.
+- Tes config: `uv run python -m unittest tests.test_config` — 5/5 lulus.
+- Guard scope: suite penuh 55/55 lulus pada PostgreSQL lokal; `51113e9` membuktikan runtime tanpa wallet/signing/submit.
+- Hambatan: tidak ada untuk M1.1. `integration-test.log` tidak dilacak dan dipertahankan sebagai file pengguna.
 
 ## Checklist dan bukti
 
-Status resmi: PROGRESS.md M1.1 = BELUM_MULAI; READY di atas berarti siap dikerjakan. Setelah selesai/terhambat, isi bukti tes/commit/push, perbarui checklist dan ringkasan chat. Untuk tugas inspeksi ini, tes aplikasi boleh N/A dengan alasan; bukti inspeksi tetap wajib.
+Status resmi: PROGRESS.md M1.1 = SELESAI. Commit/push task: pembaruan dokumentasi M1.1 dibuat pada branch ini. M1.2 berikutnya memetakan config aman ke runtime Signal Bot tanpa menambah executor.

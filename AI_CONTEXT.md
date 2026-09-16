@@ -5,8 +5,8 @@ Paket dokumen v1.0 — 15 September 2026.
 - Target: Signal Bot Solana, Telegram pribadi, kandidat terbaik saja; buy/sell manual oleh Edhu.
 - Lingkungan pengguna: Windows; alat: GPT Codex.
 - Source aplikasi Python dan tes tersedia pada checkout aktif; audit scope Signal Bot menjalankan 55 tes lokal dengan hasil lulus pada 2026-09-16.
-- Status subtugas scope baru tetap 0/40 sampai acceptance criteria Signal Bot diresertifikasi; jangan menyamakan tes legacy dengan gate baru.
-- Tugas berikut: M1.1 di docs/tasks/CURRENT.md.
+- M1.1 scope baru selesai berdasarkan inspeksi runtime/Git/Python/source serta config 5/5 dan suite 55/55; komponen lain tetap memerlukan resertifikasi acceptance Signal Bot.
+- Tugas berikut: M1.2 konfigurasi runtime Signal Bot di docs/tasks/CURRENT.md.
 - Keputusan: satu subtugas; commit/push branch tugas setelah tes; perubahan perilaku lama harus dibahas; efisiensi token; anggaran subscription baru awal Rp0.
 - API key/private key: tidak dimasukkan. Private key/signer di luar scope. Modal, batas risiko, provider/paket belum ditetapkan.
 - Pemeriksaan paket: struktur Markdown, referensi internal, dan isi ZIP diperiksa; bukan tes aplikasi.
