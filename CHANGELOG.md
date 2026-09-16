@@ -1,5 +1,9 @@
 # Changelog
 
+## M3 — 2026-09-16
+- Menambahkan filter universe point-in-time, security evidence fail-closed, dan audit keputusan entry.
+- 27/27 tes lulus pada PostgreSQL lokal; tidak ada quote, signer, atau transaksi.
+
 ## M2.4 — 2026-09-15
 - Menambahkan assessment freshness/field wajib dan rekonsiliasi raw event terbaru sesuai `as_of`.
 - 17 tes lulus pada PostgreSQL lokal; scheduler, retry loop, WebSocket, dan transaksi tidak ditambahkan.

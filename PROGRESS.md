@@ -1,10 +1,10 @@
 # Progress — source of truth status tugas
 
 ## Ringkasan
-- Selesai: **7/40 = 17,5%**
-- Milestone selesai: **1/13**
-- Aktif/berikut: **M3.1 Universe/filter**
-- Bukti terakhir: 17 tes Python 3.12/PostgreSQL lokal lulus.
+- Selesai: **10/40 = 25,0%**
+- Milestone selesai: **2/13**
+- Aktif/berikut: **M4.1 Fitur/warm-up**
+- Bukti terakhir: 27 tes Python 3.12/PostgreSQL lokal lulus.
 - Hambatan: Pyright Serena belum mengikuti `.venv` untuk Psycopg; runtime/test lulus.
 
 Status: `[x]=SELESAI`, `[~]=DIKERJAKAN`, `[ ]=BELUM_MULAI`, `[!]=TERHAMBAT`, `[R]=DIBUKA_KEMBALI`.
@@ -20,7 +20,10 @@ Satu task SELESAI hanya bila acceptance criteria + tes wajib punya bukti di `doc
   - [x] M2.2 Dedup/timestamps — 9 tes total; detail `docs/tasks/CURRENT.md`
   - [x] M2.3 Adapter Birdeye — 13 tes; `ac17ca5`, `2d0dd33`
   - [x] M2.4 Quality/reconciliation feed — 17 tes; detail `docs/tasks/CURRENT.md`
-- M3 — Discovery/security: [ ] M3.1 Universe/filter; [ ] M3.2 Security adapter; [ ] M3.3 UNKNOWN gate/audit
+- M3 — Discovery/security — **DONE; gate LULUS**
+  - [x] M3.1 Universe/filter — `10b8669`
+  - [x] M3.2 Security adapter — `263f024`
+  - [x] M3.3 UNKNOWN gate/audit — `f580f90`; 27 tes
 - M4 — Quant/baseline: [ ] M4.1 Features/warm-up; [ ] M4.2 Signal/expiry; [ ] M4.3 Deterministic replay
 - M5 — Risk/exit: [ ] M5.1 Sizing/exposure; [ ] M5.2 Reservation; [ ] M5.3 Exit/kill switch
 - M6 — Ledger/simulator: [ ] M6.1 Intent/attempt; [ ] M6.2 State machine; [ ] M6.3 Restart/reconciliation
