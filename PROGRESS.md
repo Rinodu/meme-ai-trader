@@ -4,9 +4,9 @@ Versi checklist: 1.0. Kondisi awal: belum ada subtugas implementasi yang selesai
 
 ## Ringkasan
 
-- Progres implementasi: **22/40 subtugas = 55,0%**.
+- Progres implementasi: **23/40 subtugas = 57,5%**.
 - Milestone selesai: **7/13**.
-- Tugas berikut: M8.1, freeze experiment.
+- Tugas berikut: M8.2, walk-forward/holdout.
 - Hambatan yang diketahui: acceptance scope baru belum memetakan source legacy secara per-subtugas.
 - Audit source: 55 tes lulus pada PostgreSQL lokal; guard no-execution `51113e9` dipush. Ini belum mengubah hitungan 0/40 tanpa resertifikasi acceptance tiap subtugas.
 
@@ -247,14 +247,14 @@ Gate milestone: Tidak memakai future data; fill dan biaya eksplisit. Bukti gate:
 
 ### M8 — Validasi strategi
 
-Status milestone: BELUM_MULAI. Progres: 0/3 (0,0%). Gate: BELUM_DIPERIKSA.
+Status milestone: DIKERJAKAN. Progres: 1/3 (33,3%). Gate: BELUM_DIPERIKSA.
 
-- [ ] **M8.1 — Bekukan eksperimen** — BELUM_MULAI
-  - [ ] Acceptance criteria di catatan tugas terpenuhi.
-  - [ ] Pemeriksaan relevan lulus atau N/A beralasan.
-  - [ ] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
-  - [ ] Dokumentasi/status dan bukti diperbarui.
-  - Bukti: Tes belum; commit belum; push belum.
+- [x] **M8.1 — Bekukan eksperimen** — SELESAI
+  - [x] Acceptance criteria di catatan tugas terpenuhi.
+  - [x] Pemeriksaan relevan lulus.
+  - [x] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
+  - [x] Dokumentasi/status dan bukti diperbarui.
+  - Bukti: fingerprint eksperimen + no-execution 3/3; detail `docs/tasks/CURRENT.md`.
 
 - [ ] **M8.2 — Walk-forward/holdout** — BELUM_MULAI
   - [ ] Acceptance criteria di catatan tugas terpenuhi.
@@ -438,3 +438,4 @@ Satu baris per transisi bermakna; log lengkap tetap di catatan tugas. Jangan men
 | 2026-09-16 | M7.1 | BELUM_MULAI → SELESAI | Time replay lulus 10/10 | 20/40 = 50,0% |
 | 2026-09-16 | M7.2 | BELUM_MULAI → SELESAI | Cost model simulator lulus 3/3 | 21/40 = 52,5% |
 | 2026-09-16 | M7.3 | BELUM_MULAI → SELESAI | Label outcome simulator lulus 3/3 | 22/40 = 55,0% |
+| 2026-09-16 | M8.1 | BELUM_MULAI → SELESAI | Fingerprint eksperimen lulus 3/3 | 23/40 = 57,5% |
