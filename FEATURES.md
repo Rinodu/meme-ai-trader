@@ -20,5 +20,6 @@
 | PAPER-001 | Forward paper menghasilkan record tervalidasi tanpa jalur transaksi. | VERIFIED | `tests/test_paper.py` |
 | EXEC-QUOTE-001 | Quote lokal hanya usable bila route, nominal/min-output, dan usia valid. | VERIFIED | `tests/test_quotes.py` |
 | EXEC-SIM-001 | Payload lokal harus cocok dengan quote, signer, dan destination. | VERIFIED | `tests/test_simulation.py` |
+| EXEC-SIGNER-001 | Boundary signer fail-closed dan tunduk pada `HALT_SIGNING`. | VERIFIED | `tests/test_signer.py` |
 
 Kontrak backtest dan execution eksternal masih PLANNED di `ROADMAP.md`.
