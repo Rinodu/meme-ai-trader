@@ -14,5 +14,6 @@
 | BACKTEST-003 | Label TP/SL/time-out dan status route/data tidak tersedia bersifat eksplisit. | VERIFIED | `tests/test_labels.py` |
 | VALID-001 | Version dan parameter eksperimen memiliki fingerprint stabil. | VERIFIED | `tests/test_experiments.py` |
 | VALID-002 | Split kronologis memisahkan development, validation, dan holdout. | VERIFIED | `tests/test_validation.py` |
+| VALID-003 | Report metrik tidak mengklaim PASS tanpa threshold evaluasi. | VERIFIED | `tests/test_reporting.py` |
 
 Kontrak backtest dan execution eksternal masih PLANNED di `ROADMAP.md`.

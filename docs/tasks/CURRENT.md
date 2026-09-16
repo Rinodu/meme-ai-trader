@@ -1,3 +1,3 @@
-# M8.2 — Walk-forward dan holdout
+# M8.3 — Stress/report
 
-Status: SELESAI pada 2026-09-16. Split kronologis development/validation/holdout menjaga holdout terpisah dari tuning. Suite penuh 46/46 lulus pada PostgreSQL lokal. Berikutnya M8.3 stress/report.
+Status: SELESAI pada 2026-09-16. Metrik expectancy, profit factor, dan drawdown selalu berstatus `INCONCLUSIVE` tanpa acceptance threshold. Suite penuh 47/47 lulus pada PostgreSQL lokal. Berikutnya M9.1 allowlist/commands.
