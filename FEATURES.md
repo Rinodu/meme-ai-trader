@@ -16,5 +16,6 @@
 | VALID-002 | Split kronologis memisahkan development, validation, dan holdout. | VERIFIED | `tests/test_validation.py` |
 | VALID-003 | Report metrik tidak mengklaim PASS tanpa threshold evaluasi. | VERIFIED | `tests/test_reporting.py` |
 | TELEGRAM-001 | Sender dan command harus berada pada allowlist eksplisit. | VERIFIED | `tests/test_telegram.py` |
+| TELEGRAM-002 | Approval terikat parameter, expiry, dan hanya dapat dipakai sekali. | VERIFIED | `tests/test_telegram.py` |
 
 Kontrak backtest dan execution eksternal masih PLANNED di `ROADMAP.md`.
