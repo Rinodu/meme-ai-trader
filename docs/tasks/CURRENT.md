@@ -1,8 +1,8 @@
-# M4.3 — Replay deterministik
+# M5.1 — Sizing/exposure simulator
 
 Status: SELESAI pada 2026-09-16.
 
-- Replay mengurutkan event berdasarkan `received_at`, membangun fitur point-in-time, dan menghasilkan keputusan sama untuk input/policy sama.
-- Tes: `uv run python -m unittest tests.test_replay tests.test_strategy tests.test_quant tests.test_no_execution` — 10/10 lulus.
+- Kalkulasi sizing hanya simulator: membatasi risk budget, position cap, portfolio cap, dan fee reserve; tidak membuat order/transaksi.
+- Tes: `uv run python -m unittest tests.test_risk tests.test_no_execution` — 3/3 lulus.
 
-Berikutnya: M5.1 sizing/exposure.
+Berikutnya: M5.2 reservation simulator.
