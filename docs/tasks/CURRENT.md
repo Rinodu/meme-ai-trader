@@ -1,9 +1,9 @@
-# M3.1 — Universe/filter
+# M3.2 — Security adapter
 
 Status: SELESAI pada 2026-09-16.
 
-- Filter kandidat memakai data point-in-time, memerlukan chain/mint/pool/token program yang diizinkan, feed siap, umur token valid, serta ambang likuiditas/volume.
-- Penolakan bersifat eksplisit dan deterministik; nilai tepat pada ambang diterima.
-- Tes: `uv run python -m unittest tests.test_discovery tests.test_feed` — 5/5 lulus.
+- Evidence security read-only menghasilkan `PASS`, `REJECT`, atau `UNKNOWN`; hanya `PASS` mengizinkan entry.
+- Evidence hilang, stale, parsial, invalid, dari masa depan, atau provider error bersifat fail-closed (`UNKNOWN`).
+- Tes: `uv run python -m unittest tests.test_security tests.test_discovery tests.test_feed` — 9/9 lulus.
 
-Berikutnya: M3.2 security adapter.
+Berikutnya: M3.3 gate `UNKNOWN` dan audit keputusan.
