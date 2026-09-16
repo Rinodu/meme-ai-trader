@@ -4,9 +4,9 @@ Versi checklist: 1.0. Kondisi awal: belum ada subtugas implementasi yang selesai
 
 ## Ringkasan
 
-- Progres implementasi: **24/40 subtugas = 60,0%**.
-- Milestone selesai: **7/13**.
-- Tugas berikut: M8.3, stress/report.
+- Progres implementasi: **25/40 subtugas = 62,5%**.
+- Milestone selesai: **8/13**.
+- Tugas berikut: M9.1, Telegram allowlist/commands.
 - Hambatan yang diketahui: acceptance scope baru belum memetakan source legacy secara per-subtugas.
 - Audit source: 55 tes lulus pada PostgreSQL lokal; guard no-execution `51113e9` dipush. Ini belum mengubah hitungan 0/40 tanpa resertifikasi acceptance tiap subtugas.
 
@@ -247,7 +247,7 @@ Gate milestone: Tidak memakai future data; fill dan biaya eksplisit. Bukti gate:
 
 ### M8 — Validasi strategi
 
-Status milestone: DIKERJAKAN. Progres: 2/3 (66,7%). Gate: BELUM_DIPERIKSA.
+Status milestone: SELESAI. Progres: 3/3 (100%). Gate: LULUS.
 
 - [x] **M8.1 — Bekukan eksperimen** — SELESAI
   - [x] Acceptance criteria di catatan tugas terpenuhi.
@@ -263,12 +263,12 @@ Status milestone: DIKERJAKAN. Progres: 2/3 (66,7%). Gate: BELUM_DIPERIKSA.
   - [x] Dokumentasi/status dan bukti diperbarui.
   - Bukti: split holdout + no-execution 3/3; detail `docs/tasks/CURRENT.md`.
 
-- [ ] **M8.3 — Stress/report** — BELUM_MULAI
-  - [ ] Acceptance criteria di catatan tugas terpenuhi.
-  - [ ] Pemeriksaan relevan lulus atau N/A beralasan.
-  - [ ] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
-  - [ ] Dokumentasi/status dan bukti diperbarui.
-  - Bukti: Tes belum; commit belum; push belum.
+- [x] **M8.3 — Stress/report** — SELESAI
+  - [x] Acceptance criteria di catatan tugas terpenuhi.
+  - [x] Pemeriksaan relevan lulus.
+  - [x] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
+  - [x] Dokumentasi/status dan bukti diperbarui.
+  - Bukti: report inconclusive + no-execution 3/3; detail `docs/tasks/CURRENT.md`.
 
 Gate milestone: Hasil dan ketidakpastian tercatat; boleh INCONCLUSIVE. Bukti gate: belum.
 
@@ -440,3 +440,4 @@ Satu baris per transisi bermakna; log lengkap tetap di catatan tugas. Jangan men
 | 2026-09-16 | M7.3 | BELUM_MULAI → SELESAI | Label outcome simulator lulus 3/3 | 22/40 = 55,0% |
 | 2026-09-16 | M8.1 | BELUM_MULAI → SELESAI | Fingerprint eksperimen lulus 3/3 | 23/40 = 57,5% |
 | 2026-09-16 | M8.2 | BELUM_MULAI → SELESAI | Split holdout lulus 3/3 | 24/40 = 60,0% |
+| 2026-09-16 | M8.3 | BELUM_MULAI → SELESAI | Report inconclusive lulus 3/3 | 25/40 = 62,5% |
