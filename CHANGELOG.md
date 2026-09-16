@@ -1,5 +1,9 @@
 # Changelog
 
+## M8.1 — 2026-09-16
+- Menambahkan fingerprint stabil untuk version dan parameter eksperimen.
+- 45/45 tes lulus pada PostgreSQL lokal; tanpa tuning otomatis atau akses holdout.
+
 ## M7.3 — 2026-09-16
 - Menambahkan label TP/SL/time-out dan status no-route/data insufficient yang eksplisit.
 - 44/44 tes lulus pada PostgreSQL lokal; tanpa fill atau transaksi.

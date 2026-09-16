@@ -9,9 +9,9 @@
 | M5 Risk/exit | sizing, reservations, exit | DONE |
 | M6 Ledger/simulator | intents, state, reconciliation | DONE |
 | M7 Backtest | replay, costs, labels | DONE |
-| M8 Validation | experiment, walk-forward, stress | PLANNED |
+| M8 Validation | experiment, walk-forward, stress | IN_PROGRESS (M8.1 done) |
 | M9 Telegram/paper | allowlist, approval, paper | PLANNED |
 | M10 Execution | quote, simulation, signer boundary | PLANNED |
 | M11–M13 | limited live, add-ons, full automation | PLANNED |
 
-M7 selesai; M8.1 freeze experiment adalah tugas berikutnya. Status/hitungan resmi ada di `PROGRESS.md`.
+M8.1 selesai; M8.2 walk-forward/holdout adalah tugas berikutnya. Status/hitungan resmi ada di `PROGRESS.md`.
