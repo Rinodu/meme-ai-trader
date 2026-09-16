@@ -4,9 +4,9 @@ Versi checklist: 1.0. Kondisi awal: belum ada subtugas implementasi yang selesai
 
 ## Ringkasan
 
-- Progres implementasi: **15/40 subtugas = 37,5%**.
-- Milestone selesai: **4/13**.
-- Tugas berikut: M5.3, exit/kill switch.
+- Progres implementasi: **16/40 subtugas = 40,0%**.
+- Milestone selesai: **5/13**.
+- Tugas berikut: M6.1, intent/attempt simulator.
 - Hambatan yang diketahui: acceptance scope baru belum memetakan source legacy secara per-subtugas.
 - Audit source: 55 tes lulus pada PostgreSQL lokal; guard no-execution `51113e9` dipush. Ini belum mengubah hitungan 0/40 tanpa resertifikasi acceptance tiap subtugas.
 
@@ -166,7 +166,7 @@ Gate milestone: Keputusan dapat diulang dengan input/config sama. Bukti gate: be
 
 ### M5 — Risk dan exit
 
-Status milestone: DIKERJAKAN. Progres: 2/3 (66,7%). Gate: BELUM_DIPERIKSA.
+Status milestone: SELESAI. Progres: 3/3 (100%). Gate: LULUS.
 
 - [x] **M5.1 — Sizing/exposure** — SELESAI
   - [x] Acceptance criteria di catatan tugas terpenuhi.
@@ -182,12 +182,12 @@ Status milestone: DIKERJAKAN. Progres: 2/3 (66,7%). Gate: BELUM_DIPERIKSA.
   - [x] Dokumentasi/status dan bukti diperbarui.
   - Bukti: reservation atomik/idempoten + no-execution 14/14 PostgreSQL; detail `docs/tasks/CURRENT.md`.
 
-- [ ] **M5.3 — Exit/kill switch** — BELUM_MULAI
-  - [ ] Acceptance criteria di catatan tugas terpenuhi.
-  - [ ] Pemeriksaan relevan lulus atau N/A beralasan.
-  - [ ] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
-  - [ ] Dokumentasi/status dan bukti diperbarui.
-  - Bukti: Tes belum; commit belum; push belum.
+- [x] **M5.3 — Exit/kill switch** — SELESAI
+  - [x] Acceptance criteria di catatan tugas terpenuhi.
+  - [x] Pemeriksaan relevan lulus.
+  - [x] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
+  - [x] Dokumentasi/status dan bukti diperbarui.
+  - Bukti: control legacy simulator + no-execution 3/3; detail `docs/tasks/CURRENT.md`.
 
 Gate milestone: Batas dan konkurensi diuji; pause mempertahankan exit. Bukti gate: belum.
 
@@ -431,3 +431,4 @@ Satu baris per transisi bermakna; log lengkap tetap di catatan tugas. Jangan men
 | 2026-09-16 | M4.3 | BELUM_MULAI → SELESAI | Replay deterministik lulus 10/10 | 13/40 = 32,5% |
 | 2026-09-16 | M5.1 | BELUM_MULAI → SELESAI | Sizing simulator dan no-execution lulus 3/3 | 14/40 = 35,0% |
 | 2026-09-16 | M5.2 | BELUM_MULAI → SELESAI | Reservation simulator PostgreSQL lulus 14/14 | 15/40 = 37,5% |
+| 2026-09-16 | M5.3 | BELUM_MULAI → SELESAI | Control simulator dan no-execution lulus 3/3 | 16/40 = 40,0% |
