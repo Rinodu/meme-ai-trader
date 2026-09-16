@@ -4,9 +4,9 @@ Versi checklist: 1.0. Kondisi awal: belum ada subtugas implementasi yang selesai
 
 ## Ringkasan
 
-- Progres implementasi: **21/40 subtugas = 52,5%**.
-- Milestone selesai: **6/13**.
-- Tugas berikut: M7.3, label TP/SL/no-route.
+- Progres implementasi: **22/40 subtugas = 55,0%**.
+- Milestone selesai: **7/13**.
+- Tugas berikut: M8.1, freeze experiment.
 - Hambatan yang diketahui: acceptance scope baru belum memetakan source legacy secara per-subtugas.
 - Audit source: 55 tes lulus pada PostgreSQL lokal; guard no-execution `51113e9` dipush. Ini belum mengubah hitungan 0/40 tanpa resertifikasi acceptance tiap subtugas.
 
@@ -220,7 +220,7 @@ Gate milestone: Timeout/retry/restart tidak menggandakan order/fill. Bukti gate:
 
 ### M7 — Backtest dan label
 
-Status milestone: DIKERJAKAN. Progres: 2/3 (66,7%). Gate: BELUM_DIPERIKSA.
+Status milestone: SELESAI. Progres: 3/3 (100%). Gate: LULUS.
 
 - [x] **M7.1 — Replay waktu** — SELESAI
   - [x] Acceptance criteria di catatan tugas terpenuhi.
@@ -236,12 +236,12 @@ Status milestone: DIKERJAKAN. Progres: 2/3 (66,7%). Gate: BELUM_DIPERIKSA.
   - [x] Dokumentasi/status dan bukti diperbarui.
   - Bukti: cost model simulator + no-execution 3/3; detail `docs/tasks/CURRENT.md`.
 
-- [ ] **M7.3 — TP/SL/no-route labels** — BELUM_MULAI
-  - [ ] Acceptance criteria di catatan tugas terpenuhi.
-  - [ ] Pemeriksaan relevan lulus atau N/A beralasan.
-  - [ ] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
-  - [ ] Dokumentasi/status dan bukti diperbarui.
-  - Bukti: Tes belum; commit belum; push belum.
+- [x] **M7.3 — TP/SL/no-route labels** — SELESAI
+  - [x] Acceptance criteria di catatan tugas terpenuhi.
+  - [x] Pemeriksaan relevan lulus.
+  - [x] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
+  - [x] Dokumentasi/status dan bukti diperbarui.
+  - Bukti: label outcome simulator + no-execution 3/3; detail `docs/tasks/CURRENT.md`.
 
 Gate milestone: Tidak memakai future data; fill dan biaya eksplisit. Bukti gate: belum.
 
@@ -437,3 +437,4 @@ Satu baris per transisi bermakna; log lengkap tetap di catatan tugas. Jangan men
 | 2026-09-16 | M6.3 | BELUM_MULAI → SELESAI | Restart/reconciliation simulator lulus 14/14 | 19/40 = 47,5% |
 | 2026-09-16 | M7.1 | BELUM_MULAI → SELESAI | Time replay lulus 10/10 | 20/40 = 50,0% |
 | 2026-09-16 | M7.2 | BELUM_MULAI → SELESAI | Cost model simulator lulus 3/3 | 21/40 = 52,5% |
+| 2026-09-16 | M7.3 | BELUM_MULAI → SELESAI | Label outcome simulator lulus 3/3 | 22/40 = 55,0% |
