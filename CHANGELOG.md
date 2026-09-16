@@ -1,5 +1,9 @@
 # Changelog
 
+## M7.3 — 2026-09-16
+- Menambahkan label TP/SL/time-out dan status no-route/data insufficient yang eksplisit.
+- 44/44 tes lulus pada PostgreSQL lokal; tanpa fill atau transaksi.
+
 ## M7.2 — 2026-09-16
 - Menambahkan cost model basis point untuk fee, slippage, dan impact tanpa parameter default.
 - 43/43 tes lulus pada PostgreSQL lokal; tanpa fill atau transaksi.
