@@ -1,11 +1,9 @@
-# M2.1 — Schema/raw repository Signal Bot
+# M2.2 — Dedup/timestamps Signal Bot
 
 Status: SELESAI pada 2026-09-16.
 
-## Bukti
+- Dedup memakai `event_id` maupun identitas provider; konflik tidak mengubah raw data.
+- `event_time` dan `received_at` dipisahkan, timezone-aware, serta event terlambat tidak terlihat sebelum diterima.
+- Tes: `uv run python -m unittest tests.test_raw_events_integration` — 12/12 lulus pada PostgreSQL lokal.
 
-- PostgreSQL `raw_events` menyimpan identitas sumber, chain/mint/pool, waktu event/terima, harga, likuiditas, volume, quality dan payload mentah.
-- Migration bersifat additive dan repository menormalisasi timestamp UTC.
-- Tes integrasi raw repository berjalan melalui suite penuh 55/55 pada PostgreSQL lokal.
-
-Berikutnya M2.2 menutup dedup dan timestamp sebagai kontrak Signal Bot.
+Berikutnya M2.3 adapter Birdeye read-only.

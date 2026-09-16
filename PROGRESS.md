@@ -4,9 +4,9 @@ Versi checklist: 1.0. Kondisi awal: belum ada subtugas implementasi yang selesai
 
 ## Ringkasan
 
-- Progres implementasi: **4/40 subtugas = 10,0%**.
+- Progres implementasi: **5/40 subtugas = 12,5%**.
 - Milestone selesai: **1/13**.
-- Tugas berikut: M2.2, dedup/timestamps Signal Bot.
+- Tugas berikut: M2.3, adapter Birdeye read-only.
 - Hambatan yang diketahui: acceptance scope baru belum memetakan source legacy secara per-subtugas.
 - Audit source: 55 tes lulus pada PostgreSQL lokal; guard no-execution `51113e9` dipush. Ini belum mengubah hitungan 0/40 tanpa resertifikasi acceptance tiap subtugas.
 
@@ -78,7 +78,7 @@ Gate milestone: Mode aman, invalid config ditolak, runtime/setup terdokumentasi.
 
 ### M2 — Database dan collector
 
-Status milestone: DIKERJAKAN. Progres: 1/4 (25,0%). Gate: BELUM_DIPERIKSA.
+Status milestone: DIKERJAKAN. Progres: 2/4 (50,0%). Gate: BELUM_DIPERIKSA.
 
 - [x] **M2.1 — Schema/raw repository** — SELESAI
   - [x] Acceptance criteria di catatan tugas terpenuhi.
@@ -87,12 +87,12 @@ Status milestone: DIKERJAKAN. Progres: 1/4 (25,0%). Gate: BELUM_DIPERIKSA.
   - [x] Dokumentasi/status dan bukti diperbarui.
   - Bukti: raw repository integration; suite 55/55; detail `docs/tasks/CURRENT.md`.
 
-- [ ] **M2.2 — Dedup/timestamps** — BELUM_MULAI
-  - [ ] Acceptance criteria di catatan tugas terpenuhi.
-  - [ ] Pemeriksaan relevan lulus atau N/A beralasan.
-  - [ ] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
-  - [ ] Dokumentasi/status dan bukti diperbarui.
-  - Bukti: Tes belum; commit belum; push belum.
+- [x] **M2.2 — Dedup/timestamps** — SELESAI
+  - [x] Acceptance criteria di catatan tugas terpenuhi.
+  - [x] Pemeriksaan relevan lulus.
+  - [x] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
+  - [x] Dokumentasi/status dan bukti diperbarui.
+  - Bukti: integration 12/12 PostgreSQL; detail `docs/tasks/CURRENT.md`.
 
 - [ ] **M2.3 — Adapter Birdeye** — BELUM_MULAI
   - [ ] Acceptance criteria di catatan tugas terpenuhi.
@@ -420,3 +420,4 @@ Satu baris per transisi bermakna; log lengkap tetap di catatan tugas. Jangan men
 | 2026-09-16 | M1.2 | BELUM_MULAI → SELESAI | Tiga mode Signal Bot dan startup diverifikasi | 2/40 = 5,0% |
 | 2026-09-16 | M1.3 | BELUM_MULAI → SELESAI | Config gate dan guard no-execution lulus dalam suite 55/55 | 3/40 = 7,5% |
 | 2026-09-16 | M2.1 | BELUM_MULAI → SELESAI | Schema/raw repository teruji di PostgreSQL lokal | 4/40 = 10,0% |
+| 2026-09-16 | M2.2 | BELUM_MULAI → SELESAI | Dedup, UTC, dan late-event visibility lulus 12/12 | 5/40 = 12,5% |
