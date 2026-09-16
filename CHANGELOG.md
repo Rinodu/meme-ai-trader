@@ -1,5 +1,9 @@
 # Changelog
 
+## M4.3 — 2026-09-16
+- Menambahkan replay deterministik dari event point-in-time dan signal policy yang sama.
+- 35/35 tes lulus pada PostgreSQL lokal; tanpa fill atau transaksi.
+
 ## M4.2 — 2026-09-16
 - Menambahkan baseline signal dari fitur ready dengan threshold dan expiry policy eksplisit.
 - 34/34 tes lulus pada PostgreSQL lokal; tidak ada risk atau transaksi.
