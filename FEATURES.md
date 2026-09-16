@@ -7,6 +7,6 @@
 | DATA-002 | `event_time` dan `received_at` terpisah; nol tidak sama dengan data hilang; feed terbaru dinilai point-in-time. | VERIFIED | Tes M2.2–M2.4 |
 | DISC-001 | Universe kandidat dievaluasi deterministik, point-in-time, dan alasan penolakan tersimpan. | VERIFIED | `tests/test_discovery.py` |
 | SEC-001 | Security `UNKNOWN`/`REJECT` memblokir entry dan keputusan dapat diaudit. | VERIFIED | `tests/test_security.py`, `tests/test_entry_gate.py` |
-| STRAT-001 | Snapshot fitur point-in-time/warm-up dan signal threshold ber-expiry deterministik. | IN_PROGRESS | `tests/test_quant.py`, `tests/test_strategy.py` |
+| STRAT-001 | Fitur point-in-time/warm-up, signal expiry, dan replay deterministik. | VERIFIED | Tes M4.1–M4.3 |
 
 Kontrak strategy, risk, dan execution masih PLANNED di `ROADMAP.md`.
