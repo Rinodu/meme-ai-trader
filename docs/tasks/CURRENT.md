@@ -1,12 +1,11 @@
-# M1.2 — Kerangka/config Signal Bot
+# M1.3 — Gate konfigurasi Signal Bot
 
 Status: SELESAI pada 2026-09-16.
 
-## Lingkup dan bukti
+## Bukti
 
-- Runtime menerima hanya `collect_only`, `replay`, dan `paper_signal`; mode live ditolak.
-- Startup `python -m meme_ai_trader` berhasil untuk ketiga mode tanpa credential trading.
-- `.env.example` mendokumentasikan mode aman dan hanya key data Birdeye opsional.
-- Tes: `uv run python -m unittest tests.test_config` — 5/5 lulus.
+- Config menerima hanya `collect_only`, `replay`, dan `paper_signal`; mode live ditolak.
+- Guard `tests/test_no_execution.py` menegaskan execution selalu disabled dan runtime tidak memiliki API private-key/wallet/submit.
+- Suite: `uv run python -m unittest discover -s tests` — 55/55 lulus pada PostgreSQL lokal.
 
-Berikutnya M1.3 menutup gate konfigurasi Signal Bot dan regresi no-execution.
+M1 selesai. Berikutnya M2.1 schema/raw repository perlu dipetakan terhadap scope Signal Bot.

@@ -4,7 +4,7 @@ Semua PLANNED; path tes dan implementasi diisi setelah benar-benar tersedia. ID 
 
 | ID | Tahap | Perilaku wajib | Status | Implementasi / bukti tes |
 | --- | --- | --- | --- | --- |
-| CFG-001 | M1 | Default collect_only; mode tidak didukung ditolak; credential hanya wajib pada fitur aktif | PLANNED | Belum tersedia |
+| CFG-001 | M1 | Default collect_only; mode tidak didukung ditolak; credential hanya wajib pada fitur aktif | VERIFIED | `tests/test_config.py`, `tests/test_no_execution.py`; suite 55/55 |
 | DATA-001 | M2 | Event yang sama tidak tersimpan dua kali | PLANNED | Belum tersedia |
 | DATA-002 | M2 | event_time dan received_at dipisah; null tidak disamakan nol | PLANNED | Belum tersedia |
 | DISC-001 | M3 | Kandidat ditolak dan alasan tetap tersimpan | PLANNED | Belum tersedia |
