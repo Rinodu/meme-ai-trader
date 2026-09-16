@@ -11,6 +11,7 @@ from meme_ai_trader.adapters.birdeye import collect_snapshot, raw_event
 from meme_ai_trader.database.feed import reconcile
 from meme_ai_trader.database.raw_events import RawEventRepository, migrate
 from meme_ai_trader.quant import for_mint
+from meme_ai_trader.database.reservations import InsufficientFunds, ReservationRepository
 
 
 @unittest.skipUnless(os.environ.get("PGPASSWORD"), "PGPASSWORD is required")
@@ -210,3 +211,13 @@ class RawEventRepositoryTests(unittest.TestCase):
         features = for_mint(repo, "solana-mainnet", "mint-fixture", now, 2)
         self.assertTrue(features.ready)
         self.assertEqual(Decimal("1"), features.price_return)
+
+    def test_atomic_reservation_and_idempotent_release(self):
+        self.connection.execute("INSERT INTO accounts VALUES ('paper', 100)")
+        repo = ReservationRepository(self.connection)
+        reservation = repo.reserve("paper", Decimal("60"))
+        with self.assertRaises(InsufficientFunds):
+            repo.reserve("paper", Decimal("60"))
+        self.assertTrue(repo.release(reservation))
+        self.assertFalse(repo.release(reservation))
+        self.assertEqual(Decimal("100"), self.connection.execute("SELECT available_balance FROM accounts").fetchone()[0])
