@@ -12,6 +12,7 @@ from meme_ai_trader.database.feed import reconcile
 from meme_ai_trader.database.raw_events import RawEventRepository, migrate
 from meme_ai_trader.quant import for_mint
 from meme_ai_trader.database.reservations import InsufficientFunds, ReservationRepository
+from meme_ai_trader.database.ledger import Ledger
 
 
 @unittest.skipUnless(os.environ.get("PGPASSWORD"), "PGPASSWORD is required")
@@ -221,3 +222,14 @@ class RawEventRepositoryTests(unittest.TestCase):
         self.assertTrue(repo.release(reservation))
         self.assertFalse(repo.release(reservation))
         self.assertEqual(Decimal("100"), self.connection.execute("SELECT available_balance FROM accounts").fetchone()[0])
+
+    def test_intent_and_attempt_have_separate_ids(self):
+        self.connection.execute("INSERT INTO accounts VALUES ('paper', 100)")
+        reservation = ReservationRepository(self.connection).reserve("paper", Decimal("10"))
+        ledger = Ledger(self.connection)
+        intent = ledger.create_intent(reservation)
+        attempt = ledger.create_attempt(intent)
+        self.assertNotEqual(intent, attempt)
+        self.assertEqual(("CREATED", "CREATED"), self.connection.execute(
+            "SELECT i.status, a.status FROM execution_intents i JOIN execution_attempts a USING (intent_id) WHERE a.attempt_id = %s", (attempt,)
+        ).fetchone())

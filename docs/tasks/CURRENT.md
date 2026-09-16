@@ -1,3 +1,3 @@
-# M5.3 — Exit dan kill switch
+# M6.1 — Intent dan attempt
 
-Status: SELESAI pada 2026-09-16. Mode pause/reduce memblokir entry tetapi mempertahankan exit; `HALT_SIGNING` memblokir signing. Suite penuh 38/38 lulus pada PostgreSQL lokal. M5 selesai; berikutnya M6.1 intent/attempt.
+Status: SELESAI pada 2026-09-16. Ledger persisten memisahkan intent dari attempt; tidak ada signing atau submit. Suite penuh 39/39 lulus pada PostgreSQL lokal. Berikutnya M6.2 state machine.
