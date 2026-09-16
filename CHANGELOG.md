@@ -1,5 +1,9 @@
 # Changelog
 
+## M6.3 — 2026-09-16
+- Menambahkan daftar intent/attempt pending untuk restart dan menahan replacement attempt sampai reconciliation.
+- 41/41 tes lulus pada PostgreSQL lokal; tidak ada RPC, signing, atau submit.
+
 ## M6.2 — 2026-09-16
 - Menambahkan lifecycle tervalidasi untuk intent/attempt dan penolakan transisi terminal.
 - 40/40 tes lulus pada PostgreSQL lokal; tidak ada signing atau submit.

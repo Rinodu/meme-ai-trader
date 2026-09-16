@@ -247,3 +247,13 @@ class RawEventRepositoryTests(unittest.TestCase):
         ledger.transition_attempt(attempt, "FINALIZED")
         with self.assertRaises(ValueError):
             ledger.transition_attempt(attempt, "SUBMITTED")
+
+    def test_restart_lists_pending_work_and_blocks_replacement_attempt(self):
+        self.connection.execute("INSERT INTO accounts VALUES ('paper', 100)")
+        ledger = Ledger(self.connection)
+        intent = ledger.create_intent(ReservationRepository(self.connection).reserve("paper", Decimal("10")))
+        attempt = ledger.create_attempt(intent)
+        self.assertEqual([(attempt, intent, "CREATED")], ledger.pending_attempts())
+        self.assertEqual([(intent, self.connection.execute("SELECT reservation_id FROM execution_intents WHERE intent_id = %s", (intent,)).fetchone()[0], "CREATED")], ledger.pending_intents())
+        with self.assertRaises(ValueError):
+            ledger.create_attempt(intent)

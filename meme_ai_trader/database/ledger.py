@@ -21,9 +21,17 @@ class Ledger:
         self.connection.execute("INSERT INTO execution_intents (intent_id, reservation_id, status) VALUES (%s, %s, 'CREATED')", (intent_id, reservation_id))
         return intent_id
     def create_attempt(self, intent_id: UUID) -> UUID:
+        if self.connection.execute("SELECT 1 FROM execution_attempts WHERE intent_id = %s AND status IN ('CREATED', 'SUBMITTED', 'CONFIRMED', 'UNKNOWN')", (intent_id,)).fetchone():
+            raise ValueError("pending attempt must be reconciled first")
         attempt_id = uuid4()
         self.connection.execute("INSERT INTO execution_attempts (attempt_id, intent_id, status) VALUES (%s, %s, 'CREATED')", (attempt_id, intent_id))
         return attempt_id
+
+    def pending_intents(self) -> list[tuple[UUID, UUID, str]]:
+        return list(self.connection.execute("SELECT intent_id, reservation_id, status FROM execution_intents WHERE status IN ('CREATED', 'READY', 'SUBMITTED', 'CONFIRMED', 'UNKNOWN') ORDER BY created_at"))
+
+    def pending_attempts(self) -> list[tuple[UUID, UUID, str]]:
+        return list(self.connection.execute("SELECT attempt_id, intent_id, status FROM execution_attempts WHERE status IN ('CREATED', 'SUBMITTED', 'CONFIRMED', 'UNKNOWN') ORDER BY created_at"))
 
     def transition_intent(self, intent_id: UUID, status: str) -> None:
         self._transition("execution_intents", "intent_id", intent_id, status, self._intent_transitions)
