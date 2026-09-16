@@ -1,8 +1,8 @@
-# M4.1 — Fitur/warm-up point-in-time
+# M4.2 — Sinyal dan expiry
 
 Status: SELESAI pada 2026-09-16.
 
-- Snapshot fitur hanya memakai event yang tersedia pada `as_of`; warm-up kurang dan baseline nol gagal eksplisit, sementara data optional hilang tetap `None`.
-- Tes: `uv run python -m unittest tests.test_quant tests.test_raw_events_integration` — 15/15 lulus pada PostgreSQL lokal.
+- Sinyal deterministik hanya eligible dari fitur siap dan return yang memenuhi ambang; expiry UTC tepat pada batas tidak lagi aktif.
+- Tes: `uv run python -m unittest tests.test_strategy tests.test_quant tests.test_no_execution` — 8/8 lulus.
 
-Berikutnya: M4.2 sinyal dan expiry.
+Berikutnya: M4.3 replay deterministik.
