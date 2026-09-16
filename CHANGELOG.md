@@ -1,5 +1,9 @@
 # Changelog
 
+## M9.3 — 2026-09-16
+- Menambahkan forward paper sebagai record tervalidasi tanpa transport atau submit.
+- 50/50 tes lulus pada PostgreSQL lokal.
+
 ## M9.2 — 2026-09-16
 - Menambahkan approval one-time dengan binding intent/token/side/nominal dan TTL.
 - 49/49 tes lulus pada PostgreSQL lokal; tanpa transport Telegram atau signing.

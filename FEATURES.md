@@ -17,5 +17,6 @@
 | VALID-003 | Report metrik tidak mengklaim PASS tanpa threshold evaluasi. | VERIFIED | `tests/test_reporting.py` |
 | TELEGRAM-001 | Sender dan command harus berada pada allowlist eksplisit. | VERIFIED | `tests/test_telegram.py` |
 | TELEGRAM-002 | Approval terikat parameter, expiry, dan hanya dapat dipakai sekali. | VERIFIED | `tests/test_telegram.py` |
+| PAPER-001 | Forward paper menghasilkan record tervalidasi tanpa jalur transaksi. | VERIFIED | `tests/test_paper.py` |
 
 Kontrak backtest dan execution eksternal masih PLANNED di `ROADMAP.md`.
