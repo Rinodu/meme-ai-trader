@@ -1,9 +1,9 @@
-# M2.4 — Quality dan rekonsiliasi feed
+# M3.1 — Universe/filter
 
 Status: SELESAI pada 2026-09-16.
 
-- Feed hanya siap jika snapshot tersedia, fresh, dan `price` serta `liquidity` tersedia; nilai nol tetap sah.
-- Rekonsiliasi membaca raw event terbaru yang tersedia pada `as_of`, sehingga data masa depan tidak bocor.
-- Tes: `uv run python -m unittest tests.test_feed tests.test_birdeye tests.test_raw_events_integration` — 17/17 lulus pada PostgreSQL lokal.
+- Filter kandidat memakai data point-in-time, memerlukan chain/mint/pool/token program yang diizinkan, feed siap, umur token valid, serta ambang likuiditas/volume.
+- Penolakan bersifat eksplisit dan deterministik; nilai tepat pada ambang diterima.
+- Tes: `uv run python -m unittest tests.test_discovery tests.test_feed` — 5/5 lulus.
 
-Berikutnya: M3.1 universe/filter.
+Berikutnya: M3.2 security adapter.

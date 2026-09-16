@@ -4,9 +4,9 @@ Versi checklist: 1.0. Kondisi awal: belum ada subtugas implementasi yang selesai
 
 ## Ringkasan
 
-- Progres implementasi: **7/40 subtugas = 17,5%**.
+- Progres implementasi: **8/40 subtugas = 20,0%**.
 - Milestone selesai: **2/13**.
-- Tugas berikut: M3.1, universe/filter.
+- Tugas berikut: M3.2, security adapter.
 - Hambatan yang diketahui: acceptance scope baru belum memetakan source legacy secara per-subtugas.
 - Audit source: 55 tes lulus pada PostgreSQL lokal; guard no-execution `51113e9` dipush. Ini belum mengubah hitungan 0/40 tanpa resertifikasi acceptance tiap subtugas.
 
@@ -112,14 +112,14 @@ Gate milestone: Data persisten, null/nol berbeda, kejadian terlambat/dobel diuji
 
 ### M3 — Discovery dan security
 
-Status milestone: BELUM_MULAI. Progres: 0/3 (0,0%). Gate: BELUM_DIPERIKSA.
+Status milestone: DIKERJAKAN. Progres: 1/3 (33,3%). Gate: BELUM_DIPERIKSA.
 
-- [ ] **M3.1 — Universe/filter** — BELUM_MULAI
-  - [ ] Acceptance criteria di catatan tugas terpenuhi.
-  - [ ] Pemeriksaan relevan lulus atau N/A beralasan.
-  - [ ] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
-  - [ ] Dokumentasi/status dan bukti diperbarui.
-  - Bukti: Tes belum; commit belum; push belum.
+- [x] **M3.1 — Universe/filter** — SELESAI
+  - [x] Acceptance criteria di catatan tugas terpenuhi.
+  - [x] Pemeriksaan relevan lulus.
+  - [x] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
+  - [x] Dokumentasi/status dan bukti diperbarui.
+  - Bukti: filter kandidat point-in-time; discovery + feed 5/5; detail `docs/tasks/CURRENT.md`.
 
 - [ ] **M3.2 — Security adapter** — BELUM_MULAI
   - [ ] Acceptance criteria di catatan tugas terpenuhi.
@@ -423,3 +423,4 @@ Satu baris per transisi bermakna; log lengkap tetap di catatan tugas. Jangan men
 | 2026-09-16 | M2.2 | BELUM_MULAI → SELESAI | Dedup, UTC, dan late-event visibility lulus 12/12 | 5/40 = 12,5% |
 | 2026-09-16 | M2.3 | BELUM_MULAI → SELESAI | Adapter Birdeye read-only dan raw snapshot lulus 15/15 | 6/40 = 15,0% |
 | 2026-09-16 | M2.4 | BELUM_MULAI → SELESAI | Feed quality dan rekonsiliasi availability lulus 17/17 | 7/40 = 17,5% |
+| 2026-09-16 | M3.1 | BELUM_MULAI → SELESAI | Filter universe point-in-time lulus 5/5 | 8/40 = 20,0% |
