@@ -11,7 +11,7 @@
 | M7 Backtest | replay, costs, labels | DONE |
 | M8 Validation | experiment, walk-forward, stress | DONE |
 | M9 Telegram/paper | allowlist, approval, paper | DONE |
-| M10 Execution | quote, simulation, signer boundary | PLANNED |
+| M10 Execution | quote, simulation, signer boundary | IN_PROGRESS (M10.1 done) |
 | M11–M13 | limited live, add-ons, full automation | PLANNED |
 
-M9 selesai; M10.1 quote/route adalah tugas berikutnya. Status/hitungan resmi ada di `PROGRESS.md`.
+M10.1 selesai; M10.2 decode/simulation adalah tugas berikutnya. Status/hitungan resmi ada di `PROGRESS.md`.

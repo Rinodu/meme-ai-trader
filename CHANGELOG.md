@@ -1,5 +1,9 @@
 # Changelog
 
+## M10.1 — 2026-09-16
+- Menambahkan kontrak quote lokal dengan validasi route dan usia.
+- 51/51 tes lulus pada PostgreSQL lokal; tanpa provider atau transaksi.
+
 ## M9.3 — 2026-09-16
 - Menambahkan forward paper sebagai record tervalidasi tanpa transport atau submit.
 - 50/50 tes lulus pada PostgreSQL lokal.
