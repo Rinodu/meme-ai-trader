@@ -5,7 +5,7 @@ Status runtime: M1.1 DONE; subtugas berikut dikerjakan berurutan. Rinci acceptan
 | ID | Scope | Subtugas berurutan | Fitur | Gate selesai | Status |
 | --- | --- | --- | --- | --- | --- |
 | M1 | Scope dan konfigurasi | 1. Periksa lingkungan/repo; 2. Buat kerangka/config Signal Bot; 3. Uji config dan tutup gate | CFG-001 | Mode aman, invalid config ditolak, runtime/setup terdokumentasi | DONE |
-| M2 | Database dan collector | 1. Schema/raw repository; 2. Dedup/timestamps; 3. Adapter Birdeye; 4. Quality dan rekonsiliasi feed | DATA-001, DATA-002 | Data persisten, null/nol berbeda, kejadian terlambat/dobel diuji | NOT_STARTED |
+| M2 | Database dan collector | 1. Schema/raw repository; 2. Dedup/timestamps; 3. Adapter Birdeye; 4. Quality dan rekonsiliasi feed | DATA-001, DATA-002 | Data persisten, null/nol berbeda, kejadian terlambat/dobel diuji | IN_PROGRESS (M2.1 done) |
 | M3 | Discovery dan security | 1. Universe/filter; 2. Security adapter; 3. Gate UNKNOWN dan audit | DISC-001, SEC-001 | Kandidat dan penolakan tersimpan; data hilang tidak meloloskan entry | NOT_STARTED |
 | M4 | Quant dan baseline | 1. Fitur/warm-up; 2. Sinyal/expiry; 3. Replay deterministik | STRAT-001 | Keputusan dapat diulang dengan input/config sama | NOT_STARTED |
 | M5 | Risk dan exit | 1. Sizing/exposure; 2. Reservasi; 3. Exit/kill switch | RISK-001, RISK-002, EXIT-001 | Batas dan konkurensi diuji; pause mempertahankan exit | NOT_STARTED |
