@@ -1,9 +1,9 @@
-# M2.3 — Adapter Birdeye read-only
+# M2.4 — Quality dan rekonsiliasi feed
 
 Status: SELESAI pada 2026-09-16.
 
-- Adapter meminta Token Overview melalui HTTP GET, menormalisasi snapshot menjadi raw event, dan tidak mengarang identity atau waktu event.
-- Respons provider invalid aman dan API key tidak muncul dalam error.
-- Tes: `uv run python -m unittest tests.test_birdeye tests.test_raw_events_integration` — 15/15 lulus pada PostgreSQL lokal.
+- Feed hanya siap jika snapshot tersedia, fresh, dan `price` serta `liquidity` tersedia; nilai nol tetap sah.
+- Rekonsiliasi membaca raw event terbaru yang tersedia pada `as_of`, sehingga data masa depan tidak bocor.
+- Tes: `uv run python -m unittest tests.test_feed tests.test_birdeye tests.test_raw_events_integration` — 17/17 lulus pada PostgreSQL lokal.
 
-Berikutnya: M2.4 quality dan reconciliation feed.
+Berikutnya: M3.1 universe/filter.
