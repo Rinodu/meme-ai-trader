@@ -1,10 +1,10 @@
 # Progress — source of truth status tugas
 
 ## Ringkasan
-- Selesai: **20/40 = 50%**
+- Selesai: **21/40 = 52,5%**
 - Milestone selesai: **5/13**
-- Aktif/berikut: **M7.2 Cost model**
-- Bukti terakhir: 42 tes Python 3.12/PostgreSQL lokal lulus.
+- Aktif/berikut: **M7.3 Label TP/SL/no-route**
+- Bukti terakhir: 43 tes Python 3.12/PostgreSQL lokal lulus.
 - Hambatan: Pyright Serena belum mengikuti `.venv` untuk Psycopg; runtime/test lulus.
 
 Status: `[x]=SELESAI`, `[~]=DIKERJAKAN`, `[ ]=BELUM_MULAI`, `[!]=TERHAMBAT`, `[R]=DIBUKA_KEMBALI`.
@@ -30,7 +30,7 @@ Satu task SELESAI hanya bila acceptance criteria + tes wajib punya bukti di `doc
   - [x] M5.1 Sizing/exposure; [x] M5.2 Reservation; [x] M5.3 Exit/kill switch — 38 tes
 - M6 — Ledger/simulator: **DONE; gate LULUS**
   - [x] M6.1 Intent/attempt — 39 tes; [x] M6.2 State machine — 40 tes; [x] M6.3 Restart/reconciliation — 41 tes
-- M7 — Backtest/label: [x] M7.1 Time replay — 42 tes; [ ] M7.2 Cost model; [ ] M7.3 TP/SL/no-route labels
+- M7 — Backtest/label: [x] M7.1 Time replay — 42 tes; [x] M7.2 Cost model — 43 tes; [ ] M7.3 TP/SL/no-route labels
 - M8 — Strategy validation: [ ] M8.1 Freeze experiment; [ ] M8.2 Walk-forward/holdout; [ ] M8.3 Stress/report
 - M9 — Telegram/paper: [ ] M9.1 Allowlist/commands; [ ] M9.2 Approval TTL; [ ] M9.3 Forward paper
 - M10 — Execution integration: [ ] M10.1 Quote/route; [ ] M10.2 Decode/simulation; [ ] M10.3 Signer boundary/status

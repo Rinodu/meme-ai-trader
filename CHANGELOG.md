@@ -1,5 +1,9 @@
 # Changelog
 
+## M7.2 — 2026-09-16
+- Menambahkan cost model basis point untuk fee, slippage, dan impact tanpa parameter default.
+- 43/43 tes lulus pada PostgreSQL lokal; tanpa fill atau transaksi.
+
 ## M7.1 — 2026-09-16
 - Memverifikasi replay time-ordered untuk input out-of-order berdasarkan `received_at`.
 - 42/42 tes lulus pada PostgreSQL lokal; tanpa cost, fill, atau transaksi.
