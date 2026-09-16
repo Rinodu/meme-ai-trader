@@ -10,8 +10,8 @@
 | M6 Ledger/simulator | intents, state, reconciliation | DONE |
 | M7 Backtest | replay, costs, labels | DONE |
 | M8 Validation | experiment, walk-forward, stress | DONE |
-| M9 Telegram/paper | allowlist, approval, paper | IN_PROGRESS (M9.1–M9.2 done) |
+| M9 Telegram/paper | allowlist, approval, paper | DONE |
 | M10 Execution | quote, simulation, signer boundary | PLANNED |
 | M11–M13 | limited live, add-ons, full automation | PLANNED |
 
-M9.2 selesai; M9.3 forward paper adalah tugas berikutnya. Status/hitungan resmi ada di `PROGRESS.md`.
+M9 selesai; M10.1 quote/route adalah tugas berikutnya. Status/hitungan resmi ada di `PROGRESS.md`.
