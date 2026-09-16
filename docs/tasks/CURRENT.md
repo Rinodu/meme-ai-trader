@@ -1,8 +1,8 @@
-# M9.2 — Signal dan update exit Telegram
+# M9.3 — Forward paper signal
 
 Status: SELESAI pada 2026-09-16.
 
-- Formatter sinyal manual memuat identitas token, alasan/bukti, entry, stop, target, exit, maksimum hold, exit awal, expiry, serta score/evidence quality yang bukan probabilitas.
-- Tes: `uv run python -m unittest tests.test_signal_message tests.test_telegram tests.test_no_execution` — 4/4 lulus.
+- Forward menghasilkan `PaperSignal` netral untuk evaluasi manual, tanpa order side/nominal, RPC, signer, route, atau submit.
+- Tes: `uv run python -m unittest tests.test_paper tests.test_no_execution` — 3/3 lulus.
 
-Berikutnya: M9.3 forward paper signal.
+Berikutnya: M10.1 quote/route simulator.
