@@ -1,8 +1,8 @@
-# M7.3 — Label TP/SL/no-route
+# M8.1 — Freeze experiment
 
 Status: SELESAI pada 2026-09-16.
 
-- Label outcome historis membedakan TP, SL, timeout, route unavailable, dan data kurang; tidak menganggap route sebagai fill.
-- Tes: `uv run python -m unittest tests.test_labels tests.test_no_execution` — 3/3 lulus.
+- Version dan parameter eksperimen dibekukan menjadi fingerprint stabil untuk traceability.
+- Tes: `uv run python -m unittest tests.test_experiments tests.test_no_execution` — 3/3 lulus.
 
-Berikutnya: M8.1 freeze experiment.
+Berikutnya: M8.2 walk-forward/holdout.
