@@ -1,5 +1,9 @@
 # Changelog
 
+## M6.2 — 2026-09-16
+- Menambahkan lifecycle tervalidasi untuk intent/attempt dan penolakan transisi terminal.
+- 40/40 tes lulus pada PostgreSQL lokal; tidak ada signing atau submit.
+
 ## M6.1 — 2026-09-16
 - Menambahkan ledger PostgreSQL intent dan attempt dengan ID serta status awal terpisah.
 - 39/39 tes lulus pada PostgreSQL lokal; tidak ada signing atau submit.

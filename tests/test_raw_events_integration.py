@@ -233,3 +233,17 @@ class RawEventRepositoryTests(unittest.TestCase):
         self.assertEqual(("CREATED", "CREATED"), self.connection.execute(
             "SELECT i.status, a.status FROM execution_intents i JOIN execution_attempts a USING (intent_id) WHERE a.attempt_id = %s", (attempt,)
         ).fetchone())
+
+    def test_ledger_state_machine_allows_only_valid_transitions(self):
+        self.connection.execute("INSERT INTO accounts VALUES ('paper', 100)")
+        ledger = Ledger(self.connection)
+        intent = ledger.create_intent(ReservationRepository(self.connection).reserve("paper", Decimal("10")))
+        attempt = ledger.create_attempt(intent)
+        ledger.transition_intent(intent, "READY")
+        ledger.transition_intent(intent, "SUBMITTED")
+        ledger.transition_attempt(attempt, "SUBMITTED")
+        ledger.transition_attempt(attempt, "UNKNOWN")
+        ledger.transition_attempt(attempt, "CONFIRMED")
+        ledger.transition_attempt(attempt, "FINALIZED")
+        with self.assertRaises(ValueError):
+            ledger.transition_attempt(attempt, "SUBMITTED")
