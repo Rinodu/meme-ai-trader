@@ -4,9 +4,9 @@ Versi checklist: 1.0. Kondisi awal: belum ada subtugas implementasi yang selesai
 
 ## Ringkasan
 
-- Progres implementasi: **26/40 subtugas = 65,0%**.
+- Progres implementasi: **27/40 subtugas = 67,5%**.
 - Milestone selesai: **8/13**.
-- Tugas berikut: M9.2, signal dan exit update Telegram.
+- Tugas berikut: M9.3, forward paper signal.
 - Hambatan yang diketahui: acceptance scope baru belum memetakan source legacy secara per-subtugas.
 - Audit source: 55 tes lulus pada PostgreSQL lokal; guard no-execution `51113e9` dipush. Ini belum mengubah hitungan 0/40 tanpa resertifikasi acceptance tiap subtugas.
 
@@ -274,7 +274,7 @@ Gate milestone: Hasil dan ketidakpastian tercatat; boleh INCONCLUSIVE. Bukti gat
 
 ### M9 — Telegram signal dan paper
 
-Status milestone: DIKERJAKAN. Progres: 1/3 (33,3%). Gate: BELUM_DIPERIKSA.
+Status milestone: DIKERJAKAN. Progres: 2/3 (66,7%). Gate: BELUM_DIPERIKSA.
 
 - [x] **M9.1 — Allowlist/commands** — SELESAI
   - [x] Acceptance criteria di catatan tugas terpenuhi.
@@ -283,12 +283,12 @@ Status milestone: DIKERJAKAN. Progres: 1/3 (33,3%). Gate: BELUM_DIPERIKSA.
   - [x] Dokumentasi/status dan bukti diperbarui.
   - Bukti: allowlist Telegram dan penghapusan approval buy/sell; Telegram + no-execution 3/3; detail `docs/tasks/CURRENT.md`.
 
-- [ ] **M9.2 — Signal dan update exit** — BELUM_MULAI
-  - [ ] Acceptance criteria di catatan tugas terpenuhi.
-  - [ ] Pemeriksaan relevan lulus atau N/A beralasan.
-  - [ ] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
-  - [ ] Dokumentasi/status dan bukti diperbarui.
-  - Bukti: Tes belum; commit belum; push belum.
+- [x] **M9.2 — Signal dan update exit** — SELESAI
+  - [x] Acceptance criteria di catatan tugas terpenuhi.
+  - [x] Pemeriksaan relevan lulus.
+  - [x] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
+  - [x] Dokumentasi/status dan bukti diperbarui.
+  - Bukti: formatter sinyal manual + Telegram + no-execution 4/4; detail `docs/tasks/CURRENT.md`.
 
 - [ ] **M9.3 — Forward paper** — BELUM_MULAI
   - [ ] Acceptance criteria di catatan tugas terpenuhi.
