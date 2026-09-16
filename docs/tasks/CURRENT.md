@@ -1,8 +1,8 @@
-# M8.1 — Freeze experiment
+# M8.2 — Walk-forward/holdout
 
 Status: SELESAI pada 2026-09-16.
 
-- Version dan parameter eksperimen dibekukan menjadi fingerprint stabil untuk traceability.
-- Tes: `uv run python -m unittest tests.test_experiments tests.test_no_execution` — 3/3 lulus.
+- Split kronologis development, validation, dan holdout menjaga holdout terpisah dari tuning.
+- Tes: `uv run python -m unittest tests.test_validation tests.test_no_execution` — 3/3 lulus.
 
-Berikutnya: M8.2 walk-forward/holdout.
+Berikutnya: M8.3 stress/report.

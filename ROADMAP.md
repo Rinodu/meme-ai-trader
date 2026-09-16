@@ -11,7 +11,7 @@ Status runtime: M1.1 DONE; subtugas berikut dikerjakan berurutan. Rinci acceptan
 | M5 | Risk dan exit | 1. Sizing/exposure; 2. Reservasi; 3. Exit/kill switch | RISK-001, RISK-002, EXIT-001 | Batas dan konkurensi diuji; pause mempertahankan exit | DONE |
 | M6 | Ledger dan simulator | 1. Intent/attempt; 2. State machine; 3. Restart/rekonsiliasi | EXEC-001, LEDGER-001 | Timeout/retry/restart tidak menggandakan order/fill | DONE |
 | M7 | Backtest dan label | 1. Replay waktu; 2. Cost model; 3. TP/SL/no-route labels | BT-001 | Tidak memakai future data; fill dan biaya eksplisit | DONE |
-| M8 | Validasi strategi | 1. Bekukan eksperimen; 2. Walk-forward/holdout; 3. Stress/report | EVAL-001 | Hasil dan ketidakpastian tercatat; boleh INCONCLUSIVE | IN_PROGRESS (M8.1 done) |
+| M8 | Validasi strategi | 1. Bekukan eksperimen; 2. Walk-forward/holdout; 3. Stress/report | EVAL-001 | Hasil dan ketidakpastian tercatat; boleh INCONCLUSIVE | IN_PROGRESS (M8.1–M8.2 done) |
 | M9 | Telegram signal dan paper | 1. Telegram pribadi/allowlist; 2. Signal + exit update; 3. Forward paper signal | CTRL-001, PAPER-001, SIGNAL-001 | Pesan dapat diaudit; tidak ada approval/submit transaksi | NOT_STARTED |
 | M10 | Simulator quote/biaya | 1. Quote/route; 2. Simulasi kapasitas/biaya; 3. Guard no-execution | QUOTE-001, NOEXEC-001 | Kontrak provider terverifikasi; tidak ada signing/submit transaksi | NOT_STARTED |
 | M11 | Evaluasi kualitas sinyal | 1. Outcome sinyal manual; 2. Deviasi paper; 3. Laporan kualitas | SIGNAL-002, PROB-001 | Hasil tidak dilebihkan; probabilitas hanya jika terkalibrasi | NOT_STARTED |
