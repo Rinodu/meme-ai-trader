@@ -9,9 +9,9 @@
 | M5 Risk/exit | sizing, reservations, exit | DONE |
 | M6 Ledger/simulator | intents, state, reconciliation | DONE |
 | M7 Backtest | replay, costs, labels | DONE |
-| M8 Validation | experiment, walk-forward, stress | IN_PROGRESS (M8.1–M8.2 done) |
+| M8 Validation | experiment, walk-forward, stress | DONE |
 | M9 Telegram/paper | allowlist, approval, paper | PLANNED |
 | M10 Execution | quote, simulation, signer boundary | PLANNED |
 | M11–M13 | limited live, add-ons, full automation | PLANNED |
 
-M8.2 selesai; M8.3 stress/report adalah tugas berikutnya. Status/hitungan resmi ada di `PROGRESS.md`.
+M8 selesai; M9.1 allowlist/commands adalah tugas berikutnya. Status/hitungan resmi ada di `PROGRESS.md`.

@@ -1,5 +1,9 @@
 # Changelog
 
+## M8.3 — 2026-09-16
+- Menambahkan metrik expectancy, profit factor, dan drawdown berstatus `INCONCLUSIVE`.
+- 47/47 tes lulus pada PostgreSQL lokal; tanpa klaim strategi layak.
+
 ## M8.2 — 2026-09-16
 - Menambahkan split kronologis development, validation, dan holdout.
 - 46/46 tes lulus pada PostgreSQL lokal; holdout tidak dipakai untuk tuning.

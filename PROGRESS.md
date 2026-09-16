@@ -1,11 +1,12 @@
 # Progress — source of truth status tugas
 
 ## Ringkasan
-- Selesai: **24/40 = 60%**
+- Selesai: **25/40 = 62,5%**
 - Milestone selesai: **5/13**
 - Milestone selesai: **6/13**
-- Aktif/berikut: **M8.3 Stress/report**
-- Bukti terakhir: 46 tes Python 3.12/PostgreSQL lokal lulus.
+- Milestone selesai: **7/13**
+- Aktif/berikut: **M9.1 Allowlist/commands**
+- Bukti terakhir: 47 tes Python 3.12/PostgreSQL lokal lulus.
 - Hambatan: Pyright Serena belum mengikuti `.venv` untuk Psycopg; runtime/test lulus.
 
 Status: `[x]=SELESAI`, `[~]=DIKERJAKAN`, `[ ]=BELUM_MULAI`, `[!]=TERHAMBAT`, `[R]=DIBUKA_KEMBALI`.
@@ -33,7 +34,8 @@ Satu task SELESAI hanya bila acceptance criteria + tes wajib punya bukti di `doc
   - [x] M6.1 Intent/attempt — 39 tes; [x] M6.2 State machine — 40 tes; [x] M6.3 Restart/reconciliation — 41 tes
 - M7 — Backtest/label: **DONE; gate LULUS**
   - [x] M7.1 Time replay — 42 tes; [x] M7.2 Cost model — 43 tes; [x] M7.3 TP/SL/no-route — 44 tes
-- M8 — Strategy validation: [x] M8.1 Freeze experiment — 45 tes; [x] M8.2 Walk-forward/holdout — 46 tes; [ ] M8.3 Stress/report
+- M8 — Strategy validation: **DONE; gate LULUS**
+  - [x] M8.1 Freeze experiment — 45 tes; [x] M8.2 Walk-forward/holdout — 46 tes; [x] M8.3 Stress/report — 47 tes
 - M9 — Telegram/paper: [ ] M9.1 Allowlist/commands; [ ] M9.2 Approval TTL; [ ] M9.3 Forward paper
 - M10 — Execution integration: [ ] M10.1 Quote/route; [ ] M10.2 Decode/simulation; [ ] M10.3 Signer boundary/status
 - M11 — Limited live: [ ] M11.1 Gate/capital/policy; [ ] M11.2 Authorized semi-auto; [ ] M11.3 Actual-fill reconciliation
