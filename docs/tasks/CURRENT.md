@@ -1,9 +1,8 @@
-# M3.3 — Gate UNKNOWN dan audit keputusan
+# M4.1 — Fitur/warm-up point-in-time
 
 Status: SELESAI pada 2026-09-16.
 
-- Entry hanya lolos bila universe eligible dan security `PASS`; `UNKNOWN` maupun `REJECT` selalu memblokirnya.
-- Alasan diberi namespace dan keputusan menyimpan waktu UTC serta snapshot upstream.
-- Tes: `uv run python -m unittest tests.test_entry_gate tests.test_security tests.test_discovery tests.test_feed` — 12/12 lulus.
+- Snapshot fitur hanya memakai event yang tersedia pada `as_of`; warm-up kurang dan baseline nol gagal eksplisit, sementara data optional hilang tetap `None`.
+- Tes: `uv run python -m unittest tests.test_quant tests.test_raw_events_integration` — 15/15 lulus pada PostgreSQL lokal.
 
-Berikutnya: M4.1 fitur/warm-up point-in-time.
+Berikutnya: M4.2 sinyal dan expiry.
