@@ -1,8 +1,8 @@
-# M7.1 — Time replay
+# M7.2 — Cost model simulator
 
 Status: SELESAI pada 2026-09-16.
 
-- Replay memakai urutan availability `received_at`, termasuk input out-of-order, tanpa future-data leakage.
-- Tes: `uv run python -m unittest tests.test_replay tests.test_quant tests.test_strategy tests.test_no_execution` — 10/10 lulus.
+- Model biaya simulator menggunakan fee, slippage, dan impact basis point eksplisit tanpa default tersembunyi.
+- Tes: `uv run python -m unittest tests.test_costs tests.test_no_execution` — 3/3 lulus.
 
-Berikutnya: M7.2 cost model simulator.
+Berikutnya: M7.3 label TP/SL/no-route.
