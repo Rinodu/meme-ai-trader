@@ -1,10 +1,10 @@
 # Progress — source of truth status tugas
 
 ## Ringkasan
-- Selesai: **16/40 = 40,0%**
+- Selesai: **17/40 = 42,5%**
 - Milestone selesai: **4/13**
-- Aktif/berikut: **M6.1 Intent/attempt**
-- Bukti terakhir: 38 tes Python 3.12/PostgreSQL lokal lulus.
+- Aktif/berikut: **M6.2 State machine**
+- Bukti terakhir: 39 tes Python 3.12/PostgreSQL lokal lulus.
 - Hambatan: Pyright Serena belum mengikuti `.venv` untuk Psycopg; runtime/test lulus.
 
 Status: `[x]=SELESAI`, `[~]=DIKERJAKAN`, `[ ]=BELUM_MULAI`, `[!]=TERHAMBAT`, `[R]=DIBUKA_KEMBALI`.
@@ -28,7 +28,7 @@ Satu task SELESAI hanya bila acceptance criteria + tes wajib punya bukti di `doc
   - [x] M4.1 Features/warm-up; [x] M4.2 Signal/expiry; [x] M4.3 Deterministic replay — 35 tes
 - M5 — Risk/exit — **DONE; gate LULUS**
   - [x] M5.1 Sizing/exposure; [x] M5.2 Reservation; [x] M5.3 Exit/kill switch — 38 tes
-- M6 — Ledger/simulator: [ ] M6.1 Intent/attempt; [ ] M6.2 State machine; [ ] M6.3 Restart/reconciliation
+- M6 — Ledger/simulator: [x] M6.1 Intent/attempt — 39 tes; [ ] M6.2 State machine; [ ] M6.3 Restart/reconciliation
 - M7 — Backtest/label: [ ] M7.1 Time replay; [ ] M7.2 Cost model; [ ] M7.3 TP/SL/no-route labels
 - M8 — Strategy validation: [ ] M8.1 Freeze experiment; [ ] M8.2 Walk-forward/holdout; [ ] M8.3 Stress/report
 - M9 — Telegram/paper: [ ] M9.1 Allowlist/commands; [ ] M9.2 Approval TTL; [ ] M9.3 Forward paper

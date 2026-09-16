@@ -1,5 +1,13 @@
 # Changelog
 
+## M6.1 — 2026-09-16
+- Menambahkan ledger PostgreSQL intent dan attempt dengan ID serta status awal terpisah.
+- 39/39 tes lulus pada PostgreSQL lokal; tidak ada signing atau submit.
+
+## M5 — 2026-09-16
+- Menambahkan sizing/exposure, reservation atomik, dan mode exit/kill switch.
+- 38/38 tes lulus pada PostgreSQL lokal; tidak ada signing atau transaksi.
+
 ## M4.3 — 2026-09-16
 - Menambahkan replay deterministik dari event point-in-time dan signal policy yang sama.
 - 35/35 tes lulus pada PostgreSQL lokal; tanpa fill atau transaksi.
