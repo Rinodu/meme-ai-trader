@@ -1,5 +1,9 @@
 # Changelog
 
+## M9.2 — 2026-09-16
+- Menambahkan approval one-time dengan binding intent/token/side/nominal dan TTL.
+- 49/49 tes lulus pada PostgreSQL lokal; tanpa transport Telegram atau signing.
+
 ## M9.1 — 2026-09-16
 - Menambahkan allowlist eksplisit sender dan command tanpa koneksi bot.
 - 48/48 tes lulus pada PostgreSQL lokal; tanpa approval atau eksekusi.
