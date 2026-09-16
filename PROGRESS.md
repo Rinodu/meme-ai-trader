@@ -4,9 +4,9 @@ Versi checklist: 1.0. Kondisi awal: belum ada subtugas implementasi yang selesai
 
 ## Ringkasan
 
-- Progres implementasi: **11/40 subtugas = 27,5%**.
+- Progres implementasi: **12/40 subtugas = 30,0%**.
 - Milestone selesai: **3/13**.
-- Tugas berikut: M4.2, sinyal dan expiry.
+- Tugas berikut: M4.3, replay deterministik.
 - Hambatan yang diketahui: acceptance scope baru belum memetakan source legacy secara per-subtugas.
 - Audit source: 55 tes lulus pada PostgreSQL lokal; guard no-execution `51113e9` dipush. Ini belum mengubah hitungan 0/40 tanpa resertifikasi acceptance tiap subtugas.
 
@@ -139,7 +139,7 @@ Gate milestone: Kandidat dan penolakan tersimpan; data hilang tidak meloloskan e
 
 ### M4 — Quant dan baseline
 
-Status milestone: DIKERJAKAN. Progres: 1/3 (33,3%). Gate: BELUM_DIPERIKSA.
+Status milestone: DIKERJAKAN. Progres: 2/3 (66,7%). Gate: BELUM_DIPERIKSA.
 
 - [x] **M4.1 — Fitur/warm-up** — SELESAI
   - [x] Acceptance criteria di catatan tugas terpenuhi.
@@ -148,12 +148,12 @@ Status milestone: DIKERJAKAN. Progres: 1/3 (33,3%). Gate: BELUM_DIPERIKSA.
   - [x] Dokumentasi/status dan bukti diperbarui.
   - Bukti: quant + raw-event integration 15/15 PostgreSQL; detail `docs/tasks/CURRENT.md`.
 
-- [ ] **M4.2 — Sinyal/expiry** — BELUM_MULAI
-  - [ ] Acceptance criteria di catatan tugas terpenuhi.
-  - [ ] Pemeriksaan relevan lulus atau N/A beralasan.
-  - [ ] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
-  - [ ] Dokumentasi/status dan bukti diperbarui.
-  - Bukti: Tes belum; commit belum; push belum.
+- [x] **M4.2 — Sinyal/expiry** — SELESAI
+  - [x] Acceptance criteria di catatan tugas terpenuhi.
+  - [x] Pemeriksaan relevan lulus.
+  - [x] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
+  - [x] Dokumentasi/status dan bukti diperbarui.
+  - Bukti: strategy + quant + no-execution 8/8; detail `docs/tasks/CURRENT.md`.
 
 - [ ] **M4.3 — Replay deterministik** — BELUM_MULAI
   - [ ] Acceptance criteria di catatan tugas terpenuhi.
@@ -427,3 +427,4 @@ Satu baris per transisi bermakna; log lengkap tetap di catatan tugas. Jangan men
 | 2026-09-16 | M3.2 | BELUM_MULAI → SELESAI | Security fail-closed lulus 9/9 | 9/40 = 22,5% |
 | 2026-09-16 | M3.3 | BELUM_MULAI → SELESAI | Entry gate fail-closed lulus 12/12 | 10/40 = 25,0% |
 | 2026-09-16 | M4.1 | BELUM_MULAI → SELESAI | Fitur/warm-up point-in-time lulus 15/15 | 11/40 = 27,5% |
+| 2026-09-16 | M4.2 | BELUM_MULAI → SELESAI | Sinyal deterministik dan expiry lulus 8/8 | 12/40 = 30,0% |
