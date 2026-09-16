@@ -4,9 +4,9 @@ Versi checklist: 1.0. Kondisi awal: belum ada subtugas implementasi yang selesai
 
 ## Ringkasan
 
-- Progres implementasi: **16/40 subtugas = 40,0%**.
+- Progres implementasi: **17/40 subtugas = 42,5%**.
 - Milestone selesai: **5/13**.
-- Tugas berikut: M6.1, intent/attempt simulator.
+- Tugas berikut: M6.2, state machine simulator.
 - Hambatan yang diketahui: acceptance scope baru belum memetakan source legacy secara per-subtugas.
 - Audit source: 55 tes lulus pada PostgreSQL lokal; guard no-execution `51113e9` dipush. Ini belum mengubah hitungan 0/40 tanpa resertifikasi acceptance tiap subtugas.
 
@@ -193,14 +193,14 @@ Gate milestone: Batas dan konkurensi diuji; pause mempertahankan exit. Bukti gat
 
 ### M6 — Ledger dan simulator
 
-Status milestone: BELUM_MULAI. Progres: 0/3 (0,0%). Gate: BELUM_DIPERIKSA.
+Status milestone: DIKERJAKAN. Progres: 1/3 (33,3%). Gate: BELUM_DIPERIKSA.
 
-- [ ] **M6.1 — Intent/attempt** — BELUM_MULAI
-  - [ ] Acceptance criteria di catatan tugas terpenuhi.
-  - [ ] Pemeriksaan relevan lulus atau N/A beralasan.
-  - [ ] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
-  - [ ] Dokumentasi/status dan bukti diperbarui.
-  - Bukti: Tes belum; commit belum; push belum.
+- [x] **M6.1 — Intent/attempt** — SELESAI
+  - [x] Acceptance criteria di catatan tugas terpenuhi.
+  - [x] Pemeriksaan relevan lulus.
+  - [x] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
+  - [x] Dokumentasi/status dan bukti diperbarui.
+  - Bukti: ledger simulator + no-execution 14/14 PostgreSQL; detail `docs/tasks/CURRENT.md`.
 
 - [ ] **M6.2 — State machine** — BELUM_MULAI
   - [ ] Acceptance criteria di catatan tugas terpenuhi.
@@ -432,3 +432,4 @@ Satu baris per transisi bermakna; log lengkap tetap di catatan tugas. Jangan men
 | 2026-09-16 | M5.1 | BELUM_MULAI → SELESAI | Sizing simulator dan no-execution lulus 3/3 | 14/40 = 35,0% |
 | 2026-09-16 | M5.2 | BELUM_MULAI → SELESAI | Reservation simulator PostgreSQL lulus 14/14 | 15/40 = 37,5% |
 | 2026-09-16 | M5.3 | BELUM_MULAI → SELESAI | Control simulator dan no-execution lulus 3/3 | 16/40 = 40,0% |
+| 2026-09-16 | M6.1 | BELUM_MULAI → SELESAI | Ledger simulator dan no-execution lulus 14/14 | 17/40 = 42,5% |
