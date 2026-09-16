@@ -1,3 +1,3 @@
-# M6.2 — State machine
+# M6.3 — Restart dan reconciliation
 
-Status: SELESAI pada 2026-09-16. Intent dan attempt hanya dapat mengikuti lifecycle yang valid; status terminal menolak perubahan. Suite penuh 40/40 lulus pada PostgreSQL lokal. Berikutnya M6.3 restart/reconciliation.
+Status: SELESAI pada 2026-09-16. Restart dapat memuat intent/attempt pending dan replacement attempt ditolak sampai attempt lama direkonsiliasi. Suite penuh 41/41 lulus pada PostgreSQL lokal. Berikutnya M7.1 time replay.
