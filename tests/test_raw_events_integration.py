@@ -11,6 +11,8 @@ from meme_ai_trader.adapters.birdeye import collect_snapshot, raw_event
 from meme_ai_trader.database.feed import reconcile
 from meme_ai_trader.database.raw_events import RawEventRepository, migrate
 from meme_ai_trader.quant import for_mint
+from meme_ai_trader.database.reservations import InsufficientFunds, ReservationRepository
+from meme_ai_trader.database.ledger import Ledger
 
 
 @unittest.skipUnless(os.environ.get("PGPASSWORD"), "PGPASSWORD is required")
@@ -210,3 +212,48 @@ class RawEventRepositoryTests(unittest.TestCase):
         features = for_mint(repo, "solana-mainnet", "mint-fixture", now, 2)
         self.assertTrue(features.ready)
         self.assertEqual(Decimal("1"), features.price_return)
+
+    def test_atomic_reservation_and_idempotent_release(self):
+        self.connection.execute("INSERT INTO accounts VALUES ('paper', 100)")
+        repo = ReservationRepository(self.connection)
+        reservation = repo.reserve("paper", Decimal("60"))
+        with self.assertRaises(InsufficientFunds):
+            repo.reserve("paper", Decimal("60"))
+        self.assertTrue(repo.release(reservation))
+        self.assertFalse(repo.release(reservation))
+        self.assertEqual(Decimal("100"), self.connection.execute("SELECT available_balance FROM accounts").fetchone()[0])
+
+    def test_intent_and_attempt_have_separate_ids(self):
+        self.connection.execute("INSERT INTO accounts VALUES ('paper', 100)")
+        reservation = ReservationRepository(self.connection).reserve("paper", Decimal("10"))
+        ledger = Ledger(self.connection)
+        intent = ledger.create_intent(reservation)
+        attempt = ledger.create_attempt(intent)
+        self.assertNotEqual(intent, attempt)
+        self.assertEqual(("CREATED", "CREATED"), self.connection.execute(
+            "SELECT i.status, a.status FROM execution_intents i JOIN execution_attempts a USING (intent_id) WHERE a.attempt_id = %s", (attempt,)
+        ).fetchone())
+
+    def test_ledger_state_machine_allows_only_valid_transitions(self):
+        self.connection.execute("INSERT INTO accounts VALUES ('paper', 100)")
+        ledger = Ledger(self.connection)
+        intent = ledger.create_intent(ReservationRepository(self.connection).reserve("paper", Decimal("10")))
+        attempt = ledger.create_attempt(intent)
+        ledger.transition_intent(intent, "READY")
+        ledger.transition_intent(intent, "SUBMITTED")
+        ledger.transition_attempt(attempt, "SUBMITTED")
+        ledger.transition_attempt(attempt, "UNKNOWN")
+        ledger.transition_attempt(attempt, "CONFIRMED")
+        ledger.transition_attempt(attempt, "FINALIZED")
+        with self.assertRaises(ValueError):
+            ledger.transition_attempt(attempt, "SUBMITTED")
+
+    def test_restart_lists_pending_work_and_blocks_replacement_attempt(self):
+        self.connection.execute("INSERT INTO accounts VALUES ('paper', 100)")
+        ledger = Ledger(self.connection)
+        intent = ledger.create_intent(ReservationRepository(self.connection).reserve("paper", Decimal("10")))
+        attempt = ledger.create_attempt(intent)
+        self.assertEqual([(attempt, intent, "CREATED")], ledger.pending_attempts())
+        self.assertEqual([(intent, self.connection.execute("SELECT reservation_id FROM execution_intents WHERE intent_id = %s", (intent,)).fetchone()[0], "CREATED")], ledger.pending_intents())
+        with self.assertRaises(ValueError):
+            ledger.create_attempt(intent)

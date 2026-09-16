@@ -10,8 +10,10 @@ class SettingsTests(unittest.TestCase):
         self.assertFalse(settings.birdeye_enabled)
         self.assertIsNone(settings.birdeye_api_key)
 
-    def test_unsupported_mode_is_rejected(self):
-        with self.assertRaisesRegex(ConfigError, "only collect_only"):
+    def test_only_signal_bot_modes_are_accepted(self):
+        for mode in ("collect_only", "replay", "paper_signal"):
+            self.assertEqual(mode, Settings.from_env({"MEME_AI_MODE": mode}).mode)
+        with self.assertRaisesRegex(ConfigError, "paper_signal"):
             Settings.from_env({"MEME_AI_MODE": "live_auto"})
 
     def test_invalid_feature_flag_is_rejected(self):
