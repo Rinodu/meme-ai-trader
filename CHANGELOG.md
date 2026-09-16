@@ -1,5 +1,9 @@
 # Changelog
 
+## M8.2 — 2026-09-16
+- Menambahkan split kronologis development, validation, dan holdout.
+- 46/46 tes lulus pada PostgreSQL lokal; holdout tidak dipakai untuk tuning.
+
 ## M8.1 — 2026-09-16
 - Menambahkan fingerprint stabil untuk version dan parameter eksperimen.
 - 45/45 tes lulus pada PostgreSQL lokal; tanpa tuning otomatis atau akses holdout.
