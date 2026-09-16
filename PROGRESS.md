@@ -4,9 +4,9 @@ Versi checklist: 1.0. Kondisi awal: belum ada subtugas implementasi yang selesai
 
 ## Ringkasan
 
-- Progres implementasi: **27/40 subtugas = 67,5%**.
-- Milestone selesai: **8/13**.
-- Tugas berikut: M9.3, forward paper signal.
+- Progres implementasi: **28/40 subtugas = 70,0%**.
+- Milestone selesai: **9/13**.
+- Tugas berikut: M10.1, quote/route simulator.
 - Hambatan yang diketahui: acceptance scope baru belum memetakan source legacy secara per-subtugas.
 - Audit source: 55 tes lulus pada PostgreSQL lokal; guard no-execution `51113e9` dipush. Ini belum mengubah hitungan 0/40 tanpa resertifikasi acceptance tiap subtugas.
 
@@ -274,7 +274,7 @@ Gate milestone: Hasil dan ketidakpastian tercatat; boleh INCONCLUSIVE. Bukti gat
 
 ### M9 — Telegram signal dan paper
 
-Status milestone: DIKERJAKAN. Progres: 2/3 (66,7%). Gate: BELUM_DIPERIKSA.
+Status milestone: SELESAI. Progres: 3/3 (100%). Gate: LULUS.
 
 - [x] **M9.1 — Allowlist/commands** — SELESAI
   - [x] Acceptance criteria di catatan tugas terpenuhi.
@@ -290,12 +290,12 @@ Status milestone: DIKERJAKAN. Progres: 2/3 (66,7%). Gate: BELUM_DIPERIKSA.
   - [x] Dokumentasi/status dan bukti diperbarui.
   - Bukti: formatter sinyal manual + Telegram + no-execution 4/4; detail `docs/tasks/CURRENT.md`.
 
-- [ ] **M9.3 — Forward paper** — BELUM_MULAI
-  - [ ] Acceptance criteria di catatan tugas terpenuhi.
-  - [ ] Pemeriksaan relevan lulus atau N/A beralasan.
-  - [ ] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
-  - [ ] Dokumentasi/status dan bukti diperbarui.
-  - Bukti: Tes belum; commit belum; push belum.
+- [x] **M9.3 — Forward paper** — SELESAI
+  - [x] Acceptance criteria di catatan tugas terpenuhi.
+  - [x] Pemeriksaan relevan lulus.
+  - [x] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
+  - [x] Dokumentasi/status dan bukti diperbarui.
+  - Bukti: paper signal netral + no-execution 3/3; detail `docs/tasks/CURRENT.md`.
 
 Gate milestone: Pesan dapat diaudit; tidak ada approval/submit transaksi. Bukti gate: belum.
 
