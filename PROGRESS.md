@@ -1,10 +1,10 @@
 # Progress — source of truth status tugas
 
 ## Ringkasan
-- Selesai: **15/40 = 37,5%**
-- Milestone selesai: **3/13**
-- Aktif/berikut: **M5.3 Exit/kill switch**
-- Bukti terakhir: 37 tes Python 3.12/PostgreSQL lokal lulus.
+- Selesai: **16/40 = 40,0%**
+- Milestone selesai: **4/13**
+- Aktif/berikut: **M6.1 Intent/attempt**
+- Bukti terakhir: 38 tes Python 3.12/PostgreSQL lokal lulus.
 - Hambatan: Pyright Serena belum mengikuti `.venv` untuk Psycopg; runtime/test lulus.
 
 Status: `[x]=SELESAI`, `[~]=DIKERJAKAN`, `[ ]=BELUM_MULAI`, `[!]=TERHAMBAT`, `[R]=DIBUKA_KEMBALI`.
@@ -26,7 +26,8 @@ Satu task SELESAI hanya bila acceptance criteria + tes wajib punya bukti di `doc
   - [x] M3.3 UNKNOWN gate/audit — `f580f90`; 27 tes
 - M4 — Quant/baseline — **DONE; gate LULUS**
   - [x] M4.1 Features/warm-up; [x] M4.2 Signal/expiry; [x] M4.3 Deterministic replay — 35 tes
-- M5 — Risk/exit: [x] M5.1 Sizing/exposure — 36 tes; [x] M5.2 Reservation — 37 tes; [ ] M5.3 Exit/kill switch
+- M5 — Risk/exit — **DONE; gate LULUS**
+  - [x] M5.1 Sizing/exposure; [x] M5.2 Reservation; [x] M5.3 Exit/kill switch — 38 tes
 - M6 — Ledger/simulator: [ ] M6.1 Intent/attempt; [ ] M6.2 State machine; [ ] M6.3 Restart/reconciliation
 - M7 — Backtest/label: [ ] M7.1 Time replay; [ ] M7.2 Cost model; [ ] M7.3 TP/SL/no-route labels
 - M8 — Strategy validation: [ ] M8.1 Freeze experiment; [ ] M8.2 Walk-forward/holdout; [ ] M8.3 Stress/report
