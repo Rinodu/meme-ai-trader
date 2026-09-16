@@ -1,7 +1,3 @@
-# M4.3 — Replay deterministik
+# M5.1 — Sizing dan exposure
 
-Status: SELESAI pada 2026-09-16.
-
-Replay event berdasarkan `received_at` dan policy yang sama, tanpa cost model, fill, risk, atau transaksi.
-
-Tes replay dan suite penuh: 35/35 lulus pada PostgreSQL lokal. M4 selesai; tugas berikut M5.1 sizing/exposure.
+Status: SELESAI pada 2026-09-16. Sizing dibatasi risk budget, position cap, portfolio cap, dan fee reserve; tanpa order atau transaksi. Tes sizing dan suite penuh 36/36 lulus pada PostgreSQL lokal. Berikutnya M5.2 reservation.
