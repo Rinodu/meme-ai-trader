@@ -1,12 +1,10 @@
 # Progress — source of truth status tugas
 
 ## Ringkasan
-- Selesai: **25/40 = 62,5%**
-- Milestone selesai: **5/13**
-- Milestone selesai: **6/13**
-- Milestone selesai: **7/13**
-- Aktif/berikut: **M9.1 Allowlist/commands**
-- Bukti terakhir: 47 tes Python 3.12/PostgreSQL lokal lulus.
+- Selesai: **26/40 = 65%**
+- Milestone selesai: **8/13**
+- Aktif/berikut: **M9.2 Approval TTL**
+- Bukti terakhir: 48 tes Python 3.12/PostgreSQL lokal lulus.
 - Hambatan: Pyright Serena belum mengikuti `.venv` untuk Psycopg; runtime/test lulus.
 
 Status: `[x]=SELESAI`, `[~]=DIKERJAKAN`, `[ ]=BELUM_MULAI`, `[!]=TERHAMBAT`, `[R]=DIBUKA_KEMBALI`.
@@ -36,7 +34,7 @@ Satu task SELESAI hanya bila acceptance criteria + tes wajib punya bukti di `doc
   - [x] M7.1 Time replay — 42 tes; [x] M7.2 Cost model — 43 tes; [x] M7.3 TP/SL/no-route — 44 tes
 - M8 — Strategy validation: **DONE; gate LULUS**
   - [x] M8.1 Freeze experiment — 45 tes; [x] M8.2 Walk-forward/holdout — 46 tes; [x] M8.3 Stress/report — 47 tes
-- M9 — Telegram/paper: [ ] M9.1 Allowlist/commands; [ ] M9.2 Approval TTL; [ ] M9.3 Forward paper
+- M9 — Telegram/paper: [x] M9.1 Allowlist/commands — 48 tes; [ ] M9.2 Approval TTL; [ ] M9.3 Forward paper
 - M10 — Execution integration: [ ] M10.1 Quote/route; [ ] M10.2 Decode/simulation; [ ] M10.3 Signer boundary/status
 - M11 — Limited live: [ ] M11.1 Gate/capital/policy; [ ] M11.2 Authorized semi-auto; [ ] M11.3 Actual-fill reconciliation
 - M12 — Add-ons: [ ] M12.1 Advanced on-chain; [ ] M12.2 Anomaly ablation; [ ] M12.3 Social/LLM budget/evaluation
