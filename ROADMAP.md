@@ -5,7 +5,7 @@
 | M1 Config/scope | M1.1–M1.3 | DONE |
 | M2 Database/collector | M2.1 schema, M2.2 dedup/time, M2.3 Birdeye, M2.4 quality/reconciliation | DONE |
 | M3 Discovery/security | universe, security adapter, UNKNOWN gate | DONE |
-| M4 Quant | features, signals, replay | PLANNED |
+| M4 Quant | features, signals, replay | IN_PROGRESS |
 | M5 Risk/exit | sizing, reservations, exit | PLANNED |
 | M6 Ledger/simulator | intents, state, reconciliation | PLANNED |
 | M7 Backtest | replay, costs, labels | PLANNED |

@@ -1,5 +1,9 @@
 # Changelog
 
+## M4.1 — 2026-09-16
+- Menambahkan snapshot return harga, perubahan likuiditas, dan akselerasi volume dengan batas `as_of` dan warm-up eksplisit.
+- 31/31 tes lulus pada PostgreSQL lokal; tidak ada signal atau transaksi.
+
 ## M3 — 2026-09-16
 - Menambahkan filter universe point-in-time, security evidence fail-closed, dan audit keputusan entry.
 - 27/27 tes lulus pada PostgreSQL lokal; tidak ada quote, signer, atau transaksi.

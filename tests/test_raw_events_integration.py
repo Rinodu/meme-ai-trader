@@ -10,6 +10,7 @@ from psycopg import sql
 from meme_ai_trader.adapters.birdeye import collect_snapshot, raw_event
 from meme_ai_trader.database.feed import reconcile
 from meme_ai_trader.database.raw_events import RawEventRepository, migrate
+from meme_ai_trader.quant import for_mint
 
 
 @unittest.skipUnless(os.environ.get("PGPASSWORD"), "PGPASSWORD is required")
@@ -197,3 +198,15 @@ class RawEventRepositoryTests(unittest.TestCase):
         self.assertEqual(1, self.connection.execute(
             "SELECT count(*) FROM raw_events WHERE raw_event_id = %s", (raw_event_id,)
         ).fetchone()[0])
+
+    def test_features_use_only_events_available_at_as_of(self):
+        repo = RawEventRepository(self.connection)
+        now = datetime(2026, 9, 16, 8, tzinfo=timezone.utc)
+        base = {"source": "fixture", "schema_version": 1, "chain_id": "solana-mainnet",
+                "mint_address": "mint-fixture", "data_quality_status": "COMPLETE", "raw_payload": {}}
+        for minutes, price in ((-2, 10), (-1, 20), (1, 100)):
+            repo.insert({**base, "event_id": uuid.uuid4(), "received_at": now + timedelta(minutes=minutes),
+                         "event_time": now + timedelta(minutes=minutes), "price": price})
+        features = for_mint(repo, "solana-mainnet", "mint-fixture", now, 2)
+        self.assertTrue(features.ready)
+        self.assertEqual(Decimal("1"), features.price_return)

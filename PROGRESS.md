@@ -1,10 +1,10 @@
 # Progress — source of truth status tugas
 
 ## Ringkasan
-- Selesai: **10/40 = 25,0%**
+- Selesai: **11/40 = 27,5%**
 - Milestone selesai: **2/13**
-- Aktif/berikut: **M4.1 Fitur/warm-up**
-- Bukti terakhir: 27 tes Python 3.12/PostgreSQL lokal lulus.
+- Aktif/berikut: **M4.2 Signal/expiry**
+- Bukti terakhir: 31 tes Python 3.12/PostgreSQL lokal lulus.
 - Hambatan: Pyright Serena belum mengikuti `.venv` untuk Psycopg; runtime/test lulus.
 
 Status: `[x]=SELESAI`, `[~]=DIKERJAKAN`, `[ ]=BELUM_MULAI`, `[!]=TERHAMBAT`, `[R]=DIBUKA_KEMBALI`.
@@ -24,7 +24,7 @@ Satu task SELESAI hanya bila acceptance criteria + tes wajib punya bukti di `doc
   - [x] M3.1 Universe/filter — `10b8669`
   - [x] M3.2 Security adapter — `263f024`
   - [x] M3.3 UNKNOWN gate/audit — `f580f90`; 27 tes
-- M4 — Quant/baseline: [ ] M4.1 Features/warm-up; [ ] M4.2 Signal/expiry; [ ] M4.3 Deterministic replay
+- M4 — Quant/baseline: [x] M4.1 Features/warm-up — 31 tes; [ ] M4.2 Signal/expiry; [ ] M4.3 Deterministic replay
 - M5 — Risk/exit: [ ] M5.1 Sizing/exposure; [ ] M5.2 Reservation; [ ] M5.3 Exit/kill switch
 - M6 — Ledger/simulator: [ ] M6.1 Intent/attempt; [ ] M6.2 State machine; [ ] M6.3 Restart/reconciliation
 - M7 — Backtest/label: [ ] M7.1 Time replay; [ ] M7.2 Cost model; [ ] M7.3 TP/SL/no-route labels
