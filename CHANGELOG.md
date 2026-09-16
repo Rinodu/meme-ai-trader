@@ -1,5 +1,9 @@
 # Changelog
 
+## M10.3 — 2026-09-16
+- Menambahkan status signer fail-closed tanpa private key atau signature.
+- 53/53 tes lulus pada PostgreSQL lokal.
+
 ## M10.2 — 2026-09-16
 - Menambahkan validasi payload lokal terhadap quote, signer, dan destination.
 - 52/52 tes lulus pada PostgreSQL lokal; tanpa RPC atau signing.
