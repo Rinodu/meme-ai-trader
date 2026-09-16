@@ -1,5 +1,9 @@
 # Changelog
 
+## M4.2 — 2026-09-16
+- Menambahkan baseline signal dari fitur ready dengan threshold dan expiry policy eksplisit.
+- 34/34 tes lulus pada PostgreSQL lokal; tidak ada risk atau transaksi.
+
 ## M4.1 — 2026-09-16
 - Menambahkan snapshot return harga, perubahan likuiditas, dan akselerasi volume dengan batas `as_of` dan warm-up eksplisit.
 - 31/31 tes lulus pada PostgreSQL lokal; tidak ada signal atau transaksi.
