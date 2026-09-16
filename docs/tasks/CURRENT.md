@@ -1,9 +1,9 @@
-# M2.2 — Dedup/timestamps Signal Bot
+# M2.3 — Adapter Birdeye read-only
 
 Status: SELESAI pada 2026-09-16.
 
-- Dedup memakai `event_id` maupun identitas provider; konflik tidak mengubah raw data.
-- `event_time` dan `received_at` dipisahkan, timezone-aware, serta event terlambat tidak terlihat sebelum diterima.
-- Tes: `uv run python -m unittest tests.test_raw_events_integration` — 12/12 lulus pada PostgreSQL lokal.
+- Adapter meminta Token Overview melalui HTTP GET, menormalisasi snapshot menjadi raw event, dan tidak mengarang identity atau waktu event.
+- Respons provider invalid aman dan API key tidak muncul dalam error.
+- Tes: `uv run python -m unittest tests.test_birdeye tests.test_raw_events_integration` — 15/15 lulus pada PostgreSQL lokal.
 
-Berikutnya M2.3 adapter Birdeye read-only.
+Berikutnya: M2.4 quality dan reconciliation feed.
