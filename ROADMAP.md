@@ -8,10 +8,10 @@
 | M4 Quant | features, signals, replay | DONE |
 | M5 Risk/exit | sizing, reservations, exit | DONE |
 | M6 Ledger/simulator | intents, state, reconciliation | DONE |
-| M7 Backtest | replay, costs, labels | IN_PROGRESS (M7.1–M7.2 done) |
+| M7 Backtest | replay, costs, labels | DONE |
 | M8 Validation | experiment, walk-forward, stress | PLANNED |
 | M9 Telegram/paper | allowlist, approval, paper | PLANNED |
 | M10 Execution | quote, simulation, signer boundary | PLANNED |
 | M11–M13 | limited live, add-ons, full automation | PLANNED |
 
-M7.2 selesai; M7.3 label TP/SL/no-route adalah tugas berikutnya. Status/hitungan resmi ada di `PROGRESS.md`.
+M7 selesai; M8.1 freeze experiment adalah tugas berikutnya. Status/hitungan resmi ada di `PROGRESS.md`.
