@@ -9,7 +9,7 @@ Status runtime: M1.1 DONE; subtugas berikut dikerjakan berurutan. Rinci acceptan
 | M3 | Discovery dan security | 1. Universe/filter; 2. Security adapter; 3. Gate UNKNOWN dan audit | DISC-001, SEC-001 | Kandidat dan penolakan tersimpan; data hilang tidak meloloskan entry | DONE |
 | M4 | Quant dan baseline | 1. Fitur/warm-up; 2. Sinyal/expiry; 3. Replay deterministik | STRAT-001 | Keputusan dapat diulang dengan input/config sama | DONE |
 | M5 | Risk dan exit | 1. Sizing/exposure; 2. Reservasi; 3. Exit/kill switch | RISK-001, RISK-002, EXIT-001 | Batas dan konkurensi diuji; pause mempertahankan exit | DONE |
-| M6 | Ledger dan simulator | 1. Intent/attempt; 2. State machine; 3. Restart/rekonsiliasi | EXEC-001, LEDGER-001 | Timeout/retry/restart tidak menggandakan order/fill | IN_PROGRESS (M6.1 done) |
+| M6 | Ledger dan simulator | 1. Intent/attempt; 2. State machine; 3. Restart/rekonsiliasi | EXEC-001, LEDGER-001 | Timeout/retry/restart tidak menggandakan order/fill | IN_PROGRESS (M6.1–M6.2 done) |
 | M7 | Backtest dan label | 1. Replay waktu; 2. Cost model; 3. TP/SL/no-route labels | BT-001 | Tidak memakai future data; fill dan biaya eksplisit | NOT_STARTED |
 | M8 | Validasi strategi | 1. Bekukan eksperimen; 2. Walk-forward/holdout; 3. Stress/report | EVAL-001 | Hasil dan ketidakpastian tercatat; boleh INCONCLUSIVE | NOT_STARTED |
 | M9 | Telegram signal dan paper | 1. Telegram pribadi/allowlist; 2. Signal + exit update; 3. Forward paper signal | CTRL-001, PAPER-001, SIGNAL-001 | Pesan dapat diaudit; tidak ada approval/submit transaksi | NOT_STARTED |
