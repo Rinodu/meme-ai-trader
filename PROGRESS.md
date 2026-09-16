@@ -4,9 +4,9 @@ Versi checklist: 1.0. Kondisi awal: belum ada subtugas implementasi yang selesai
 
 ## Ringkasan
 
-- Progres implementasi: **9/40 subtugas = 22,5%**.
-- Milestone selesai: **2/13**.
-- Tugas berikut: M3.3, gate UNKNOWN dan audit keputusan.
+- Progres implementasi: **10/40 subtugas = 25,0%**.
+- Milestone selesai: **3/13**.
+- Tugas berikut: M4.1, fitur/warm-up point-in-time.
 - Hambatan yang diketahui: acceptance scope baru belum memetakan source legacy secara per-subtugas.
 - Audit source: 55 tes lulus pada PostgreSQL lokal; guard no-execution `51113e9` dipush. Ini belum mengubah hitungan 0/40 tanpa resertifikasi acceptance tiap subtugas.
 
@@ -112,7 +112,7 @@ Gate milestone: Data persisten, null/nol berbeda, kejadian terlambat/dobel diuji
 
 ### M3 — Discovery dan security
 
-Status milestone: DIKERJAKAN. Progres: 2/3 (66,7%). Gate: BELUM_DIPERIKSA.
+Status milestone: SELESAI. Progres: 3/3 (100%). Gate: LULUS.
 
 - [x] **M3.1 — Universe/filter** — SELESAI
   - [x] Acceptance criteria di catatan tugas terpenuhi.
@@ -128,12 +128,12 @@ Status milestone: DIKERJAKAN. Progres: 2/3 (66,7%). Gate: BELUM_DIPERIKSA.
   - [x] Dokumentasi/status dan bukti diperbarui.
   - Bukti: security fail-closed PASS/REJECT/UNKNOWN; security + discovery + feed 9/9; detail `docs/tasks/CURRENT.md`.
 
-- [ ] **M3.3 — Gate UNKNOWN dan audit** — BELUM_MULAI
-  - [ ] Acceptance criteria di catatan tugas terpenuhi.
-  - [ ] Pemeriksaan relevan lulus atau N/A beralasan.
-  - [ ] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
-  - [ ] Dokumentasi/status dan bukti diperbarui.
-  - Bukti: Tes belum; commit belum; push belum.
+- [x] **M3.3 — Gate UNKNOWN dan audit** — SELESAI
+  - [x] Acceptance criteria di catatan tugas terpenuhi.
+  - [x] Pemeriksaan relevan lulus.
+  - [x] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
+  - [x] Dokumentasi/status dan bukti diperbarui.
+  - Bukti: entry gate fail-closed dan audit immutable; entry-gate + security + discovery + feed 12/12; detail `docs/tasks/CURRENT.md`.
 
 Gate milestone: Kandidat dan penolakan tersimpan; data hilang tidak meloloskan entry. Bukti gate: belum.
 
@@ -425,3 +425,4 @@ Satu baris per transisi bermakna; log lengkap tetap di catatan tugas. Jangan men
 | 2026-09-16 | M2.4 | BELUM_MULAI → SELESAI | Feed quality dan rekonsiliasi availability lulus 17/17 | 7/40 = 17,5% |
 | 2026-09-16 | M3.1 | BELUM_MULAI → SELESAI | Filter universe point-in-time lulus 5/5 | 8/40 = 20,0% |
 | 2026-09-16 | M3.2 | BELUM_MULAI → SELESAI | Security fail-closed lulus 9/9 | 9/40 = 22,5% |
+| 2026-09-16 | M3.3 | BELUM_MULAI → SELESAI | Entry gate fail-closed lulus 12/12 | 10/40 = 25,0% |
