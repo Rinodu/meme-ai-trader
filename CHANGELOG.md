@@ -1,5 +1,9 @@
 # Changelog
 
+## M10.2 — 2026-09-16
+- Menambahkan validasi payload lokal terhadap quote, signer, dan destination.
+- 52/52 tes lulus pada PostgreSQL lokal; tanpa RPC atau signing.
+
 ## M10.1 — 2026-09-16
 - Menambahkan kontrak quote lokal dengan validasi route dan usia.
 - 51/51 tes lulus pada PostgreSQL lokal; tanpa provider atau transaksi.
