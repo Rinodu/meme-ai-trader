@@ -4,9 +4,9 @@ Versi checklist: 1.0. Kondisi awal: belum ada subtugas implementasi yang selesai
 
 ## Ringkasan
 
-- Progres implementasi: **19/40 subtugas = 47,5%**.
+- Progres implementasi: **20/40 subtugas = 50,0%**.
 - Milestone selesai: **6/13**.
-- Tugas berikut: M7.1, time replay.
+- Tugas berikut: M7.2, cost model simulator.
 - Hambatan yang diketahui: acceptance scope baru belum memetakan source legacy secara per-subtugas.
 - Audit source: 55 tes lulus pada PostgreSQL lokal; guard no-execution `51113e9` dipush. Ini belum mengubah hitungan 0/40 tanpa resertifikasi acceptance tiap subtugas.
 
@@ -220,14 +220,14 @@ Gate milestone: Timeout/retry/restart tidak menggandakan order/fill. Bukti gate:
 
 ### M7 — Backtest dan label
 
-Status milestone: BELUM_MULAI. Progres: 0/3 (0,0%). Gate: BELUM_DIPERIKSA.
+Status milestone: DIKERJAKAN. Progres: 1/3 (33,3%). Gate: BELUM_DIPERIKSA.
 
-- [ ] **M7.1 — Replay waktu** — BELUM_MULAI
-  - [ ] Acceptance criteria di catatan tugas terpenuhi.
-  - [ ] Pemeriksaan relevan lulus atau N/A beralasan.
-  - [ ] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
-  - [ ] Dokumentasi/status dan bukti diperbarui.
-  - Bukti: Tes belum; commit belum; push belum.
+- [x] **M7.1 — Replay waktu** — SELESAI
+  - [x] Acceptance criteria di catatan tugas terpenuhi.
+  - [x] Pemeriksaan relevan lulus.
+  - [x] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
+  - [x] Dokumentasi/status dan bukti diperbarui.
+  - Bukti: replay + quant + strategy + no-execution 10/10; detail `docs/tasks/CURRENT.md`.
 
 - [ ] **M7.2 — Cost model** — BELUM_MULAI
   - [ ] Acceptance criteria di catatan tugas terpenuhi.
@@ -435,3 +435,4 @@ Satu baris per transisi bermakna; log lengkap tetap di catatan tugas. Jangan men
 | 2026-09-16 | M6.1 | BELUM_MULAI → SELESAI | Ledger simulator dan no-execution lulus 14/14 | 17/40 = 42,5% |
 | 2026-09-16 | M6.2 | BELUM_MULAI → SELESAI | State machine simulator lulus 14/14 | 18/40 = 45,0% |
 | 2026-09-16 | M6.3 | BELUM_MULAI → SELESAI | Restart/reconciliation simulator lulus 14/14 | 19/40 = 47,5% |
+| 2026-09-16 | M7.1 | BELUM_MULAI → SELESAI | Time replay lulus 10/10 | 20/40 = 50,0% |
