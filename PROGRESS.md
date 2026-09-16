@@ -4,9 +4,9 @@ Versi checklist: 1.0. Kondisi awal: belum ada subtugas implementasi yang selesai
 
 ## Ringkasan
 
-- Progres implementasi: **1/40 subtugas = 2,5%**.
+- Progres implementasi: **2/40 subtugas = 5,0%**.
 - Milestone selesai: **0/13**.
-- Tugas berikut: M1.2, kerangka/config runtime Signal Bot.
+- Tugas berikut: M1.3, uji config dan tutup gate Signal Bot.
 - Hambatan yang diketahui: acceptance scope baru belum memetakan source legacy secara per-subtugas.
 - Audit source: 55 tes lulus pada PostgreSQL lokal; guard no-execution `51113e9` dipush. Ini belum mengubah hitungan 0/40 tanpa resertifikasi acceptance tiap subtugas.
 
@@ -51,7 +51,7 @@ Hindari lingkaran commit: dokumen tidak perlu mencantumkan SHA commit yang memua
 
 ### M1 — Scope dan konfigurasi
 
-Status milestone: DIKERJAKAN. Progres: 1/3 (33,3%). Gate: BELUM_DIPERIKSA.
+Status milestone: DIKERJAKAN. Progres: 2/3 (66,7%). Gate: BELUM_DIPERIKSA.
 
 - [x] **M1.1 — Periksa lingkungan/repo** — SELESAI
   - [x] Acceptance criteria di catatan tugas terpenuhi.
@@ -60,12 +60,12 @@ Status milestone: DIKERJAKAN. Progres: 1/3 (33,3%). Gate: BELUM_DIPERIKSA.
   - [x] Dokumentasi/status dan bukti diperbarui.
   - Bukti: config 5/5; suite 55/55; `51113e9`; detail `docs/tasks/CURRENT.md`.
 
-- [ ] **M1.2 — Buat kerangka/config collect_only** — BELUM_MULAI
-  - [ ] Acceptance criteria di catatan tugas terpenuhi.
-  - [ ] Pemeriksaan relevan lulus atau N/A beralasan.
-  - [ ] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
-  - [ ] Dokumentasi/status dan bukti diperbarui.
-  - Bukti: Tes belum; commit belum; push belum.
+- [x] **M1.2 — Buat kerangka/config Signal Bot** — SELESAI
+  - [x] Acceptance criteria di catatan tugas terpenuhi.
+  - [x] Pemeriksaan relevan lulus.
+  - [x] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
+  - [x] Dokumentasi/status dan bukti diperbarui.
+  - Bukti: config 5/5; smoke test 3 mode; detail `docs/tasks/CURRENT.md`.
 
 - [ ] **M1.3 — Uji config dan tutup gate** — BELUM_MULAI
   - [ ] Acceptance criteria di catatan tugas terpenuhi.
@@ -417,3 +417,4 @@ Satu baris per transisi bermakna; log lengkap tetap di catatan tugas. Jangan men
 | 2026-09-16 | SCOPE | Full automation → Signal Bot | Keputusan Edhu: Telegram pribadi, kandidat terbaik, buy/sell manual; simulator dipertahankan | 0/40 = 0,0% |
 | 2026-09-16 | AUDIT | Dokumen paket → source terverifikasi | 55 tes lulus; guard no-execution dipush `51113e9`; legacy belum otomatis diresertifikasi | 0/40 = 0,0% |
 | 2026-09-16 | M1.1 | BELUM_MULAI → SELESAI | Runtime/Git/Python/source diverifikasi; config 5/5 dan suite 55/55 | 1/40 = 2,5% |
+| 2026-09-16 | M1.2 | BELUM_MULAI → SELESAI | Tiga mode Signal Bot dan startup diverifikasi | 2/40 = 5,0% |
