@@ -1,5 +1,9 @@
 # Changelog
 
+## M9.1 — 2026-09-16
+- Menambahkan allowlist eksplisit sender dan command tanpa koneksi bot.
+- 48/48 tes lulus pada PostgreSQL lokal; tanpa approval atau eksekusi.
+
 ## M8.3 — 2026-09-16
 - Menambahkan metrik expectancy, profit factor, dan drawdown berstatus `INCONCLUSIVE`.
 - 47/47 tes lulus pada PostgreSQL lokal; tanpa klaim strategi layak.

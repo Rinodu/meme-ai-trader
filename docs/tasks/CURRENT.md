@@ -1,3 +1,3 @@
-# M8.3 — Stress/report
+# M9.1 — Allowlist/commands
 
-Status: SELESAI pada 2026-09-16. Metrik expectancy, profit factor, dan drawdown selalu berstatus `INCONCLUSIVE` tanpa acceptance threshold. Suite penuh 47/47 lulus pada PostgreSQL lokal. Berikutnya M9.1 allowlist/commands.
+Status: SELESAI pada 2026-09-16. Sender dan command harus masuk allowlist eksplisit. Suite penuh 48/48 lulus pada PostgreSQL lokal. Berikutnya M9.2 approval TTL.
