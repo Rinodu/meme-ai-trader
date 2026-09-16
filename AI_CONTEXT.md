@@ -5,8 +5,8 @@ Paket dokumen v1.0 — 15 September 2026.
 - Target: Signal Bot Solana, Telegram pribadi, kandidat terbaik saja; buy/sell manual oleh Edhu.
 - Lingkungan pengguna: Windows; alat: GPT Codex.
 - Source aplikasi Python dan tes tersedia pada checkout aktif; audit scope Signal Bot menjalankan 55 tes lokal dengan hasil lulus pada 2026-09-16.
-- M1–M6 selesai; ledger simulator mendukung recovery/reconciliation tanpa membuat execution capability.
-- Tugas berikut: M7.1 time replay di docs/tasks/CURRENT.md.
+- M1–M6 selesai; M7.1 memverifikasi time replay yang hanya memakai availability `received_at`.
+- Tugas berikut: M7.2 cost model simulator di docs/tasks/CURRENT.md.
 - Keputusan: satu subtugas; commit/push branch tugas setelah tes; perubahan perilaku lama harus dibahas; efisiensi token; anggaran subscription baru awal Rp0.
 - API key/private key: tidak dimasukkan. Private key/signer di luar scope. Modal, batas risiko, provider/paket belum ditetapkan.
 - Pemeriksaan paket: struktur Markdown, referensi internal, dan isi ZIP diperiksa; bukan tes aplikasi.
