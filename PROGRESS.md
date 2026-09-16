@@ -4,9 +4,9 @@ Versi checklist: 1.0. Kondisi awal: belum ada subtugas implementasi yang selesai
 
 ## Ringkasan
 
-- Progres implementasi: **18/40 subtugas = 45,0%**.
-- Milestone selesai: **5/13**.
-- Tugas berikut: M6.3, restart/reconciliation simulator.
+- Progres implementasi: **19/40 subtugas = 47,5%**.
+- Milestone selesai: **6/13**.
+- Tugas berikut: M7.1, time replay.
 - Hambatan yang diketahui: acceptance scope baru belum memetakan source legacy secara per-subtugas.
 - Audit source: 55 tes lulus pada PostgreSQL lokal; guard no-execution `51113e9` dipush. Ini belum mengubah hitungan 0/40 tanpa resertifikasi acceptance tiap subtugas.
 
@@ -193,7 +193,7 @@ Gate milestone: Batas dan konkurensi diuji; pause mempertahankan exit. Bukti gat
 
 ### M6 — Ledger dan simulator
 
-Status milestone: DIKERJAKAN. Progres: 2/3 (66,7%). Gate: BELUM_DIPERIKSA.
+Status milestone: SELESAI. Progres: 3/3 (100%). Gate: LULUS.
 
 - [x] **M6.1 — Intent/attempt** — SELESAI
   - [x] Acceptance criteria di catatan tugas terpenuhi.
@@ -209,12 +209,12 @@ Status milestone: DIKERJAKAN. Progres: 2/3 (66,7%). Gate: BELUM_DIPERIKSA.
   - [x] Dokumentasi/status dan bukti diperbarui.
   - Bukti: lifecycle ledger simulator + no-execution 14/14 PostgreSQL; detail `docs/tasks/CURRENT.md`.
 
-- [ ] **M6.3 — Restart/rekonsiliasi** — BELUM_MULAI
-  - [ ] Acceptance criteria di catatan tugas terpenuhi.
-  - [ ] Pemeriksaan relevan lulus atau N/A beralasan.
-  - [ ] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
-  - [ ] Dokumentasi/status dan bukti diperbarui.
-  - Bukti: Tes belum; commit belum; push belum.
+- [x] **M6.3 — Restart/rekonsiliasi** — SELESAI
+  - [x] Acceptance criteria di catatan tugas terpenuhi.
+  - [x] Pemeriksaan relevan lulus.
+  - [x] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
+  - [x] Dokumentasi/status dan bukti diperbarui.
+  - Bukti: restart/reconciliation simulator + no-execution 14/14 PostgreSQL; detail `docs/tasks/CURRENT.md`.
 
 Gate milestone: Timeout/retry/restart tidak menggandakan order/fill. Bukti gate: belum.
 
@@ -434,3 +434,4 @@ Satu baris per transisi bermakna; log lengkap tetap di catatan tugas. Jangan men
 | 2026-09-16 | M5.3 | BELUM_MULAI → SELESAI | Control simulator dan no-execution lulus 3/3 | 16/40 = 40,0% |
 | 2026-09-16 | M6.1 | BELUM_MULAI → SELESAI | Ledger simulator dan no-execution lulus 14/14 | 17/40 = 42,5% |
 | 2026-09-16 | M6.2 | BELUM_MULAI → SELESAI | State machine simulator lulus 14/14 | 18/40 = 45,0% |
+| 2026-09-16 | M6.3 | BELUM_MULAI → SELESAI | Restart/reconciliation simulator lulus 14/14 | 19/40 = 47,5% |
