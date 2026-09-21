@@ -1,34 +1,50 @@
 # Changelog
 
-## M4.3 — 2026-09-16
-- Menambahkan replay deterministik dari event point-in-time dan signal policy yang sama.
-- 35/35 tes lulus pada PostgreSQL lokal; tanpa fill atau transaksi.
+## Paket dokumen 1.0 — 2026-09-15
 
-## M4.2 — 2026-09-16
-- Menambahkan baseline signal dari fitur ready dengan threshold dan expiry policy eksplisit.
-- 34/34 tes lulus pada PostgreSQL lokal; tidak ada risk atau transaksi.
+- Menambahkan aturan kerja sesuai pilihan Edhu, roadmap M1–M13, kontrak fitur, protokol tes/Git, kebijakan token, prompt, dan task awal.
+- Menyertakan BLUEPRINT.md v2 sebagai rancangan teknis.
+- Semua fitur aplikasi berstatus PLANNED. Belum mengklaim implementasi, backtest, koneksi provider, atau trading berjalan.
 
-## M4.1 — 2026-09-16
-- Menambahkan snapshot return harga, perubahan likuiditas, dan akselerasi volume dengan batas `as_of` dan warm-up eksplisit.
-- 31/31 tes lulus pada PostgreSQL lokal; tidak ada signal atau transaksi.
+Tambahkan entri untuk perubahan selesai: task ID, perilaku berubah, bukti pengujian, serta keterbatasan relevan. Riwayat percobaan gagal tetap berada di catatan task/insiden, tidak disamarkan sebagai rilis selesai.
 
-## M3 — 2026-09-16
-- Menambahkan filter universe point-in-time, security evidence fail-closed, dan audit keputusan entry.
-- 27/27 tes lulus pada PostgreSQL lokal; tidak ada quote, signer, atau transaksi.
+## Paket dokumen 1.1 — 2026-09-15
 
-## M2.4 — 2026-09-15
-- Menambahkan assessment freshness/field wajib dan rekonsiliasi raw event terbaru sesuai `as_of`.
-- 17 tes lulus pada PostgreSQL lokal; scheduler, retry loop, WebSocket, dan transaksi tidak ditambahkan.
+- Menambahkan PROGRESS.md dan template form tugas, sesuai delapan pilihan checklist pengguna.
+- Menyelaraskan aturan agen, roadmap, fitur, testing, PRD, prompt, dan konteks sesi.
+- Persentase awal 0%; semua pekerjaan implementasi tetap belum selesai.
+- Struktur, referensi lokal, kesesuaian jumlah subtugas, dan integritas ZIP diperiksa; bukan pengujian aplikasi.
 
-## M2.3 — 2026-09-15
-- Adapter Birdeye Token Overview GET read-only dan normalisasi snapshot raw event.
-- 13 tes lulus pada PostgreSQL lokal; tidak ada transaksi atau secret tersimpan.
+## Paket dokumen 1.2 — 2026-09-16
 
-## M2.2 — 2026-09-15
-- Dedup identitas event, UTC timestamp, dan query point-in-time.
+- Mengubah target produk menjadi Signal Bot Telegram pribadi: kandidat terbaik, entry/exit rationale, maksimal hold, dan update sinyal.
+- Menghapus executor, wallet signing, approval buy/sell, semi-auto, serta full-auto dari runtime scope.
+- Mempertahankan quote/execution sebagai simulator biaya dan kelayakan exit.
+- Menambahkan aturan probability yang terkalibrasi agar score tidak disajikan sebagai peluang pump.
 
-## M2.1 — 2026-09-15
-- Schema PostgreSQL dan repository raw event append-only.
+## M12.2 — 2026-09-21
 
-## M1 — 2026-09-15
-- Konfigurasi Python `collect_only` dan gate validasi.
+- Menambahkan filter anomaly read-only dan evaluasi ablation baseline vs baseline+filter dengan threshold parameterized.
+- Data missing/stale/leakage dipisahkan dari anomaly teramati; selection bias dan status INCONCLUSIVE dicatat.
+- Bukti: M12.2 10/10, suite penuh 96/96, merge `fa00785`.
+
+## M12.3 — 2026-09-21
+
+- Menambahkan evidence sosial fixture-only dan narrative enrichment bounded.
+- LLM default nonaktif/Rp0, biaya tidak pasti fail-closed, dan fallback tidak mengubah sinyal deterministik.
+- Bukti: M12.3 10/10, suite penuh 106/106, merge `f451601`.
+
+## M13.1 — 2026-09-21
+
+- Menambahkan audit gate pre-operation untuk mode Signal Bot aman, execution boundary disabled, data, dan allowlist.
+- Bukti: M13.1 4/4, suite penuh 110/110, merge `441e2be`.
+
+## M13.2 — 2026-09-21
+
+- Menambahkan keputusan recovery runbook read-only yang fail-closed untuk data/provider bermasalah dan state tidak diketahui.
+- Bukti: M13.2 5/5, suite penuh 115/115, merge `4329387`.
+
+## M13.3 — 2026-09-21
+
+- Menambahkan monitoring snapshot read-only dengan status HEALTHY/DEGRADED/CRITICAL dan alert reason code.
+- Bukti: M13.3 6/6, suite penuh 121/121, merge `6b91895`.
