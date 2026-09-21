@@ -34,6 +34,8 @@ Jika sudah ada repository, bandingkan dokumen ini dengan dokumen yang ada sebelu
 | [CREDENTIALS.md](CREDENTIALS.md) | Kebutuhan kredensial bertahap |
 | [PROMPTS.md](PROMPTS.md) | Perintah untuk memulai dan melanjutkan |
 | [docs/tasks/CURRENT.md](docs/tasks/CURRENT.md) | Kontrak satu tugas aktif |
+| [docs/WORKFLOW_SETUP.md](docs/WORKFLOW_SETUP.md) | Diagram workflow, keputusan fail-closed, setup Windows, dan pemakaian aman |
+| [docs/PROVIDER_VALIDATION.md](docs/PROVIDER_VALIDATION.md) | Matriks endpoint, estimasi kuota, dan gate smoke provider |
 | [docs/decisions/0001-project-baseline.md](docs/decisions/0001-project-baseline.md) | Keputusan awal |
 
 Dokumen tidak menjamin fitur selalu utuh. Git, tes regresi, validasi runtime, dan review perubahan harus benar-benar diterapkan. Tidak ada tes aplikasi yang telah dijalankan hanya karena skenario tes tertulis dalam paket.

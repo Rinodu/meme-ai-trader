@@ -48,3 +48,11 @@ Tambahkan entri untuk perubahan selesai: task ID, perilaku berubah, bukti penguj
 
 - Menambahkan monitoring snapshot read-only dengan status HEALTHY/DEGRADED/CRITICAL dan alert reason code.
 - Bukti: M13.3 6/6, suite penuh 121/121, merge `6b91895`.
+
+## Dokumentasi workflow provider — 2026-09-21
+
+- Menambahkan diagram workflow dan alur keputusan fail-closed Signal Bot.
+- Menambahkan setup Windows, prosedur smoke provider/Telegram TEST, dan checklist
+  verifikasi pasca-perbaikan tanpa mengubah status milestone atau klaim produksi.
+- Mengklarifikasi bahwa konfigurasi membaca environment proses dan tidak memuat
+  `.env` secara otomatis.

@@ -17,6 +17,9 @@ Paket dokumen v1.0 — 15 September 2026.
 - M13.2 menyediakan keputusan runbook read-only: data/provider bermasalah pause entries, state unknown escalate, semua OK no-action.
 - M13.3 menyediakan monitoring snapshot deterministik untuk freshness, provider, Telegram, dan audit; hasilnya observasi saja, bukan klaim siap produksi.
 - M13 selesai. Tugas berikut: riset opsi provider produksi tanpa pembelian, API key, atau aktivasi.
+- Workflow target, alur keputusan, setup Windows, dan checklist verifikasi
+  provider didokumentasikan di `docs/WORKFLOW_SETUP.md`. Dokumen ini bukan bukti
+  kesiapan produksi; blocker hasil sweep masih harus diperbaiki dan diverifikasi.
 - Keputusan: satu subtugas; commit/push branch tugas setelah tes; perubahan perilaku lama harus dibahas; efisiensi token; anggaran subscription baru awal Rp0.
 - API key/private key: tidak dimasukkan. Private key/signer di luar scope. Modal, batas risiko, provider/paket belum ditetapkan.
 - Pemeriksaan paket: struktur Markdown, referensi internal, dan isi ZIP diperiksa; bukan tes aplikasi.

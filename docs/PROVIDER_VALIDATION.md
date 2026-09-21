@@ -24,9 +24,10 @@ provider call is Birdeye: `calls/day = C*S`, `calls/month = 30*C*S`.
 | Moderate | 25 | 96 | 2,400 | 72,000 |
 | Intensive | 50 | 288 | 14,400 | 432,000 |
 
-RPC/GoPlus/Telegram production estimates remain `0` until clients exist. If later
-one adds `R` RPC calls and `G` GoPlus calls per candidate, use `30*C*S*R` and
-`30*C*S*G`; measure actual responses and quota headers rather than assuming.
+RPC/GoPlus/Telegram clients exist tetapi belum live-tested atau terhubung ke
+runtime end-to-end. Dengan `R` RPC calls dan `G` GoPlus calls per kandidat,
+gunakan `30*C*S*R` dan `30*C*S*G`; ukur respons dan quota header aktual, jangan
+menganggap paket akun mencakup endpoint tersebut.
 
 ## Official limit comparison
 
@@ -43,8 +44,10 @@ one adds `R` RPC calls and `G` GoPlus calls per candidate, use `30*C*S*R` and
 
 ## Environment-only configuration
 
-Use a local ignored `.env`; never paste values into chat or commit them. The
-project-local parser is `meme_ai_trader.provider_config.ProviderConfig`.
+Konfigurasi dibaca dari environment proses oleh
+`meme_ai_trader.provider_config.ProviderConfig`. Aplikasi tidak otomatis memuat
+file `.env`; jangan mengandalkan file tersebut tanpa mengekspor nilainya ke
+environment. Jangan tempel nilai rahasia ke chat atau commit ke Git.
 
 ```dotenv
 MEME_AI_BIRDEYE_ENABLED=false
@@ -65,8 +68,8 @@ The parser rejects enabled providers without credentials/allowlist and rejects a
 LLM activation or non-zero budget. This file is an example only; it is not a smoke
 test and does not prove endpoint availability.
 
-Windows setup: create a local `.env` or set User/Process environment variables in
-PowerShell (`$env:NAME = 'value'`). Obtain Birdeye/GoPlus keys from their official
+Windows setup: set Process environment variables in PowerShell
+(`$env:NAME = 'value'`). Obtain Birdeye/GoPlus keys from their official
 developer consoles, a Solana RPC URL from the selected RPC provider, and the
 Telegram bot token/chat ID from BotFather and the private chat. Do not paste any
 value into chat or commit the file.
@@ -79,4 +82,6 @@ is allowlisted. Run only read-only `collect_only` and `paper_signal` probes with
 explicit call cap. Record latency, HTTP errors,
 freshness, quota headers, and rejection reasons. Telegram's first message must be
 `TEST` to the configured private allowlist chat. Do not emit a trade signal until
-the provider response passes schema/freshness/security gates.
+the provider response passes schema/freshness/security gates. Diagram alur,
+setup bertahap, dan checklist pasca-perbaikan tersedia di
+[`WORKFLOW_SETUP.md`](WORKFLOW_SETUP.md).

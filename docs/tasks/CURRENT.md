@@ -1,10 +1,17 @@
-# M13.3 — Signal Bot monitoring snapshot
+# Dokumentasi workflow dan setup provider
 
 Status: SELESAI pada 2026-09-21.
 
-- Monitoring read-only memakai status snapshot, provider, Telegram, dan audit; hasil HEALTHY/DEGRADED/CRITICAL hanya observasi.
-- Test M13.3: `uv run python -m unittest tests.test_monitoring` — 6/6 lulus.
-- Suite penuh: 121/121 lulus; merge `6b91895`.
-- Detail kontrak: `docs/tasks/M13.3.md`.
+- Diagram workflow target dan alur keputusan fail-closed tersedia di
+  `docs/WORKFLOW_SETUP.md`.
+- Setup Windows menggunakan environment proses; `.env` tidak diklaim dimuat
+  otomatis.
+- Pemakaian provider dan Telegram TEST dipisahkan dan dibatasi satu provider per
+  proses sampai smoke runner mendukung pemilihan provider secara eksplisit.
+- Dokumen tidak mengubah status milestone `40/40` dan tidak menyatakan provider
+  atau bot siap produksi.
+- Temuan sweep tetap terbuka sampai source, test, dan smoke nyata membuktikan
+  perbaikannya.
 
-Berikutnya: riset provider produksi, menunggu keputusan pengguna.
+Berikutnya: perbaiki blocker hasil sweep lalu jalankan checklist verifikasi di
+`docs/WORKFLOW_SETUP.md`.
