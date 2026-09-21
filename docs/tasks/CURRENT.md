@@ -1,9 +1,8 @@
-# M10.1 — Quote/route simulator
+# M10.2 — Decode/simulation
 
 Status: SELESAI pada 2026-09-21.
 
-- Kontrak quote hanya memvalidasi route, nominal/min-output, waktu quote, dan usia quote untuk simulasi kelayakan.
-- Tidak ada RPC submit, signer, atau transaksi.
-- Tes: `uv run python -m unittest tests.test_quotes tests.test_no_execution` — 3/3 lulus.
+- Payload diverifikasi lokal terhadap quote, authority, dan destination; simulasi tidak memanggil signer atau submit.
+- Tes: `uv run python -m unittest tests.test_simulation tests.test_quotes tests.test_no_execution` — 4/4 lulus.
 
-Berikutnya: M10.2 decode/simulation.
+Berikutnya: M10.3 signer boundary/status.

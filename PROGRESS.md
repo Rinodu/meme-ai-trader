@@ -4,9 +4,9 @@ Versi checklist: 1.0. Kondisi awal: belum ada subtugas implementasi yang selesai
 
 ## Ringkasan
 
-- Progres implementasi: **29/40 subtugas = 72,5%**.
+- Progres implementasi: **30/40 subtugas = 75,0%**.
 - Milestone selesai: **9/13**.
-- Tugas berikut: M10.2, decode/simulation.
+- Tugas berikut: M10.3, signer boundary/status.
 - Hambatan yang diketahui: acceptance scope baru belum memetakan source legacy secara per-subtugas.
 - Audit source: 55 tes lulus pada PostgreSQL lokal; guard no-execution `51113e9` dipush. Ini belum mengubah hitungan 0/40 tanpa resertifikasi acceptance tiap subtugas.
 
@@ -301,7 +301,7 @@ Gate milestone: Pesan dapat diaudit; tidak ada approval/submit transaksi. Bukti 
 
 ### M10 — Simulator quote/biaya
 
-Status milestone: DIKERJAKAN. Progres: 1/3 (33,3%). Gate: BELUM_DIPERIKSA.
+Status milestone: DIKERJAKAN. Progres: 2/3 (66,7%). Gate: BELUM_DIPERIKSA.
 
 - [x] **M10.1 — Quote/route** — SELESAI
   - [x] Acceptance criteria di catatan tugas terpenuhi.
@@ -310,12 +310,12 @@ Status milestone: DIKERJAKAN. Progres: 1/3 (33,3%). Gate: BELUM_DIPERIKSA.
   - [x] Dokumentasi/status dan bukti diperbarui.
   - Bukti: quote simulator + no-execution 3/3; detail `docs/tasks/CURRENT.md`.
 
-- [ ] **M10.2 — Simulasi kapasitas/biaya** — BELUM_MULAI
-  - [ ] Acceptance criteria di catatan tugas terpenuhi.
-  - [ ] Pemeriksaan relevan lulus atau N/A beralasan.
-  - [ ] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
-  - [ ] Dokumentasi/status dan bukti diperbarui.
-  - Bukti: Tes belum; commit belum; push belum.
+- [x] **M10.2 — Simulasi kapasitas/biaya** — SELESAI
+  - [x] Acceptance criteria di catatan tugas terpenuhi.
+  - [x] Pemeriksaan relevan lulus.
+  - [x] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
+  - [x] Dokumentasi/status dan bukti diperbarui.
+  - Bukti: payload simulation + quote + no-execution 4/4; detail `docs/tasks/CURRENT.md`.
 
 - [ ] **M10.3 — Guard no-execution** — BELUM_MULAI
   - [ ] Acceptance criteria di catatan tugas terpenuhi.
