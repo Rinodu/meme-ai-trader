@@ -1,13 +1,11 @@
-# M12.3 — Social evidence dan bounded LLM narrative
+# M13.1 — Signal-only operational audit gate
 
 Status: SELESAI pada 2026-09-21.
 
-- Evidence sosial hanya fixture/supplied data; tidak ada provider produksi.
-- LLM default disabled dengan budget Rp0; hard stop, cache/dedupe, timeout/retry bounded, dan fallback tidak memblokir eligibility sinyal.
-- Ablation menjalankan baseline dan baseline+filter pada dataset, waktu, outcome, dan biaya simulator yang sama; metrik memiliki denominator eksplisit dan outcome hilang dicatat.
-- Test M12.3: `uv run python -m unittest tests.test_narrative` — 10/10 lulus.
-- Suite penuh: 106/106 lulus; merge `f451601`.
-- Tes penuh: `uv run python -m unittest discover -s tests -v` — 96/96 lulus.
-- Detail kontrak: `docs/tasks/M12.3.md`.
+- Gate memeriksa mode runtime aman, execution boundary disabled, kesiapan data, dan allowlist.
+- Gate bersifat pre-operation dan tidak menyatakan bot siap produksi.
+- Test M13.1: `uv run python -m unittest tests.test_operational_gate` — 4/4 lulus.
+- Suite penuh: 110/110 lulus; merge `441e2be`.
+- Detail kontrak: `docs/tasks/M13.1.md`.
 
-Berikutnya: M13.1 audit gate signal-only.
+Berikutnya: M13.2 recovery/runbook.

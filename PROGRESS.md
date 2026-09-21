@@ -4,9 +4,9 @@ Versi checklist: 1.0. Kondisi awal: belum ada subtugas implementasi yang selesai
 
 ## Ringkasan
 
-- Progres implementasi: **37/40 subtugas = 92,5%**.
+- Progres implementasi: **38/40 subtugas = 95,0%**.
 - Milestone selesai: **12/13**.
-- Tugas berikut: M13.1 audit gate signal-only.
+- Tugas berikut: M13.2 recovery/runbook.
 - Hambatan yang diketahui: acceptance scope baru belum memetakan source legacy secara per-subtugas.
 - Audit source: suite penuh 106 tes lulus pada PostgreSQL lokal; guard no-execution tetap lulus pada suite.
 
@@ -386,7 +386,9 @@ Gate milestone: Tambahan dibanding baseline; biaya/manfaat dilaporkan. Bukti gat
 
 Status milestone: BELUM_MULAI. Progres: 0/3 (0,0%). Gate: BELUM_DIPERIKSA.
 
-- [ ] **M13.1 — Audit gate** — BELUM_MULAI
+- [x] **M13.1 — Audit gate** — SELESAI
+  - Kontrak: `docs/tasks/M13.1.md`.
+  - Bukti: audit mode aman, boundary disabled, data, dan allowlist; M13.1 4/4; suite 110/110; commit `b26aaf7`; merge `441e2be`.
   - [ ] Acceptance criteria di catatan tugas terpenuhi.
   - [ ] Pemeriksaan relevan lulus atau N/A beralasan.
   - [ ] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
@@ -448,3 +450,4 @@ Satu baris per transisi bermakna; log lengkap tetap di catatan tugas. Jangan men
 | 2026-09-21 | M12.1 | BELUM_MULAI → SELESAI | Snapshot on-chain read-only; M12.1 16/16 dan suite 86/86; merge `dd43604` | 35/40 = 87,5% |
 | 2026-09-21 | M12.2 | BELUM_MULAI → SELESAI | Ablation anomaly deterministik; M12.2 10/10 dan suite 96/96; merge `fa00785` | 36/40 = 90,0% |
 | 2026-09-21 | M12.3 | BELUM_MULAI → SELESAI | Narrative sosial opsional; hard stop Rp0; M12.3 10/10 dan suite 106/106; merge `f451601` | 37/40 = 92,5% |
+| 2026-09-21 | M13.1 | BELUM_MULAI → SELESAI | Audit gate signal-only; M13.1 4/4 dan suite 110/110; merge `441e2be` | 38/40 = 95,0% |

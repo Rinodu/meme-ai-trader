@@ -33,3 +33,8 @@ Tambahkan entri untuk perubahan selesai: task ID, perilaku berubah, bukti penguj
 - Menambahkan evidence sosial fixture-only dan narrative enrichment bounded.
 - LLM default nonaktif/Rp0, biaya tidak pasti fail-closed, dan fallback tidak mengubah sinyal deterministik.
 - Bukti: M12.3 10/10, suite penuh 106/106, merge `f451601`.
+
+## M13.1 — 2026-09-21
+
+- Menambahkan audit gate pre-operation untuk mode Signal Bot aman, execution boundary disabled, data, dan allowlist.
+- Bukti: M13.1 4/4, suite penuh 110/110, merge `441e2be`.
