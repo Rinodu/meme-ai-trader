@@ -4,11 +4,11 @@ Versi checklist: 1.0. Kondisi awal: belum ada subtugas implementasi yang selesai
 
 ## Ringkasan
 
-- Progres implementasi: **34/40 subtugas = 85,0%**.
+- Progres implementasi: **35/40 subtugas = 87,5%**.
 - Milestone selesai: **11/13**.
-- Tugas berikut: M12.1, on-chain lanjutan.
+- Tugas berikut: M12.2, anomaly ablation.
 - Hambatan yang diketahui: acceptance scope baru belum memetakan source legacy secara per-subtugas.
-- Audit source: suite penuh 70 tes lulus pada PostgreSQL lokal; guard no-execution `51113e9` tetap lulus.
+- Audit source: suite penuh 86 tes lulus pada PostgreSQL lokal; guard no-execution `51113e9` tetap lulus.
 
 ## Cara menggunakan
 
@@ -355,14 +355,14 @@ Gate milestone: Hasil tidak dilebihkan; probabilitas hanya jika terkalibrasi. Bu
 
 ### M12 — Komponen tambahan
 
-Status milestone: BELUM_MULAI. Progres: 0/3 (0,0%). Gate: BELUM_DIPERIKSA.
+Status milestone: DIKERJAKAN. Progres: 1/3 (33,3%). Gate: BELUM_DIPERIKSA.
 
-- [ ] **M12.1 — On-chain lanjutan** — BELUM_MULAI
-  - [ ] Acceptance criteria di catatan tugas terpenuhi.
-  - [ ] Pemeriksaan relevan lulus atau N/A beralasan.
-  - [ ] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
-  - [ ] Dokumentasi/status dan bukti diperbarui.
-  - Bukti: Tes belum; commit belum; push belum.
+- [x] **M12.1 — On-chain lanjutan** — SELESAI
+  - [x] Acceptance criteria di catatan tugas terpenuhi.
+  - [x] Pemeriksaan relevan lulus atau N/A beralasan.
+  - [x] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
+  - [x] Dokumentasi/status dan bukti diperbarui.
+  - Bukti: M12.1 16/16; suite penuh 86/86; merge `dd43604`; detail `docs/tasks/M12.1.md`.
 
 - [ ] **M12.2 — Anomaly ablation** — BELUM_MULAI
   - [ ] Acceptance criteria di catatan tugas terpenuhi.
@@ -443,3 +443,4 @@ Satu baris per transisi bermakna; log lengkap tetap di catatan tugas. Jangan men
 | 2026-09-16 | M8.3 | BELUM_MULAI → SELESAI | Report inconclusive lulus 3/3 | 25/40 = 62,5% |
 | 2026-09-21 | M11.2 | BELUM_MULAI → SELESAI | Kontrak deviasi paper; suite penuh 60/60 lulus | 33/40 = 82,5% |
 | 2026-09-21 | M11.3 | BELUM_MULAI → SELESAI | Laporan kualitas deterministik; M11.3 10/10 dan suite 70/70; merge `cd89804` | 34/40 = 85,0% |
+| 2026-09-21 | M12.1 | BELUM_MULAI → SELESAI | Snapshot on-chain read-only; M12.1 16/16 dan suite 86/86; merge `dd43604` | 35/40 = 87,5% |

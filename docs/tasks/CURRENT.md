@@ -1,13 +1,12 @@
-# M11.3 — Laporan kualitas sinyal
+# M12.1 — Snapshot on-chain read-only
 
 Status: SELESAI pada 2026-09-21.
 
-- M11.2 membandingkan outcome sinyal dan paper tanpa eksekusi atau probabilitas; statusnya `MATCH`, `DEVIATION`, atau `INSUFFICIENT_DATA`.
-- M11.3 menghasilkan `VALID`, `INCONCLUSIVE`, atau `INSUFFICIENT_DATA` dengan sample minimum default 30.
-- Rasio deviasi/coverage dibulatkan deterministik; duplicate ID dan timestamp rusak gagal validasi.
-- Probabilitas hanya tersedia jika sample minimum, out-of-sample, dan kalibrasi terdokumentasi terpenuhi.
-- Tes M11.3: `uv run python -m unittest tests.test_quality_report` — 10/10 lulus.
-- Tes penuh: `uv run python -m unittest discover -s tests -v` — 70/70 lulus.
-- Detail kontrak: `docs/tasks/M11.3.md`.
+- Snapshot memakai schema Solana read-only, validasi Base58 mint, slot, commitment `confirmed`/`finalized`, dan hard safety fields.
+- Freshness default 120 detik; status `FRESH`, `STALE`, `PARTIAL`, `MISSING`, atau `INVALID`.
+- `allows_signal` false untuk stale/missing/invalid; data yang hilang tetap `null`, bukan nol.
+- Test M12.1: `uv run python -m unittest tests.test_onchain_snapshot` — 16/16 lulus.
+- Tes penuh: `uv run python -m unittest discover -s tests -v` — 86/86 lulus.
+- Detail kontrak: `docs/tasks/M12.1.md`.
 
-Berikutnya: M12.1 on-chain lanjutan.
+Berikutnya: M12.2 anomaly ablation.

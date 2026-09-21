@@ -10,7 +10,8 @@ Paket dokumen v1.0 — 15 September 2026.
 - M11.1 memverifikasi outcome sinyal manual diskret tanpa klaim probabilitas.
 - M11.2 membandingkan outcome sinyal dan paper secara deterministik dalam signal window; status hanya MATCH/DEVIATION/INSUFFICIENT_DATA.
 - M11.3 menghasilkan laporan kualitas VALID/INCONCLUSIVE/INSUFFICIENT_DATA; probabilitas disembunyikan sampai sample, out-of-sample, dan kalibrasi terpenuhi.
-- Tugas berikut: M12.1 on-chain lanjutan di docs/tasks/CURRENT.md.
+- M12.1 menormalisasi snapshot Solana read-only dengan freshness, commitment, Base58 mint, hard safety fields, dan gate `allows_signal`; tidak ada jalur transaksi.
+- Tugas berikut: M12.2 anomaly ablation di docs/tasks/CURRENT.md.
 - Keputusan: satu subtugas; commit/push branch tugas setelah tes; perubahan perilaku lama harus dibahas; efisiensi token; anggaran subscription baru awal Rp0.
 - API key/private key: tidak dimasukkan. Private key/signer di luar scope. Modal, batas risiko, provider/paket belum ditetapkan.
 - Pemeriksaan paket: struktur Markdown, referensi internal, dan isi ZIP diperiksa; bukan tes aplikasi.
