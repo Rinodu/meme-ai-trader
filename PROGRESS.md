@@ -4,9 +4,9 @@ Versi checklist: 1.0. Kondisi awal: belum ada subtugas implementasi yang selesai
 
 ## Ringkasan
 
-- Progres implementasi: **31/40 subtugas = 77,5%**.
+- Progres implementasi: **32/40 subtugas = 80,0%**.
 - Milestone selesai: **9/13**.
-- Tugas berikut: M11.1, outcome sinyal manual.
+- Tugas berikut: M11.2, deviasi paper.
 - Hambatan yang diketahui: acceptance scope baru belum memetakan source legacy secara per-subtugas.
 - Audit source: 55 tes lulus pada PostgreSQL lokal; guard no-execution `51113e9` dipush. Ini belum mengubah hitungan 0/40 tanpa resertifikasi acceptance tiap subtugas.
 
@@ -328,14 +328,14 @@ Gate milestone: Kontrak provider terverifikasi; tidak ada signing/submit transak
 
 ### M11 — Evaluasi kualitas sinyal
 
-Status milestone: BELUM_MULAI. Progres: 0/3 (0,0%). Gate: BELUM_DIPERIKSA.
+Status milestone: DIKERJAKAN. Progres: 1/3 (33,3%). Gate: BELUM_DIPERIKSA.
 
-- [ ] **M11.1 — Outcome sinyal manual** — BELUM_MULAI
-  - [ ] Acceptance criteria di catatan tugas terpenuhi.
-  - [ ] Pemeriksaan relevan lulus atau N/A beralasan.
-  - [ ] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
-  - [ ] Dokumentasi/status dan bukti diperbarui.
-  - Bukti: Tes belum; commit belum; push belum.
+- [x] **M11.1 — Outcome sinyal manual** — SELESAI
+  - [x] Acceptance criteria di catatan tugas terpenuhi.
+  - [x] Pemeriksaan relevan lulus.
+  - [x] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
+  - [x] Dokumentasi/status dan bukti diperbarui.
+  - Bukti: labels/report/message/no-execution 5/5; detail `docs/tasks/CURRENT.md`.
 
 - [ ] **M11.2 — Deviasi paper** — BELUM_MULAI
   - [ ] Acceptance criteria di catatan tugas terpenuhi.

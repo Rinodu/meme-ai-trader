@@ -14,7 +14,7 @@ Status runtime: M1.1 DONE; subtugas berikut dikerjakan berurutan. Rinci acceptan
 | M8 | Validasi strategi | 1. Bekukan eksperimen; 2. Walk-forward/holdout; 3. Stress/report | EVAL-001 | Hasil dan ketidakpastian tercatat; boleh INCONCLUSIVE | DONE |
 | M9 | Telegram signal dan paper | 1. Telegram pribadi/allowlist; 2. Signal + exit update; 3. Forward paper signal | CTRL-001, PAPER-001, SIGNAL-001 | Pesan dapat diaudit; tidak ada approval/submit transaksi | DONE |
 | M10 | Simulator quote/biaya | 1. Quote/route; 2. Simulasi kapasitas/biaya; 3. Guard no-execution | QUOTE-001, NOEXEC-001 | Kontrak provider terverifikasi; tidak ada signing/submit transaksi | DONE |
-| M11 | Evaluasi kualitas sinyal | 1. Outcome sinyal manual; 2. Deviasi paper; 3. Laporan kualitas | SIGNAL-002, PROB-001 | Hasil tidak dilebihkan; probabilitas hanya jika terkalibrasi | NOT_STARTED |
+| M11 | Evaluasi kualitas sinyal | 1. Outcome sinyal manual; 2. Deviasi paper; 3. Laporan kualitas | SIGNAL-002, PROB-001 | Hasil tidak dilebihkan; probabilitas hanya jika terkalibrasi | IN_PROGRESS (M11.1 done) |
 | M12 | Komponen tambahan | 1. On-chain lanjutan; 2. Anomaly ablation; 3. Social/LLM budget dan evaluasi | AI-001 | Tambahan dibanding baseline; biaya/manfaat dilaporkan | NOT_STARTED |
 | M13 | Operasi signal bot | 1. Audit signal-only; 2. Recovery/runbook; 3. Monitoring produksi | OPS-001 | Sinyal/alert/recovery andal; tidak ada executor | NOT_STARTED |
 
