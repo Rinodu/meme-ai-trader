@@ -9,9 +9,9 @@ provider validation.
 | Provider/endpoint | Code status | Normal call model | Required data/freshness | Failure behavior |
 | --- | --- | --- | --- | --- |
 | Birdeye `GET /defi/token_overview` | Implemented in `adapters/birdeye.py` | 1 call per candidate per scan; client timeout 10s | price, liquidity, volume/trades fields as available; repository assesses freshness | error/invalid payload rejects collection; partial fields remain explicit |
-| Solana RPC `getAccountInfo`/`getTokenSupply` etc. | Not implemented | 0 actual calls | M12.1 snapshot schema, commitment confirmed/finalized, max age 120s | no provider result; signal path must fail closed |
-| GoPlus Solana Token Security API | Not implemented | 0 actual calls | security result must be complete/fresh before gate | no result means UNKNOWN/reject |
-| Telegram Bot API `sendMessage`/`getUpdates` | Not implemented; allowlist predicate only | 0 actual calls | private allowlisted chat only; diagnostic must be TEST-labelled | no send client; no live notification |
+| Solana RPC `getAccountInfo`/`getTokenSupply` | Client implemented; not live-tested | 0 actual calls | M12.1 snapshot schema, commitment confirmed/finalized, max age 120s | timeout/429/error/missing result raises; signal path must fail closed |
+| GoPlus Solana Token Security API | Client implemented; not live-tested | 0 actual calls | security result must be complete/fresh before gate | timeout/429/error/missing result raises; UNKNOWN/reject |
+| Telegram Bot API `sendMessage` | Allowlist-only client implemented; not live-tested | 0 actual calls | private allowlisted chat only; diagnostic must be TEST-labelled | non-allowlisted chat rejected before network call; errors raise |
 
 ## Usage model (estimate, not measurement)
 
@@ -53,6 +53,7 @@ MEME_AI_SOLANA_RPC_ENABLED=false
 SOLANA_RPC_URL=https://api.mainnet.solana.com
 MEME_AI_GOPLUS_ENABLED=false
 GOPLUS_API_KEY=
+GOPLUS_TOKEN_SECURITY_URL=https://api.gopluslabs.io/api/v1/solana/token_security
 MEME_AI_TELEGRAM_ENABLED=false
 TELEGRAM_BOT_TOKEN=
 TELEGRAM_ALLOWED_CHAT_ID=
@@ -64,10 +65,18 @@ The parser rejects enabled providers without credentials/allowlist and rejects a
 LLM activation or non-zero budget. This file is an example only; it is not a smoke
 test and does not prove endpoint availability.
 
+Windows setup: create a local `.env` or set User/Process environment variables in
+PowerShell (`$env:NAME = 'value'`). Obtain Birdeye/GoPlus keys from their official
+developer consoles, a Solana RPC URL from the selected RPC provider, and the
+Telegram bot token/chat ID from BotFather and the private chat. Do not paste any
+value into chat or commit the file.
+
 ## Gate for a later smoke test
 
-After credentials are installed locally, run only read-only `collect_only` and
-`paper_signal` probes with an explicit call cap. Record latency, HTTP errors,
+After credentials are installed locally, run `uv run python scripts/provider_smoke.py
+--mint <MINT> --max-calls 1`; add `--telegram-test` only after the private chat ID
+is allowlisted. Run only read-only `collect_only` and `paper_signal` probes with an
+explicit call cap. Record latency, HTTP errors,
 freshness, quota headers, and rejection reasons. Telegram's first message must be
 `TEST` to the configured private allowlist chat. Do not emit a trade signal until
 the provider response passes schema/freshness/security gates.

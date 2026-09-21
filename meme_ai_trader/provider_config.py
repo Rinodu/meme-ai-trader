@@ -34,6 +34,7 @@ class ProviderConfig:
     solana_rpc_url: str = "https://api.mainnet.solana.com"
     goplus_enabled: bool = False
     goplus_api_key: str | None = field(default=None, repr=False)
+    goplus_token_security_url: str = "https://api.gopluslabs.io/api/v1/solana/token_security"
     telegram_enabled: bool = False
     telegram_bot_token: str | None = field(default=None, repr=False)
     telegram_allowed_chat_id: str | None = None
@@ -65,4 +66,5 @@ class ProviderConfig:
         if budget != 0 or llm:
             raise ProviderConfigError("LLM remains disabled with Rp0 budget")
         rpc_url = _url(values.get("SOLANA_RPC_URL", cls.solana_rpc_url), "SOLANA_RPC_URL")
-        return cls(birdeye, key, rpc, rpc_url, goplus, goplus_key, telegram, token, chat_id, False, 0)
+        goplus_url = _url(values.get("GOPLUS_TOKEN_SECURITY_URL", cls.goplus_token_security_url), "GOPLUS_TOKEN_SECURITY_URL")
+        return cls(birdeye, key, rpc, rpc_url, goplus, goplus_key, goplus_url, telegram, token, chat_id, False, 0)
