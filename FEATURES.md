@@ -21,8 +21,8 @@ Semua PLANNED; path tes dan implementasi diisi setelah benar-benar tersedia. ID 
 | PAPER-001 | M9 | Paper signal mencatat hasil simulasi tanpa signing/submission | PLANNED | Belum tersedia |
 | QUOTE-001 | M10 | Simulator quote menilai ukuran/umur quote, biaya, dan kapasitas exit | PLANNED | Belum tersedia |
 | NOEXEC-001 | M10 | Signal-only runtime tidak memiliki signing atau submission transaksi | VERIFIED | `tests/test_no_execution.py`; `51113e9` |
-| SIGNAL-002 | M11 | Outcome sinyal dan kualitas exit dilaporkan tanpa mengklaim fill aktual | PLANNED | Belum tersedia |
-| PROB-001 | M11 | Probabilitas hanya muncul setelah label, evaluasi out-of-sample, dan kalibrasi | PLANNED | Belum tersedia |
+| SIGNAL-002 | M11 | Outcome sinyal dan kualitas exit dilaporkan tanpa mengklaim fill aktual | VERIFIED | `meme_ai_trader/paper_deviation.py`, `meme_ai_trader/quality_report.py`; tests M11.2/M11.3; merge `cd89804` |
+| PROB-001 | M11 | Probabilitas hanya muncul setelah label, evaluasi out-of-sample, dan kalibrasi | VERIFIED | `meme_ai_trader/quality_report.py`; uncalibrated probability suppression test; merge `cd89804` |
 | AI-001 | M12 | Schema/cache/budget LLM; exit tidak bergantung jawaban LLM | PLANNED | Belum tersedia |
 | OPS-001 | M13 | Monitoring/recovery signal bot andal tanpa executor | PLANNED | Belum tersedia |
 | SIGNAL-001 | M9 | Nol atau satu kandidat terbaik per siklus, dengan alasan entry/exit dan expiry | PLANNED | Belum tersedia |

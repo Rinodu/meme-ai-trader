@@ -9,7 +9,8 @@ Paket dokumen v1.0 — 15 September 2026.
 - M1–M10 selesai; quote, simulation, dan guard signer Signal Bot semuanya no-execution.
 - M11.1 memverifikasi outcome sinyal manual diskret tanpa klaim probabilitas.
 - M11.2 membandingkan outcome sinyal dan paper secara deterministik dalam signal window; status hanya MATCH/DEVIATION/INSUFFICIENT_DATA.
-- Tugas berikut: M11.3 laporan kualitas di docs/tasks/CURRENT.md.
+- M11.3 menghasilkan laporan kualitas VALID/INCONCLUSIVE/INSUFFICIENT_DATA; probabilitas disembunyikan sampai sample, out-of-sample, dan kalibrasi terpenuhi.
+- Tugas berikut: M12.1 on-chain lanjutan di docs/tasks/CURRENT.md.
 - Keputusan: satu subtugas; commit/push branch tugas setelah tes; perubahan perilaku lama harus dibahas; efisiensi token; anggaran subscription baru awal Rp0.
 - API key/private key: tidak dimasukkan. Private key/signer di luar scope. Modal, batas risiko, provider/paket belum ditetapkan.
 - Pemeriksaan paket: struktur Markdown, referensi internal, dan isi ZIP diperiksa; bukan tes aplikasi.
