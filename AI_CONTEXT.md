@@ -7,7 +7,8 @@ Paket dokumen v1.0 — 15 September 2026.
 - Source aplikasi Python dan tes tersedia pada checkout aktif; audit scope Signal Bot menjalankan 55 tes lokal dengan hasil lulus pada 2026-09-16.
 - M1–M9 selesai; Telegram dan paper signal hanya mendukung keputusan manual, tanpa approval/order/transaksi.
 - M1–M10 selesai; quote, simulation, dan guard signer Signal Bot semuanya no-execution.
-- Tugas berikut: M11.1 outcome sinyal manual di docs/tasks/CURRENT.md.
+- M11.1 memverifikasi outcome sinyal manual diskret tanpa klaim probabilitas.
+- Tugas berikut: M11.2 deviasi paper di docs/tasks/CURRENT.md.
 - Keputusan: satu subtugas; commit/push branch tugas setelah tes; perubahan perilaku lama harus dibahas; efisiensi token; anggaran subscription baru awal Rp0.
 - API key/private key: tidak dimasukkan. Private key/signer di luar scope. Modal, batas risiko, provider/paket belum ditetapkan.
 - Pemeriksaan paket: struktur Markdown, referensi internal, dan isi ZIP diperiksa; bukan tes aplikasi.
