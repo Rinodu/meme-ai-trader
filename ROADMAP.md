@@ -1,6 +1,6 @@
 # Roadmap implementasi
 
-Status runtime: M12 DONE; subtugas berikut M13.1 dikerjakan berurutan. Rinci acceptance criteria di CURRENT.md sebelum mulai.
+Status runtime: M13 DONE; provider production masih tahap validasi dan belum diaktifkan. Rinci gate berikutnya di `docs/PROVIDER_VALIDATION.md`.
 
 | ID | Scope | Subtugas berurutan | Fitur | Gate selesai | Status |
 | --- | --- | --- | --- | --- | --- |
