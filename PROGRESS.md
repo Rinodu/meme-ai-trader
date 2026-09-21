@@ -4,11 +4,11 @@ Versi checklist: 1.0. Kondisi awal: belum ada subtugas implementasi yang selesai
 
 ## Ringkasan
 
-- Progres implementasi: **36/40 subtugas = 90,0%**.
-- Milestone selesai: **11/13**.
-- Tugas berikut: M12.3, social/LLM budget dan evaluasi.
+- Progres implementasi: **37/40 subtugas = 92,5%**.
+- Milestone selesai: **12/13**.
+- Tugas berikut: M13.1 audit gate signal-only.
 - Hambatan yang diketahui: acceptance scope baru belum memetakan source legacy secara per-subtugas.
-- Audit source: suite penuh 96 tes lulus pada PostgreSQL lokal; guard no-execution `51113e9` tetap lulus.
+- Audit source: suite penuh 106 tes lulus pada PostgreSQL lokal; guard no-execution tetap lulus pada suite.
 
 ## Cara menggunakan
 
@@ -371,7 +371,9 @@ Status milestone: DIKERJAKAN. Progres: 2/3 (66,7%). Gate: BELUM_DIPERIKSA.
   - [x] Dokumentasi/status dan bukti diperbarui.
   - Bukti: M12.2 10/10; suite penuh 96/96; merge `fa00785`; detail `docs/tasks/M12.2.md`.
 
-- [ ] **M12.3 — Social/LLM budget dan evaluasi** — BELUM_MULAI
+- [x] **M12.3 — Social/LLM budget dan evaluasi** — SELESAI
+  - Kontrak: `docs/tasks/M12.3.md`.
+  - Bukti: implementasi narrative read-only, 10/10 test M12.3, suite penuh 106/106, commit `5e0db78`, merge `f451601`.
   - [ ] Acceptance criteria di catatan tugas terpenuhi.
   - [ ] Pemeriksaan relevan lulus atau N/A beralasan.
   - [ ] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
@@ -445,3 +447,4 @@ Satu baris per transisi bermakna; log lengkap tetap di catatan tugas. Jangan men
 | 2026-09-21 | M11.3 | BELUM_MULAI → SELESAI | Laporan kualitas deterministik; M11.3 10/10 dan suite 70/70; merge `cd89804` | 34/40 = 85,0% |
 | 2026-09-21 | M12.1 | BELUM_MULAI → SELESAI | Snapshot on-chain read-only; M12.1 16/16 dan suite 86/86; merge `dd43604` | 35/40 = 87,5% |
 | 2026-09-21 | M12.2 | BELUM_MULAI → SELESAI | Ablation anomaly deterministik; M12.2 10/10 dan suite 96/96; merge `fa00785` | 36/40 = 90,0% |
+| 2026-09-21 | M12.3 | BELUM_MULAI → SELESAI | Narrative sosial opsional; hard stop Rp0; M12.3 10/10 dan suite 106/106; merge `f451601` | 37/40 = 92,5% |

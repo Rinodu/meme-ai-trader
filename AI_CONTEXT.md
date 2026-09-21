@@ -12,7 +12,8 @@ Paket dokumen v1.0 — 15 September 2026.
 - M11.3 menghasilkan laporan kualitas VALID/INCONCLUSIVE/INSUFFICIENT_DATA; probabilitas disembunyikan sampai sample, out-of-sample, dan kalibrasi terpenuhi.
 - M12.1 menormalisasi snapshot Solana read-only dengan freshness, commitment, Base58 mint, hard safety fields, dan gate `allows_signal`; tidak ada jalur transaksi.
 - M12.2 membandingkan baseline vs baseline+filter anomaly pada dataset/time/cost yang sama; threshold dibekukan sebagai parameter eksperimen dan hasil tidak diklaim sebagai peningkatan.
-- Tugas berikut: M12.3 social/LLM budget dan evaluasi di docs/tasks/CURRENT.md.
+- M12.3 menambahkan evidence sosial fixture-only dan narrative LLM bounded; default disabled/Rp0, hard stop biaya, cache/dedupe, retry terbatas, dan fallback tidak memblokir sinyal deterministik.
+- Tugas berikut: M13.1 audit gate signal-only di docs/tasks/CURRENT.md.
 - Keputusan: satu subtugas; commit/push branch tugas setelah tes; perubahan perilaku lama harus dibahas; efisiensi token; anggaran subscription baru awal Rp0.
 - API key/private key: tidak dimasukkan. Private key/signer di luar scope. Modal, batas risiko, provider/paket belum ditetapkan.
 - Pemeriksaan paket: struktur Markdown, referensi internal, dan isi ZIP diperiksa; bukan tes aplikasi.

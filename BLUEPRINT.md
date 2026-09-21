@@ -36,7 +36,7 @@ Lingkup MVP:
 - Solana, satu strategi momentum, satu wallet trading khusus.
 - Mulai dari token/pool yang datanya memadai dan tersedia rute perdagangan; jangan mencampur semua tahap usia token dalam satu model tanpa evaluasi terpisah.
 - Baseline deterministik lebih dahulu; LLM dan ML ditambahkan setelah kontribusinya dapat diuji.
-- Mode awal `collect_only`, kemudian `backtest`, `paper`, `semi_auto`, dan `live_auto`.
+- Runtime aktif hanya `collect_only`, `replay`, dan `paper_signal`; rancangan `semi_auto`/`live_auto` di bagian lama dokumen ini bersifat historis dan tidak boleh diaktifkan.
 - Pengembangan bot tidak otomatis memberikan izin untuk mengaktifkan uang nyata.
 
 Prinsip wajib:
@@ -46,6 +46,11 @@ Prinsip wajib:
 3. Exit mempunyai kebijakan tersendiri; aturan entry tidak boleh secara tidak sengaja memblokir pengurangan risiko.
 4. Satu kode strategi/risk/exit digunakan pada replay, paper, dan live; adapter eksekusinya berbeda.
 5. Pengiriman transaksi belum berarti posisi terbuka. Status dan saldo harus direkonsiliasi.
+
+> **Penanda scope aktif:** blueprint lama tentang wallet, approval, signer, submit,
+> semi-auto, live-auto, dan full automation adalah desain historis/non-runtime.
+> `SIGNAL_BOT_SCOPE.md` adalah sumber aturan perilaku aktif; executor hanya boleh
+> dipakai sebagai simulator/quote.
 6. Parameter contoh bukan parameter optimal. Konfigurasi live yang belum lengkap harus ditolak saat startup.
 7. Sumber kebenaran posisi adalah ledger yang direkonsiliasi dengan on-chain, bukan cache.
 
@@ -286,7 +291,7 @@ Hindari penghitungan biaya dua kali jika sudah masuk output quote. Slippage tole
 
 Dokumentasi Jupiter yang diperiksa pada revisi ini menggunakan Swap API V2. Pilihan awal adapter dapat menggunakan `/order` dan `/execute` untuk managed execution, atau `/build` jika membutuhkan kontrol transaksi. Verifikasi schema, biaya, dukungan simulasi, dan batas modifikasi transaksi sesuai jalur yang dipilih sebelum coding integrasi.
 
-## 13. Transaction validation dan simulation
+## 13. Transaction validation dan simulation (historis/non-runtime; simulator saja)
 
 Sebelum tanda tangan:
 
@@ -301,7 +306,7 @@ Simulasi gagal atau hasil tidak dapat diverifikasi memblokir entry. Simulasi ber
 
 Signer tidak menerima instruksi bebas dari LLM. Private key tidak masuk source code, Git, Telegram, prompt, atau log. Gunakan `.env` lokal yang diabaikan Git atau secret manager; hanya `.env.example` tanpa rahasia yang masuk repo.
 
-## 14. Lifecycle transaksi, idempotensi, dan pemulihan
+## 14. Lifecycle transaksi, idempotensi, dan pemulihan (historis/non-runtime)
 
 Pisahkan niat bisnis (`intent_id`) dari percobaan transaksi (`attempt_id`, signature). Satu intent dapat memiliki percobaan pengganti yang dikendalikan; tidak boleh ada dua pembelian yang tidak disengaja akibat retry.
 
@@ -506,10 +511,10 @@ Struktur menunjukkan batas tanggung jawab, bukan kewajiban membuat service terpi
 | M7 | Historical replay + cost/label engine | Bias waktu, fill, dan data hilang ditangani |
 | M8 | Walk-forward + final holdout | Hasil dan ketidakpastian terdokumentasi |
 | M9 | Telegram + forward paper | Approval TTL, monitor, biaya/latency aktual feed |
-| M10 | Jupiter/RPC integration + signer policy | Quote, decode, simulation, status/recovery teruji tanpa transaksi mainnet berbayar |
-| M11 | Semi-auto live terbatas | Hanya setelah gate dan aktivasi live eksplisit; rekonsiliasi fill/exit |
+| M10 | Quote/RPC read-only + simulator policy | Quote, decode, simulation, status/recovery teruji tanpa submit transaksi |
+| M11 | Evaluasi kualitas signal/paper | Outcome manual, deviasi, dan probabilitas hanya jika terkalibrasi |
 | M12 | Evaluasi on-chain/anomaly/social tambahan | Kontribusi dibanding baseline dengan eksperimen terkontrol |
-| M13 | Full automation | Risk, exit, recovery, dan hasil live terbatas memenuhi gate |
+| M13 | Operasi Signal Bot | Monitoring, recovery, dan pemeriksaan operasi tanpa executor |
 
 Integrasi provider boleh dibangun lebih awal untuk merekam quote, tetapi tidak mengaktifkan live. Pengujian mock/devnet tidak menggantikan pengujian rute meme coin mainnet; keterbatasan ini diselesaikan melalui live terbatas setelah gate lainnya lulus.
 

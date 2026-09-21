@@ -27,3 +27,9 @@ Tambahkan entri untuk perubahan selesai: task ID, perilaku berubah, bukti penguj
 - Menambahkan filter anomaly read-only dan evaluasi ablation baseline vs baseline+filter dengan threshold parameterized.
 - Data missing/stale/leakage dipisahkan dari anomaly teramati; selection bias dan status INCONCLUSIVE dicatat.
 - Bukti: M12.2 10/10, suite penuh 96/96, merge `fa00785`.
+
+## M12.3 — 2026-09-21
+
+- Menambahkan evidence sosial fixture-only dan narrative enrichment bounded.
+- LLM default nonaktif/Rp0, biaya tidak pasti fail-closed, dan fallback tidak mengubah sinyal deterministik.
+- Bukti: M12.3 10/10, suite penuh 106/106, merge `f451601`.

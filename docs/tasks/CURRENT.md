@@ -1,11 +1,13 @@
-# M12.2 — Anomaly ablation read-only
+# M12.3 — Social evidence dan bounded LLM narrative
 
 Status: SELESAI pada 2026-09-21.
 
-- Anomaly filter memakai data `OnChainSnapshot` M12.1 dan aturan parameterized dengan `rule_version`; missing/stale/leakage tetap alasan data, bukan anomaly.
+- Evidence sosial hanya fixture/supplied data; tidak ada provider produksi.
+- LLM default disabled dengan budget Rp0; hard stop, cache/dedupe, timeout/retry bounded, dan fallback tidak memblokir eligibility sinyal.
 - Ablation menjalankan baseline dan baseline+filter pada dataset, waktu, outcome, dan biaya simulator yang sama; metrik memiliki denominator eksplisit dan outcome hilang dicatat.
-- Test M12.2: `uv run python -m unittest tests.test_anomaly_ablation` — 10/10 lulus.
+- Test M12.3: `uv run python -m unittest tests.test_narrative` — 10/10 lulus.
+- Suite penuh: 106/106 lulus; merge `f451601`.
 - Tes penuh: `uv run python -m unittest discover -s tests -v` — 96/96 lulus.
-- Detail kontrak: `docs/tasks/M12.2.md`.
+- Detail kontrak: `docs/tasks/M12.3.md`.
 
-Berikutnya: M12.3 social/LLM budget dan evaluasi.
+Berikutnya: M13.1 audit gate signal-only.
