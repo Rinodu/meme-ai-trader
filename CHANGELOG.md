@@ -21,3 +21,9 @@ Tambahkan entri untuk perubahan selesai: task ID, perilaku berubah, bukti penguj
 - Menghapus executor, wallet signing, approval buy/sell, semi-auto, serta full-auto dari runtime scope.
 - Mempertahankan quote/execution sebagai simulator biaya dan kelayakan exit.
 - Menambahkan aturan probability yang terkalibrasi agar score tidak disajikan sebagai peluang pump.
+
+## M12.2 — 2026-09-21
+
+- Menambahkan filter anomaly read-only dan evaluasi ablation baseline vs baseline+filter dengan threshold parameterized.
+- Data missing/stale/leakage dipisahkan dari anomaly teramati; selection bias dan status INCONCLUSIVE dicatat.
+- Bukti: M12.2 10/10, suite penuh 96/96, merge `fa00785`.
