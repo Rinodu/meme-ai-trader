@@ -24,7 +24,7 @@ Semua PLANNED; path tes dan implementasi diisi setelah benar-benar tersedia. ID 
 | SIGNAL-002 | M11 | Outcome sinyal dan kualitas exit dilaporkan tanpa mengklaim fill aktual | VERIFIED | `meme_ai_trader/paper_deviation.py`, `meme_ai_trader/quality_report.py`; tests M11.2/M11.3; merge `cd89804` |
 | PROB-001 | M11 | Probabilitas hanya muncul setelah label, evaluasi out-of-sample, dan kalibrasi | VERIFIED | `meme_ai_trader/quality_report.py`; uncalibrated probability suppression test; merge `cd89804` |
 | AI-001 | M12 | Schema/cache/budget LLM; exit tidak bergantung jawaban LLM | VERIFIED | M12.3 10/10; suite 106/106; merge `f451601`; detail `docs/tasks/M12.3.md` |
-| OPS-001 | M13 | Monitoring/recovery signal bot andal tanpa executor | PLANNED | Belum terverifikasi; M13 belum dimulai |
+| OPS-001 | M13 | Monitoring/recovery signal bot andal tanpa executor | VERIFIED | `docs/tasks/M13.1.md`, `docs/tasks/M13.2.md`, `docs/tasks/M13.3.md`; M13 tests 15/15; suite 121/121; merge `6b91895` |
 | SIGNAL-001 | M9 | Nol atau satu kandidat terbaik per siklus, dengan alasan entry/exit dan expiry | VERIFIED | `tests/test_signal_message.py`, `tests/test_strategy.py`; suite 106/106 |
 
 Status berikutnya: IN_PROGRESS, VERIFIED, BLOCKED; DEPRECATED hanya setelah keputusan eksplisit dan rencana migrasi. VERIFIED mensyaratkan kode serta tes relevan lulus; catat commit atau lokasi bukti. Jangan mengubah PLANNED menjadi VERIFIED berdasarkan dokumen desain.

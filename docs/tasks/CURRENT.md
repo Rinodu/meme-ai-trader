@@ -1,11 +1,10 @@
-# M13.1 — Signal-only operational audit gate
+# M13.3 — Signal Bot monitoring snapshot
 
 Status: SELESAI pada 2026-09-21.
 
-- Gate memeriksa mode runtime aman, execution boundary disabled, kesiapan data, dan allowlist.
-- Gate bersifat pre-operation dan tidak menyatakan bot siap produksi.
-- Test M13.1: `uv run python -m unittest tests.test_operational_gate` — 4/4 lulus.
-- Suite penuh: 110/110 lulus; merge `441e2be`.
-- Detail kontrak: `docs/tasks/M13.1.md`.
+- Monitoring read-only memakai status snapshot, provider, Telegram, dan audit; hasil HEALTHY/DEGRADED/CRITICAL hanya observasi.
+- Test M13.3: `uv run python -m unittest tests.test_monitoring` — 6/6 lulus.
+- Suite penuh: 121/121 lulus; merge `6b91895`.
+- Detail kontrak: `docs/tasks/M13.3.md`.
 
-Berikutnya: M13.2 recovery/runbook.
+Berikutnya: riset provider produksi, menunggu keputusan pengguna.

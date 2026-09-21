@@ -14,7 +14,9 @@ Paket dokumen v1.0 — 15 September 2026.
 - M12.2 membandingkan baseline vs baseline+filter anomaly pada dataset/time/cost yang sama; threshold dibekukan sebagai parameter eksperimen dan hasil tidak diklaim sebagai peningkatan.
 - M12.3 menambahkan evidence sosial fixture-only dan narrative LLM bounded; default disabled/Rp0, hard stop biaya, cache/dedupe, retry terbatas, dan fallback tidak memblokir sinyal deterministik.
 - M13.1 menyediakan audit gate pre-operation untuk mode aman, boundary disabled, data, dan allowlist; gate tidak menyatakan siap produksi.
-- Tugas berikut: M13.2 recovery/runbook di docs/tasks/CURRENT.md.
+- M13.2 menyediakan keputusan runbook read-only: data/provider bermasalah pause entries, state unknown escalate, semua OK no-action.
+- M13.3 menyediakan monitoring snapshot deterministik untuk freshness, provider, Telegram, dan audit; hasilnya observasi saja, bukan klaim siap produksi.
+- M13 selesai. Tugas berikut: riset opsi provider produksi tanpa pembelian, API key, atau aktivasi.
 - Keputusan: satu subtugas; commit/push branch tugas setelah tes; perubahan perilaku lama harus dibahas; efisiensi token; anggaran subscription baru awal Rp0.
 - API key/private key: tidak dimasukkan. Private key/signer di luar scope. Modal, batas risiko, provider/paket belum ditetapkan.
 - Pemeriksaan paket: struktur Markdown, referensi internal, dan isi ZIP diperiksa; bukan tes aplikasi.

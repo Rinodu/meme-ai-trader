@@ -16,7 +16,7 @@ Status runtime: M12 DONE; subtugas berikut M13.1 dikerjakan berurutan. Rinci acc
 | M10 | Simulator quote/biaya | 1. Quote/route; 2. Simulasi kapasitas/biaya; 3. Guard no-execution | QUOTE-001, NOEXEC-001 | Kontrak provider terverifikasi; tidak ada signing/submit transaksi | DONE |
 | M11 | Evaluasi kualitas sinyal | 1. Outcome sinyal manual; 2. Deviasi paper; 3. Laporan kualitas | SIGNAL-002, PROB-001 | Hasil tidak dilebihkan; probabilitas hanya jika terkalibrasi | DONE |
 | M12 | Komponen tambahan | 1. On-chain lanjutan; 2. Anomaly ablation; 3. Social/LLM budget dan evaluasi | AI-001 | Tambahan dibanding baseline; biaya/manfaat dilaporkan | DONE (M12.1–M12.3 merged) |
-| M13 | Operasi signal bot | 1. Audit signal-only; 2. Recovery/runbook; 3. Monitoring produksi | OPS-001 | Sinyal/alert/recovery andal; tidak ada executor | IN_PROGRESS (M13.1 done) |
+| M13 | Operasi signal bot | 1. Audit signal-only; 2. Recovery/runbook; 3. Monitoring produksi | OPS-001 | Sinyal/alert/recovery andal; tidak ada executor | DONE (M13.1–M13.3 merged) |
 
 ## Aturan transisi
 

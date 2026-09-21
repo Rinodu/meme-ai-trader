@@ -38,3 +38,13 @@ Tambahkan entri untuk perubahan selesai: task ID, perilaku berubah, bukti penguj
 
 - Menambahkan audit gate pre-operation untuk mode Signal Bot aman, execution boundary disabled, data, dan allowlist.
 - Bukti: M13.1 4/4, suite penuh 110/110, merge `441e2be`.
+
+## M13.2 — 2026-09-21
+
+- Menambahkan keputusan recovery runbook read-only yang fail-closed untuk data/provider bermasalah dan state tidak diketahui.
+- Bukti: M13.2 5/5, suite penuh 115/115, merge `4329387`.
+
+## M13.3 — 2026-09-21
+
+- Menambahkan monitoring snapshot read-only dengan status HEALTHY/DEGRADED/CRITICAL dan alert reason code.
+- Bukti: M13.3 6/6, suite penuh 121/121, merge `6b91895`.

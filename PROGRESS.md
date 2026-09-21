@@ -4,9 +4,9 @@ Versi checklist: 1.0. Kondisi awal: belum ada subtugas implementasi yang selesai
 
 ## Ringkasan
 
-- Progres implementasi: **38/40 subtugas = 95,0%**.
-- Milestone selesai: **12/13**.
-- Tugas berikut: M13.2 recovery/runbook.
+- Progres implementasi: **40/40 subtugas = 100,0%**.
+- Milestone selesai: **13/13**.
+- Tugas berikut: keputusan provider produksi (riset saja; belum aktivasi).
 - Hambatan yang diketahui: acceptance scope baru belum memetakan source legacy secara per-subtugas.
 - Audit source: suite penuh 106 tes lulus pada PostgreSQL lokal; guard no-execution tetap lulus pada suite.
 
@@ -395,14 +395,18 @@ Status milestone: BELUM_MULAI. Progres: 0/3 (0,0%). Gate: BELUM_DIPERIKSA.
   - [ ] Dokumentasi/status dan bukti diperbarui.
   - Bukti: Tes belum; commit belum; push belum.
 
-- [ ] **M13.2 — Recovery/runbook** — BELUM_MULAI
+- [x] **M13.2 — Recovery/runbook** — SELESAI
+  - Kontrak: `docs/tasks/M13.2.md`.
+  - Bukti: keputusan read-only fail-closed; M13.2 5/5; suite 115/115; commit `b89ddcf`; merge `4329387`.
   - [ ] Acceptance criteria di catatan tugas terpenuhi.
   - [ ] Pemeriksaan relevan lulus atau N/A beralasan.
   - [ ] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
   - [ ] Dokumentasi/status dan bukti diperbarui.
   - Bukti: Tes belum; commit belum; push belum.
 
-- [ ] **M13.3 — Monitoring produksi** — BELUM_MULAI
+- [x] **M13.3 — Monitoring produksi** — SELESAI
+  - Kontrak: `docs/tasks/M13.3.md`.
+  - Bukti: monitoring snapshot deterministik; M13.3 6/6; suite 121/121; commit `78995c7`; merge `6b91895`.
   - [ ] Acceptance criteria di catatan tugas terpenuhi.
   - [ ] Pemeriksaan relevan lulus atau N/A beralasan.
   - [ ] Fitur lama terdampak diperiksa; tidak ada regresi terbuka.
@@ -451,3 +455,5 @@ Satu baris per transisi bermakna; log lengkap tetap di catatan tugas. Jangan men
 | 2026-09-21 | M12.2 | BELUM_MULAI → SELESAI | Ablation anomaly deterministik; M12.2 10/10 dan suite 96/96; merge `fa00785` | 36/40 = 90,0% |
 | 2026-09-21 | M12.3 | BELUM_MULAI → SELESAI | Narrative sosial opsional; hard stop Rp0; M12.3 10/10 dan suite 106/106; merge `f451601` | 37/40 = 92,5% |
 | 2026-09-21 | M13.1 | BELUM_MULAI → SELESAI | Audit gate signal-only; M13.1 4/4 dan suite 110/110; merge `441e2be` | 38/40 = 95,0% |
+| 2026-09-21 | M13.2 | BELUM_MULAI → SELESAI | Recovery runbook read-only; M13.2 5/5 dan suite 115/115; merge `4329387` | 39/40 = 97,5% |
+| 2026-09-21 | M13.3 | BELUM_MULAI → SELESAI | Monitoring snapshot deterministik; M13.3 6/6 dan suite 121/121; merge `6b91895` | 40/40 = 100,0% |
